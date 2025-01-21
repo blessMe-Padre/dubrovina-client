@@ -39,52 +39,52 @@
 
 .theme_white {
     background-color: var(--white);
-    color: var(--black);
+    color: var(--black) !important;
 }
 
 .theme_black {
     background-color: var(--black);
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 .theme_blue {
     background-color: var(--light-blue);
-    color: var(--blue);
+    color: var(--blue) !important;
 }
 
 .theme_yellow {
     background-color: var(--light-yellow);
-    color: var(--yellow);
+    color: var(--yellow) !important;
 }
 
 .theme_green {
     background-color: var(--light-green);
-    color: var(--green);
+    color: var(--green) !important;
 }
 
 .color_1 {
     background-color: var(--white);
-    color: var(--black);
+    color: var(--black) !important;
 }
 
 .color_2 {
     background-color: var(--black);
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 .color_3 {
     background-color: var(--light-blue);
-    color: var(--blue);
+    color: var(--blue) !important;
 }
 
 .color_4 {
     background-color: var(--light-yellow);
-    color: var(--yellow);
+    color: var(--yellow) !important;
 }
 
 .color_5 {
     background-color: var(--light-green);
-    color: var(--green);
+    color: var(--green) !important;
 }
 
 .filter {
