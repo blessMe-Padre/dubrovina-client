@@ -60,36 +60,139 @@ export default function Header() {
     ];
 
     const contacts_data = [
-    {
-        heading: "КОНТАКТЫ",
-        contacts: [
-            {
-                name: "Регистратура: ",
-                contact: "8 (924) 255-51-51",
-                contact_bot: "tel:+79242555151",
-            },
-            {
-                name: "Директор: ",
-                contact: "dubrovinaaa@mail.ru",
-                contact_bot: "mailto:dubrovinaaa@mail.ru",
-            },
-            {
-                name: "Электронная почта: ",
-                contact: "Dubrovinaaa@yandex.ru",
-                contact_bot: "mailto:Dubrovinaaa@yandex.ru",
-            },
-            {
-                name: "Режим работы: ",
-                desc: 'Пн-Пт с 09:00 до 19:00'
-            },
-            {
-                name: "Адрес: ",
-                desc: 'Находкинский проспект, 60, 3 этаж'
-            },
-        ]
-        
-    },
-]
+        {
+            heading: "КОНТАКТЫ",
+            contacts: [
+                {
+                    name: "Регистратура: ",
+                    contact: "8 (924) 255-51-51",
+                    contact_bot: "tel:+79242555151",
+                },
+                {
+                    name: "Директор: ",
+                    contact: "dubrovinaaa@mail.ru",
+                    contact_bot: "mailto:dubrovinaaa@mail.ru",
+                },
+                {
+                    name: "Электронная почта: ",
+                    contact: "Dubrovinaaa@yandex.ru",
+                    contact_bot: "mailto:Dubrovinaaa@yandex.ru",
+                },
+                {
+                    name: "Режим работы: ",
+                    desc: 'Пн-Пт с 09:00 до 19:00'
+                },
+                {
+                    name: "Адрес: ",
+                    desc: 'Находкинский проспект, 60, 3 этаж'
+                },
+            ]
+            
+        },
+    ]
+
+    const main_links = [
+        {
+            heading: 'О клинике',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Услуги',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+          
+        {
+            heading: 'Цены',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Команда',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Работы',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Блог',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Для пациентов',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Для врачей',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+        {
+            heading: 'Контакты',
+            url: '/',
+            sub_menu: [
+                {
+                    name: 'test',
+                    link: '/'
+                }
+            ] 
+        },
+
+
+    ]
 
     return (
         <div className={styles.header}>
@@ -146,6 +249,18 @@ export default function Header() {
 
                 <Popup active={popupActive} setActive={setPopupActive} />
 
+                
+                <ul className={styles.main_menu_links}>
+                    {main_links.map((item, idx) => {
+                        return (
+                            <li className={styles.item}>
+                                <Link key={idx} href={item.url}>
+                                    <p className={styles.link}>{item.heading}</p>
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
 
             {/* мобильное меню */}
