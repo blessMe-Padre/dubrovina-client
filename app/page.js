@@ -4,7 +4,7 @@ import styles from './page.module.css';
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className='container'>
+      {/* <div className='container'>
         <p className={styles.text_1}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
         <p className={styles.text_2}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
         <p className={styles.text_3}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
@@ -15,7 +15,7 @@ export default function Home() {
           height={740}
           className="dsv-image"
         />
-      </div>
+      </div> */}
     </main>
   )
 }
