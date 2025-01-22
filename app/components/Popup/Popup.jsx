@@ -1,6 +1,10 @@
 import {Form} from '../../components';
 import styles from './style.module.css';
 
+import Image from 'next/image';
+
+import image_form from '@/public/form/form_img.png';
+
 export default function Popup({ active, setActive }) {
 
     const handleKeyDown = (event) => {
@@ -19,12 +23,13 @@ export default function Popup({ active, setActive }) {
         >
             <div className={styles.popup__body}>
 
+                <Image src={image_form} alt='image_form' className={styles.image_form} />
+
                 <div
                     className={styles.popup__content}
                     onClick={e => e.stopPropagation()}
                 >
-
-                    <button
+                  <button
                         className={styles.popup__close}
                         onClick={() => { setActive(false) }}
                     >
@@ -34,9 +39,13 @@ export default function Popup({ active, setActive }) {
                         </svg>
                     </button>
 
+
+                  
+
                     <Form
-                        title="получите расчет стоимости"
-                        subtitle="Оставьте контакты и квалифицированные специалисты за 5 минут рассчитают цену"
+                        title="ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%"
+                        subtitle=""
+                        image={image_form}
                     />
 
                 </div>

@@ -25,20 +25,23 @@
 }
 
 .popup__body {
+    position: relative;
     width: 100%;
     min-height: 100%;
     /* padding: 30px 10px; */
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .popup__content {
     position: relative;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     position: relative;
     box-sizing: border-box;
-    max-width: 740px;
+    max-width: 530px;
     min-height: 430px;
     padding: 40px;
     background: var(--white);
@@ -96,6 +99,12 @@
     background-color: #303030;
     border-radius: 10px;
     stroke: white;
+}
+
+.image_form {
+    /* width: 100%; */
+    max-width: 530px;
+
 }
 
 @media (max-width: 560px) {
