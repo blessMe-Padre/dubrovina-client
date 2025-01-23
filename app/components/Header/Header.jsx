@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from 'next/image';
 
 import Link from "next/link";
@@ -15,6 +15,25 @@ export default function Header() {
 
     const [popupActive, setPopupActive] = useState(false);
     const [opened, setOpened] = useState(false);
+
+    const [menuSubMenuOpen, setMenuSubMenuOpen] = useState(null);
+
+    const menuRef = useRef(null);
+    const subMenuRef = useRef(null);
+
+    const handleMouseEnter = (idx) => {
+        if (main_links[idx].sub_menu) {
+            setMenuSubMenuOpen(idx);
+        }
+    };
+
+    const handleMouseLeave = (idx) => {
+          if (menuRef.current && !menuRef.current.contains(event.relatedTarget)
+            && subMenuRef.current && !subMenuRef.current.contains(event.relatedTarget)) {
+            setMenuSubMenuOpen(null);
+          }
+        
+    };
 
     const handleClick = () => {
         setPopupActive(true);
@@ -95,13 +114,7 @@ export default function Header() {
     const main_links = [
         {
             heading: 'О клинике',
-            url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
+            url: '/'
         },
 
         {
@@ -109,87 +122,81 @@ export default function Header() {
             url: '/',
             sub_menu: [
                 {
-                    name: 'test',
+                    name: 'Диагностика',
                     link: '/'
-                }
+                },
+                {
+                    name: 'Лечение зубов',
+                    link: '/'
+                },
+                {
+                    name: 'Гигиена',
+                    link: '/'
+                },
+                {
+                    name: 'Отбеливание зубов',
+                    link: '/'
+                },
+                {
+                    name: 'Лечение десен',
+                    link: '/'
+                },
+                {
+                    name: 'Зубосохраняющие  операции',
+                    link: '/'
+                },
+                {
+                    name: 'Виниры',
+                    link: '/'
+                },
+                {
+                    name: 'Имплантация зубов',
+                    link: '/'
+                },
+                {
+                    name: 'Удаление зубов',
+                    link: '/'
+                },
+                {
+                    name: 'Протезирование',
+                    link: '/'
+                },
             ] 
         },
           
         {
             heading: 'Цены',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
         {
             heading: 'Команда',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
         {
             heading: 'Работы',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
         {
             heading: 'Блог',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
         {
             heading: 'Для пациентов',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
         {
             heading: 'Для врачей',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
         {
             heading: 'Контакты',
             url: '/',
-            sub_menu: [
-                {
-                    name: 'test',
-                    link: '/'
-                }
-            ] 
         },
 
 
@@ -220,8 +227,6 @@ export default function Header() {
                         </Link>
                     </div>
 
-
-
                     <div className={styles.header_info}>
                         <address>
                             г. Находка, Находкинский проспект, 60, 3 этаж
@@ -236,7 +241,8 @@ export default function Header() {
                                 handleClick={handleClick}
                                 href="#popup"
                                 text="Записаться"
-                                />
+                            />  
+
                         </div>
 
                         {panelBtn && <VdsButton
@@ -244,22 +250,41 @@ export default function Header() {
                             setPanelBtn={setPanelBtn}
                             />}
                     </div>
-
                 </div>
 
 
                 <Popup active={popupActive} setActive={setPopupActive} />
 
-                
-                <ul className={styles.main_menu_links}>
+                  <ul className={styles.main_menu_links}>
                     {main_links.map((item, idx) => {
+                        const isActive = menuSubMenuOpen === idx;
                         return (
-                            <li className={styles.item}>
-                                <Link key={idx} href={item.url}>
-                                    <p className={styles.link}>{item.heading}</p>
+                            <li
+                                ref={menuRef}
+                                key={idx}
+                                className={`${styles.main_menu_link} ${isActive ? styles.active : ''}`}
+                                onMouseEnter={() => handleMouseEnter(idx)}
+                                onMouseLeave={() => handleMouseLeave(idx)}
+                            >
+                                <Link href={item.url} className={styles.link}>
+                                    {item.heading}
                                 </Link>
+
+                                {item.sub_menu && isActive && (
+                                    <ul
+                                        ref={subMenuRef}
+                                        className={`${styles.sub_menu} ${styles.active}`}
+                                        onMouseLeave={() => handleMouseLeave(idx)}
+                                    >
+                                        {item.sub_menu.map((subItem, subItemIndex) => (
+                                            <li key={subItemIndex} className={styles.sub_menu_link}>
+                                                <Link href={subItem.link}>{subItem.name}</Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </li>
-                        )
+                        );
                     })}
                 </ul>
             </div>
@@ -280,7 +305,7 @@ export default function Header() {
                                         className={styles.link}
                                         href={link.href}
                                         >
-                                        {link.text}
+                                                {link.text}
                                         </Link>
                                     </li>
                                     ))}
@@ -290,23 +315,23 @@ export default function Header() {
 
                     {contacts_data &&
                         contacts_data.map((section, sectionIndex) => (
-                            <ul key={sectionIndex}>
-                            <p>{section.heading}</p>
-                            {section.contacts.map((contactItem, contactIndex) => (
-                                <li key={contactIndex}>
-                                    <p className={styles.contact_name}>{contactItem.name}</p>
-                                    {contactItem.contact && (
-                                    <a
-                                        className={styles.contact_desc}
-                                        href={contactItem.contact_bot}
-                                    >
-                                        {contactItem.contact}
-                                    </a>
-                                    )}
-                                    {contactItem.desc && (
-                                        <p className={styles.contact_desc}>{contactItem.desc}</p>
-                                    )}
-                                </li>
+                            <ul onMouseMove={() => alert('Мышка тут')} key={sectionIndex}>
+                                <p>{section.heading}</p>
+                                {section.contacts.map((contactItem, contactIndex) => (
+                                    <li key={contactIndex}>
+                                        <p className={styles.contact_name}>{contactItem.name}</p>
+                                        {contactItem.contact && (
+                                        <a
+                                            className={styles.contact_desc}
+                                            href={contactItem.contact_bot}
+                                        >
+                                            {contactItem.contact}
+                                        </a>
+                                        )}
+                                        {contactItem.desc && (
+                                            <p className={styles.contact_desc}>{contactItem.desc}</p>
+                                        )}
+                                    </li>
                                 ))}
                             </ul>
                         ))}

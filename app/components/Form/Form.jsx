@@ -94,15 +94,8 @@ export const Form = ({ setActive }) => {
             </button>
 
             <div className={styles.form__policy}>
-                <input type="checkbox"
-                    className={styles.checkbox}
-                    {...register('policy', { required: { value: true, message: 'Необходимо согласиться' } })}
-                    error={errors.name}
-                    id='checkbox'
-                />
                 <p className={styles.policy_text}>
                     *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#BDC1C8'}} href='/'>согласие на обработку персональных данных</a></p>
-                <div className={styles.policy_error}>{errors['policy'] && errors['policy'].message}</div>
             </div >
         </form>
     )
