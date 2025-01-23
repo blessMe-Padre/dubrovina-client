@@ -125,7 +125,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
 .main_menu_links .main_menu_link .link {
@@ -150,17 +150,19 @@
     content: '';
     width: 100%;
     height: 1px;
-    top: -50%;
+    top: -100%;
     background-color: var(--gray_light);
 }
 
 .sub_menu {
+    
+    border: 1px solid var(--gray_bold);
     position: absolute;
     top: 25px;
-    left: 0;
+    left: -40%;
     background-color: var(--white);
     padding: 40px 51px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
     z-index: 1;
     opacity: 0;
     visibility: hidden;

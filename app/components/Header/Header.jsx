@@ -27,12 +27,11 @@ export default function Header() {
         }
     };
 
-    const handleMouseLeave = (idx) => {
-          if (menuRef.current && !menuRef.current.contains(event.relatedTarget)
-            && subMenuRef.current && !subMenuRef.current.contains(event.relatedTarget)) {
-            setMenuSubMenuOpen(null);
-          }
-        
+    const handleMouseLeave = () => {
+        if (menuRef.current && !menuRef.current.contains(event.relatedTarget)
+        && subMenuRef.current && !subMenuRef.current.contains(event.relatedTarget)) {
+        setMenuSubMenuOpen(null);
+        }
     };
 
     const handleClick = () => {
