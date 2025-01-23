@@ -62,6 +62,7 @@ export default function VdsPanel({ setPanel, setPanelBtn }) {
         changeTheme(styles, styles.theme_yellow);
         speachtxt("цвет сайта темно коричневым по бежевому");
     }
+
     const changeThemeGreen = () => {
         changeTheme(styles, styles.theme_green);
         speachtxt("цвет сайта зеленым по темно коричневому");

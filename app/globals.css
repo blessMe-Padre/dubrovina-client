@@ -27,10 +27,13 @@
   --light-yellow: #F7F3D6;
   --light-green: #3B2716;
 
-
   --gray_light: #EAECF0;
   --gray_medium: #DADDE2;
   --gray_bold: #BDC1C8;
+
+  /* текст шрифтов */
+  --text-white: var(--white);
+  --text-black: var(--black);
 }
 
 * {
@@ -67,7 +70,6 @@ body {
 .gap-10 {
   gap: 10px;
 }
-
 
 .lock {
   overflow: hidden;

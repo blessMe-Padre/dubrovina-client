@@ -39,27 +39,32 @@
 
 .theme_white {
     background-color: var(--white);
-    color: var(--black) !important;
+    --text-white: var(--black);
+    --text-black: var(--black);
 }
 
 .theme_black {
     background-color: var(--black);
-    color: var(--white) !important;
+    --text-white: var(--white);
+    --text-black: var(--white);
 }
 
 .theme_blue {
     background-color: var(--light-blue);
-    color: var(--blue) !important;
+    --text-white: var(--blue);
+    --text-black: var(--blue);
 }
 
 .theme_yellow {
     background-color: var(--light-yellow);
-    color: var(--yellow) !important;
+    --text-white: var(--yellow);
+    --text-black: var(--yellow);
 }
 
 .theme_green {
     background-color: var(--light-green);
-    color: var(--green) !important;
+    --text-white: var(--green);
+    --text-black: var(--green);
 }
 
 .color_1 {
