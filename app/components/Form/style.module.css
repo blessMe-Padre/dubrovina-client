@@ -1,99 +1,168 @@
-.title {
-    font-weight: 800;
-    font-size: 24px;
-    line-height: 1.1;
-    text-transform: uppercase;
-    margin: 0 0 30px 0;
+.form {
+    text-align: left;
 }
 
-.text {
+.form__title {
+    font-size: 24px;
+    color: var(--black);
     font-weight: 700;
-    font-size: 24px;
-    line-height: 1.1;
-    color: #2a3a57;
-    margin: 0 0 30px 0;
+    margin-bottom: 20px;
+
+    letter-spacing: 4%;
+
+    text-transform: uppercase;
+
+    text-align: center;
 }
 
-.input {
-    box-sizing: border-box;
-    border: 1px solid #878e9b;
-    border-radius: 6px;
-    padding: 15px 30px;
-    display: flex;
-    width: 100%;
-    background-color: var(--white);
-    color: var(--blue);
-
-    font-weight: 400;
-    font-size: 20px;
-    letter-spacing: 0.02em;
-    margin: 0 0 30px 0;
-}
-
-.button_wrapper {
+.form__btn__submit {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin: 0 0 30px 0;
-}
-
-.send_button_send {
-    display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    background-color: var(--black);
-    color: var(--white);
+
+    text-transform: uppercase;
+    gap: 20px;
+    text-align: center;
+
     font-weight: 700;
     font-size: 20px;
-    letter-spacing: 0.02em;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-}
+    letter-spacing: 4%;
 
-.send_button_whatsapp {
-    display: flex;
-    justify-content: center;
+    color: var(--white);
+
+    cursor: pointer;
+
+    background-color: var(--black);
+    padding: 20px;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 10px;
     width: 100%;
-    gap: 10px;
+    margin-bottom: 30px;
+}
+.form__btn__submit svg {
+    transition: all 0.3s ease;
+    stroke: #191830;
+}
+/* 
+.form__btn__submit:hover {
+    color: var(--white);
+    background-color: var(--green);
+}
+.form__btn__submit:active {
+    color: var(--white);
+    background-color: var(--dark-blue);
+} */
+
+.form__btn__submit:hover svg {
+    stroke: var(--white);
+}
+
+.input_wrapper {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.input_text_error {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    color: red;
+    font-size: 14px;
+}
+
+.policy_error {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    color: red;
+}
+
+.form__input {
+    position: relative;
+
+    color: var(--gray_light);
+    border: 1px solid var(--gray_light);
+
+    min-height: 40px;
+    padding: 17px 30px;
+    display: flex;
+    width: 100%;
+
+}
+
+.form__textarea {
+    background-color: var(--white);
     border-radius: 6px;
-    background-color: #f0f2f6;
-    color: var(--blue);
-    padding: 10px 20px;
-    cursor: pointer;
     border: none;
-
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.02em;
-    text-decoration: none;
+    min-height: 100px;
+    padding: 10px 20px;
+    display: flex;
+    width: 100%;
 }
 
-@media (max-width: 768px) {
-    .title {
-        font-size: 50px;
-        margin: 0 0 15px 0;
-    }
+.form__policy {
+    position: relative;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
 }
 
-@media (max-width: 560px) {
-    .button_wrapper {
-        flex-direction: column;
-    }
-
-    .title {
-        font-size: 30px;
-    }
-
-    .text {
-        font-weight: 400;
-        font-size: 16px;
-        margin: 0 0 30px 0;
-    }
-
-    .send_button_whatsapp {
-        width: 88%;
-    }
+.policy_text {
+    font-weight: 400;
+    font-size: 14px;
+    color: #BDC1C8;
 }
+
+.policy_text a {
+    text-decoration: underline;
+}
+
+.error {
+    border: 1px solid red !important;
+}
+
+.checkbox {
+    display: none;
+}
+
+.label {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid var(--dark-blue);
+}
+
+.checkbox:checked ~ .label {
+    background-color: var(--dark-blue);
+    background-image: url('/icons/check.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.success {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.send_error {
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: red;
+    color: var(--white);
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+
+

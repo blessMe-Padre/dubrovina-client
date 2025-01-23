@@ -43,7 +43,7 @@
     box-sizing: border-box;
     max-width: 530px;
     min-height: 430px;
-    padding: 40px;
+    padding: 30px;
     background: var(--white);
     color: var(--blue);
     text-align: center;

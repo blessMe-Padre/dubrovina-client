@@ -39,14 +39,7 @@ export default function Popup({ active, setActive }) {
                         </svg>
                     </button>
 
-
-                  
-
-                    <Form
-                        title="ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%"
-                        subtitle=""
-                        image={image_form}
-                    />
+                    <Form setActive={setActive} />
 
                 </div>
             </div>

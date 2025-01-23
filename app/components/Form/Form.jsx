@@ -1,112 +1,109 @@
 'use client'
-
-import axios from 'axios';
-import { useState } from 'react';
-// import successImg from '/success.webp';
-
+import { useForm } from 'react-hook-form';
 import styles from './style.module.css';
+import { useState } from 'react';
 
-const initialFields = [
-    {
-        label: 'Имя',
-        type: 'text',
-        name: 'text-412',
-        id: 'text-412',
-        validation_error: false,
-        validation_message: '',
-        placeholder: 'Введите имя/организацию',
-    },
-    {
-        label: 'Телефон',
-        type: 'tel',
-        name: 'tel-533',
-        id: 'tel-533',
-        validation_error: false,
-        validation_message: '',
-        placeholder: 'Введите телефон',
-    },
-]
+export const Form = ({ setActive }) => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState();
+    const [sending, isSending] = useState(false);
 
-export default function Form({ title, subtitle, color = "#2a3a57", background = "#ffffff" }) {
-    const [fields, setFields] = useState(initialFields);
-    const [formMessage, setFormMessage] = useState('');
-    const [isActive, setIsActive] = useState(false);
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        setFields(fields.map(field => ({
-            ...field,
-            validation_error: false,
-            validation_message: '',
-        })));
-
-        const formData = new FormData(event.target);
-        formData.append("_wpcf7_unit_tag", "form_id");
-        const response = await axios.post(
-            'https://api.freelancer-vl.ru/wp-json/contact-form-7/v1/contact-forms/38/feedback',
-            formData,
-        );
-        // console.log('Ответ от WordPress:', response);
-        if (response.status !== 200) {
-            return alert('Что-то пошло не так. Попробуйте еще раз.');
+    const onSubmit = async (formData) => {
+        isSending(true);
+        try {
+            const response = await fetch('https://httpbin.org/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setIsSuccess(true);
+                isSending(false);
+                setError(undefined)
+                // setActive(false)
+                reset();
+            } else {
+                isSending(false);
+                setError('Что-то пошло не так');
+                console.error('Статус ошибки:', response.status);
+            }
+        } catch (err) {
+            setError('Ошибка запроса, попробуйте позже');
+            isSending(false);
+            console.error('Fetch error:', err);
         }
-
-        if (response.data.invalid_fields && response.data.invalid_fields.length > 0) {
-            setFields(fields.map(field => {
-                const error = response.data.invalid_fields.find(x => x.field === field.name);
-
-                setIsActive(false);
-                return {
-                    ...field,
-                    validation_error: !!error,
-                    validation_message: error ? error.message : '',
-                };
-            }));
-        }
-        else {
-            setIsActive(true);
-        }
-        setFormMessage(response.data.message);
-    };
-
+    }
 
     return (
-        <>
-            <form onSubmit={handleSubmit} className="main-form">
-                <h2 className={styles.title} style={{ color: color }}>{title}</h2>
-                <p
-                    className={styles.text}
-                    style={{ color: color }}
-                >
-                    {subtitle}
-                </p>
+        <form
+            className={styles.form}
+            onSubmit={handleSubmit(onSubmit)}
+        >
+            <p className={styles.form__title}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
 
-                {fields.map(field => (
-                    <div key={field.id} className='main-form__input'>
-                        {/* <label>{field.label}</label> */}
-                        <input
-                            type={field.type}
-                            name={field.name}
-                            id={field.id}
-                            placeholder={field.placeholder}
-                            className={styles.input}
-                            style={{ background: background, color: color }}
-                        />
-                        <p className='main-form__error-text'>{field.validation_message}</p>
-                    </div>
-                ))}
-                <div className={styles.button_wrapper}>
-                    <button className={styles.send_button_send} type="submit">Записаться</button>
-                </div>
-                <p>Нажимая кнопку, вы даете согласие на обработку персональных данных</p>
-            </form>
-            <p className='main-form__error-text mt-25'>{formMessage}</p>
-
-            <div className={`form-send-ok-popup ${isActive ? 'is-active' : ''}`}>
-                {/* <p>Сообщение успешно отправлено</p> */}
-                {/* <img src={successImg} width={100} height={100} alt="fireSpot" /> */}
+            <div className={styles.input_wrapper}>
+                <input
+                    placeholder='Введите имя'
+                    {...register('name', { required: { value: true, message: 'Введите имя' } })}
+                    error={errors.name}
+                    className={`${styles.form__input} ${errors.name ? styles.error : ''}`}
+                    type='text'
+                />
+                <div className={styles.input_text_error}>{errors['name'] && errors['name'].message}</div>
             </div>
-        </>
+            <div className={styles.input_wrapper}>
+                <input
+                    placeholder='Введите телефон'
+                    {...register('contact-data', { required: { value: true, message: 'Введите телефон' } })}
+                    error={errors.name}
+                    className={`${styles.form__input} ${errors['contact-data'] ? styles.error : ''}`}
+                    type='text'
+                />
+                <div className={styles.input_text_error}>{errors['contact-data'] && errors['contact-data'].message}</div>
+            </div>
+            {isSuccess &&
+                <div className={styles.success}>
+                    Ваша форма успешно отправлена
+                </div>
+            }
+            {error &&
+                <div className={styles.send_error}>
+                    {error}
+                </div>
+            }
+
+
+            <button className={styles.form__btn__submit}>
+                <p>Записаться</p>
+
+
+                {!sending &&
+                    <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.05507 1.43907L17.1536 1.43888M17.1536 1.43888L17.1536 14.3511M17.1536 1.43888L1.93782 16.6546" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                }
+
+                {sending &&
+                    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><radialGradient id="a9" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stopColor="#000000"></stop><stop offset=".3" stopColor="#000000" stopOpacity=".9"></stop><stop offset=".6" stopColor="#000000" stopOpacity=".6"></stop><stop offset=".8" stopColor="#000000" stopOpacity=".3"></stop><stop offset="1" stopColor="#000000" stopOpacity="0"></stop></radialGradient><circle transformOrigin="center" fill="none" stroke="url(#a9)" strokeWidth="15" strokeLinecap="round" strokeDasharray="200 1000" strokeDashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transformOrigin="center" fill="none" opacity=".2" stroke="#000000" strokeWidth="15" strokeLinecap="round" cx="100" cy="100" r="70"></circle></svg>
+                }
+
+            </button>
+
+            <div className={styles.form__policy}>
+                <input type="checkbox"
+                    className={styles.checkbox}
+                    {...register('policy', { required: { value: true, message: 'Необходимо согласиться' } })}
+                    error={errors.name}
+                    id='checkbox'
+                />
+                <p className={styles.policy_text}>
+                    *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#BDC1C8'}} href='/'>согласие на обработку персональных данных</a></p>
+                <div className={styles.policy_error}>{errors['policy'] && errors['policy'].message}</div>
+            </div >
+        </form>
     )
 }
