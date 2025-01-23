@@ -25,10 +25,6 @@ const MainHero = () => {
     const [bg, setBg] = useState([]);
     const [pageData, setPageData] = useState(null);
 
-    console.log(window.innerWidth);
-    console.log(bg);
-
-
     useEffect(() => {
         const fetchData = async () => {
             const data = await getPageData();
