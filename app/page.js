@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './page.module.css';
+import { MainHero } from './sections';
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
           className="dsv-image"
         />
       </div> */}
+
+      <MainHero />
     </main>
   )
 }

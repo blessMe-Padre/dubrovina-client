@@ -46,11 +46,16 @@ body {
   scroll-behavior: smooth;
   font-family: var(--font-family);
   color: var(--black);
+  overflow-x: hidden;
+}
+
+.relative {
+  position: relative;
 }
 
 .container {
   max-width: 1480px;
-  padding: 20px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
