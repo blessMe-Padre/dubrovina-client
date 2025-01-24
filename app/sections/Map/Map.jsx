@@ -30,7 +30,7 @@ const Map = () => {
     {
         icon: './icons/geo.svg',
         name: 'Адрес',
-        desc: 'Находкинский проспект, <br /> 60, 3 этаж',
+        desc: 'Находкинский <br />  проспект, 60, 3 этаж',
         desc_bot: 'https://yandex.ru/maps/974/nahodka/house/nakhodkinskiy_prospekt_60/ZUoEaA9nSkUFXUJuYWJ2eHtlYww=/?indoorLevel=1&ll=132.873020%2C42.797674&mode=search&sctx=ZAAAAAgAEAAaKAoSCSeDo%2BRVfGBAEV3BNuLJjkVAEhIJfEYiNIKNvz8RLPUsCOV9rD8iBgABAgMEBSgKOABAS0gBagJydZ0BzczMPaABAKgBAL0ByKy2BMIBAQCCAjnQndCw0YXQvtC00LrQuNC90YHQutC40Lkg0L%2FRgNC%2B0YHQv9C10LrRgiwgNjAsIDMg0Y3RgtCw0LaKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=132.873020%2C42.797674&sspn=0.013320%2C0.006045&text=%D0%9D%D0%B0%D1%85%D0%BE%D0%B4%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2C%2060%2C%203%20%D1%8D%D1%82%D0%B0%D0%B6&z=17.21'
     },
 
