@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './page.module.css';
-import { MainHero } from './sections';
+import { MainHero, Map } from './sections';
 
 export default function Home() {
   return (
@@ -19,6 +19,7 @@ export default function Home() {
       </div> */}
 
       <MainHero />
+      <Map />
     </main>
   )
 }
