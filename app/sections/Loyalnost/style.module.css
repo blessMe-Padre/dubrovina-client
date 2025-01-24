@@ -19,9 +19,11 @@
 
 .img {
     width: 100%;
+    height: 100%;
 }
 
 .title {
+    position: relative;
     font-family: var(--second-family);
     font-size: clamp(1.75rem, 0.1742rem + 3.2787vw, 3.125rem);
     margin-bottom: clamp(1.625rem, 1.1964rem + 2.1429vw, 3.125rem);
@@ -29,6 +31,7 @@
 }
 
 .desc {
+    position: relative;
     font-size: clamp(0.75rem, 0.177rem + 1.1923vw, 1.25rem);
     margin-bottom: clamp(1.625rem, 1.1964rem + 2.1429vw, 3.125rem);
 }
@@ -49,6 +52,15 @@
 
     z-index: 0;
 }
+/* 
+.title::before, .desc::before, .info_text::before {
+    position: absolute;
+    content: '';
+    height: 50px;
+    width: 1px;
+    background-color: red;
+    bottom: calc((100% / 3 - 100px));
+} */
 
 @media screen and (max-width: 1124px) {
 
