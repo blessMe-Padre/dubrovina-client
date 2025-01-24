@@ -51,16 +51,19 @@ const Map = () => {
                         {data.map((item, idx) => {
                             return (
                                 <li className={styles.map_info_item} key={idx}>
-                                    <Image 
-                                        src={item.icon} 
-                                        alt='icon' 
-                                        className={styles.icon} 
-                                        width={30}
-                                        height={30}
-                                    />
-                                    <p className={styles.name}>
-                                        {item.name}
-                                    </p>
+                                    <div className={styles.icons_wrapper}>
+                                        <Image 
+                                            src={item.icon} 
+                                            alt='icon' 
+                                            className={styles.icon} 
+                                            width={30}
+                                            height={30}
+                                        />
+
+                                        <p className={styles.name}>
+                                            {item.name}
+                                        </p>
+                                    </div>
 
                                     <p className={styles.desc}>
                                         {item.desc ? (
