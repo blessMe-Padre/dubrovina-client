@@ -15,6 +15,7 @@
 }
 
 .large_bg {
+    background-color: var(--gray);
     margin-right: 100px;
 }
 

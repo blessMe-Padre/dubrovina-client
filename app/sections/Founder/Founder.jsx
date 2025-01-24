@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './style.module.css';
 
-const url = 'http://89.108.115.136:1338/api/hero?populate=*';
 const domain = 'http://89.108.115.136:1338';
+const url = `${domain}/api/sekcziya-osnovatel?populate=*`;
 
-const getPageData = async () => {
+const getSectionData = async () => {
     try {
         const res = await fetch(url);
         if (!res.ok) {
@@ -22,11 +22,14 @@ const getPageData = async () => {
 };
 
 const Founder = () => {
-    const [pageData, setPageData] = useState(null);
+    const [sectionData, setSectionData] = useState(null);
+
+    console.log(sectionData);
 
     useEffect(() => {
         const fetchData = async () => {
-            // const data = await getPageData();
+            const data = await getSectionData();
+            setSectionData(data);
         };
 
         fetchData();
@@ -35,7 +38,7 @@ const Founder = () => {
     return (
         <section className={styles.section}>
             <div className="container">
-                <h2 className='title'>Стоматологическая клиника доктора дубровиной</h2>
+                <h2 className='title'>{sectionData?.data?.title}</h2>
 
                 <div className={styles.wrapper}>
                     <Image
@@ -47,18 +50,23 @@ const Founder = () => {
                     />
 
                     <div className={styles.description_wrapper}>
+
                         <div className={styles.description}>
                             <div className={styles.description_text}>
-                                <p>Мы верим в силу улыбки, способной изменить жизнь человека - стать уверенным, добиваться желаемого. Ежедневно в «Клинике доктора дубровиной» мы работаем над тем, чтобы наши пациенты улыбались свободно и красиво.
-                                </p>
-                                <p>
-                                    Проводим комплексное лечение по всем направлениям современной стоматологии: от профессиональной гигиены и отбеливания зубов до протезирования и имплантации, сложнейших зубосохраняющих и реконструктивных хирургических операций.
-                                </p>
-                                <p>
-                                    Нашему опыту можно доверять!
-                                </p>
+                                {sectionData?.data?.description.map((item, index) => (
+                                    <p key={index}>
+                                        {item.children.map((child, childIndex) => (
+                                            child.bold ? (
+                                                <strong key={childIndex}>{child.text}</strong>
+                                            ) : (
+                                                <span key={childIndex}>{child.text}</span>
+                                            )
+                                        ))}
+                                    </p>
+                                ))}
                             </div>
                         </div>
+
                         <Image
                             src="/bg/quote.svg"
                             alt="Изображение"
@@ -71,7 +79,7 @@ const Founder = () => {
 
                     <div className={styles.description_item}>
                         <Image
-                            src="/delete/image-2.jpg"
+                            src={sectionData?.data?.image?.url ? domain + sectionData.data.image.url : '/placeholder.png'}
                             alt="Изображение"
                             width={676}
                             height={640}
