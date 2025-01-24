@@ -95,6 +95,7 @@ body {
   z-index: 1;
 }
 
+
 .title {
   font-family: var(--second-family), sans-serif;
   font-weight: 400;
@@ -174,4 +175,36 @@ body {
   100% {
     transform: perspective(80px) rotate3d(-1, 1, 0, -360deg)
   }
+
+.relative {
+  position: relative;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+
+.section:last-of-type {
+  padding: 60px 0 0 0;
+}
+
+ @media (max-width: 769px) {
+  .section {
+      padding: 40px 0;
+  } 
+
+  .section:last-of-type {
+      padding: 40px 0 0 0;
+    }
+}
+
+ @media (max-width: 480px) {
+  .section {
+      padding: 30px 0;
+  }
+    .section:last-of-type {
+      padding: 30px 0 0 0;
+    }
+
 }

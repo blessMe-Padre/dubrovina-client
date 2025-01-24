@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-export default function Button({ href, text, handleClick }) {
+export default function Button({ href, text, handleClick, size, color }) {
     return (
         <a
             href={href}
