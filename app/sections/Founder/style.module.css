@@ -14,17 +14,23 @@
     min-height: 730px;
 }
 
-.small_bg {}
-
 .large_bg {
     margin-right: 100px;
 }
 
-.description {
+.quote {
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.description_wrapper {
     position: absolute;
     top: 0;
     left: 125px;
+}
 
+.description {
     padding: 0px 15px 0 60px;
     z-index: 1;
     color: var(--text-white);
@@ -36,11 +42,16 @@
     flex-direction: column;
     width: 591px;
     height: 580px;
-
+    /* 
     background-image: url('/bg/founder-info-bg.png');
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    background-size: cover; */
+
+    backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 100%;
+    overflow: hidden;
 }
 
 .description_text {
@@ -94,10 +105,12 @@
         height: 440px;
     }
 
-    .description {
+    .description_wrapper {
         top: 0;
         left: 125px;
+    }
 
+    .description {
         padding: 0px 15px 0 30px;
         font-size: 14px;
         width: 506px;
@@ -141,7 +154,8 @@
         font-size: 12px;
     }
 
-    .description {
+
+    .description_wrapper {
         left: 25px;
     }
 }
@@ -152,6 +166,14 @@
         width: 351px;
         height: 343px;
         padding: 0px 52px 0 60px;
+    }
+
+    .quote {
+        position: absolute;
+        top: 0;
+        right: 60px;
+        width: 48px;
+        height: 38px;
     }
 
     .wrapper {
@@ -179,6 +201,11 @@
         align-items: center;
         flex-direction: column-reverse;
         gap: 30px;
+    }
+
+    .description_wrapper {
+        position: relative;
+        left: 0;
     }
 
     .description {
