@@ -1,6 +1,7 @@
 .button {
     position: relative;
     display: flex;
+    align-items: center;
 
     font-family: "Proxima Nova", sans-serif;
     font-weight: 700;
@@ -79,6 +80,7 @@
 
 .large {
     max-width: 452px;
+    height: 70px;
 }
 
 .black_bg {
