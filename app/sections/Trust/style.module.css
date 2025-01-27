@@ -26,6 +26,7 @@
 .item {
     padding: 30px 50px;
     background-color: var(--gray_light);
+    color: var(--text-black);
 }
 
 .item_black {
