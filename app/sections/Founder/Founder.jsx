@@ -24,8 +24,6 @@ const getSectionData = async () => {
 const Founder = () => {
     const [sectionData, setSectionData] = useState(null);
 
-    console.log(sectionData);
-
     useEffect(() => {
         const fetchData = async () => {
             const data = await getSectionData();
@@ -79,12 +77,13 @@ const Founder = () => {
 
                     <div className={styles.description_item}>
                         <Image
-                            src={sectionData?.data?.image?.url ? domain + sectionData.data.image.url : '/placeholder.png'}
+                            src={sectionData?.data?.image?.url ? domain + sectionData?.data?.image?.url : '/placeholder.png'}
                             alt="Изображение"
                             width={676}
                             height={640}
                             className={`${styles.large_bg} dsv-image`}
                         />
+
                         <div className={styles.info}>
                             <p className={styles.name}>Анастасия дубровина</p>
                             <div className={styles.border_left}></div>
