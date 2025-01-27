@@ -23,7 +23,7 @@ export default function Popup({ active, setActive }) {
         >
             <div className={styles.popup__body}>
 
-                <Image src={image_form} alt='image_form' className={styles.image_form} />
+                <Image src={image_form} alt='image_form' className={`dsv-image ${styles.image_form}`} />
 
                 <div
                     className={styles.popup__content}

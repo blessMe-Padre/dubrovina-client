@@ -44,7 +44,6 @@ const Loyalnost = () => {
                         Получите ПОСТОЯННУЮ СЕМЕЙНУЮ СКИДКУ <br /> 10% на лечение, написав нам
                     </p>
 
-
                     <Button
                         handleClick={handleClick}
                         href="#popup"
@@ -59,12 +58,12 @@ const Loyalnost = () => {
                         objectFit='contain'
                         src={persent_img} 
                         alt='%' 
-                        className={styles.pattern} 
+                        className={`${styles.pattern} dsv-image`} 
                     />
                 </div>
 
                 <div className={styles.info_img}>
-                    <Image src={bg} alt='bg' className={styles.img} />
+                    <Image src={bg} alt='bg' className={`dsv-image ${styles.img}`} />
                 </div>
 
                 <Popup 

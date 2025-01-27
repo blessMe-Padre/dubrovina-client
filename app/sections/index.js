@@ -6,4 +6,4 @@ export { default as VideoSection } from './VideoSection/VideoSection';
 export { default as Trust } from './Trust/Trust';
 export { default as Mission } from './Mission/Mission';
 export { default as Statistic } from './Statistic/Statistic';
-
+export { default as Consultation } from './Сonsultation/Сonsultation';

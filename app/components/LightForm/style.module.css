@@ -1,5 +1,16 @@
 .form {
     text-align: left;
+    padding: 50px;
+
+    position: relative;
+    z-index: 1;
+    background-color: rgba(234, 236, 240, 0.8);
+
+    backdrop-filter: blur(40px);
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .form__title {
@@ -84,6 +95,7 @@
     color: var(--gray_light);
     border: 1px solid var(--gray_light);
 
+    background: inherit;
     min-height: 40px;
     padding: 17px 30px;
     display: flex;
@@ -92,7 +104,7 @@
 }
 
 .form__textarea {
-    background-color: var(--white);
+    background-color: inherit;
     border-radius: 6px;
     border: none;
     min-height: 100px;
@@ -113,7 +125,7 @@
 .policy_text {
     font-weight: 400;
     font-size: 14px;
-    color: #BDC1C8;
+    color: #fff;
 }
 
 .policy_text a {

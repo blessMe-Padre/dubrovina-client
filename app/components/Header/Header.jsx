@@ -17,8 +17,8 @@ export default function Header() {
     const [opened, setOpened] = useState(false);
 
     const [menuSubMenuOpen, setMenuSubMenuOpen] = useState(null);
-
     const menuRef = useRef(null);
+
     const subMenuRef = useRef(null);
 
     const handleMouseEnter = (idx) => {
@@ -27,12 +27,16 @@ export default function Header() {
         }
     };
 
-    const handleMouseLeave = () => {
-        if (menuRef.current && !menuRef.current.contains(event.relatedTarget)
-        && subMenuRef.current && !subMenuRef.current.contains(event.relatedTarget)) {
-        setMenuSubMenuOpen(null);
+     const handleMouseLeave = (event, idx) => {
+        if (
+          menuRef.current &&
+          !menuRef.current.contains(event.relatedTarget) &&
+          subMenuRef.current &&
+          !subMenuRef.current.contains(event.relatedTarget)
+        ) {
+          setMenuSubMenuOpen(null);
         }
-    };
+      };
 
     const handleClick = () => {
         setPopupActive(true);
@@ -239,6 +243,7 @@ export default function Header() {
                             <Button
                                 handleClick={handleClick}
                                 href="#popup"
+                                color='black'
                                 text="Записаться"
                             />  
 
