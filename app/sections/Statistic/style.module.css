@@ -74,3 +74,24 @@
         gap: 0;
     }
 }
+
+.count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.count_1 {
+    display: block;
+    width: clamp(2.188rem, 0.361rem + 7.793vw, 7.375rem);
+}
+
+.count_2 {
+    display: block;
+    width: clamp(2.5rem, 0.299rem + 9.39vw, 8.75rem);
+}
+
+.count_3 {
+    display: block;
+    width: clamp(3.125rem, -0.396rem + 15.023vw, 13.125rem);
+}
