@@ -34,7 +34,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 80px;
 
-    color: var(--white);
+    color: var(--text-white);
 }
 
 .nav_footer_heading {
@@ -60,7 +60,7 @@
 }
 
 .contact_desc, .contact_name {
-    color: var(--white);
+    color: var(--text-white);
 }
 
 .contact_name {
@@ -72,7 +72,7 @@
 }
 
 .link {
-    color: var(--white);
+    color: var(--text-white);
 }
 
 .footer {

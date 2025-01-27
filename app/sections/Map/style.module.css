@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
 
-    border: 1px solid var(--black);
+    border: 1px solid var(--text-black);
 
     padding: 40px 30px;
     min-height: 274px;
@@ -58,13 +58,13 @@
 }
 
 .name {
-    color: var(--black);
+    color: var(--text-black);
     font-size: clamp(0.75rem, 0.3202rem + 0.8942vw, 1.125rem);
     margin-bottom: 10px;
 }
 
 .desc, .desc > *  {
-    color: var(--black);
+    color: var(--text-black);
     font-weight: 600;
     font-size: clamp(0.75rem, 0.177rem + 1.1923vw, 1.25rem);
     letter-spacing: 4%;

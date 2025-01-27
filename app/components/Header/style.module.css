@@ -22,13 +22,13 @@
     text-decoration: none;
     text-transform: none;
     font-style: normal;
-    color: var(--black);
+    color: var(--text-black);
     font-size: clamp(0.875rem, 0.5885rem + 0.5961vw, 1.125rem);
 }
 .header_info .phone {
     font-weight: 800;
     font-size: clamp(0.875rem, 0.5885rem + 0.5961vw, 1.125rem);
-    color: var(--black);
+    color: var(--text-black);
     text-decoration: none;
     text-transform: none;
 }
@@ -101,19 +101,19 @@
 
 
 .link {
-    color: var(--black);
+    color: var(--text-black);
     margin-top: 10px;
 }
 
 
 .contact_name {
-    color: var(--black);
+    color: var(--text-black);
     font-weight: 600;
     font-size: 0.75em;
 }
 
 .contact_desc {
-    color: var(--black);
+    color: var(--text-black);
     font-weight: 400;
     font-size: 0.75em;
 }
@@ -129,11 +129,11 @@
 }
 
 .main_menu_links .main_menu_link .link {
-    color: var(--black);
+    color: var(--text-black);
     font-weight: 600;
     font-size: 1.125em;
     letter-spacing: 4%;
-    transition: all 0.5s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 .main_menu_links .main_menu_link:hover .link {
@@ -142,6 +142,7 @@
 
 .main_menu_link {
     position: relative;
+    z-index: 100;
     padding: 10px 0;
 }
 
@@ -170,7 +171,6 @@
   left: -40%;
   background-color: var(--white);
   padding: 40px 51px;
-  z-index: 1;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -182,10 +182,10 @@
   position: relative;
   text-decoration: none;
   margin-bottom: 20px;
-  color: var(--black) !important;
+  color: var(--text-black) !important;
   font-weight: 400;
   width: 100%;
-  transition: color 0.3s ease-in-out; 
+  transition: color 0.1s ease-in-out; 
 
 }
 
@@ -202,8 +202,8 @@
 
 .sub_menu a {
     width: 100%;
-    color: var(--black);
-    transition: color 0.3s ease-in-out;
+    color: var(--text-black);
+    transition: color 0.1s ease-in;
 }
 
 .sub_menu a:hover {
@@ -230,7 +230,7 @@
     .header_info .phone {
         font-weight: 800;
         font-size: 0.875em;
-        color: var(--black);
+        color: var(--text-black);
         text-decoration: none;
         text-transform: none;
     }

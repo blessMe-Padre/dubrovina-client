@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import styles from './style.module.css';
+import {
+    Button, Popup
+    
+ } from '@/app/components';
 
 const url = 'http://89.108.115.136:1338/api/hero?populate=*';
 const domain = 'http://89.108.115.136:1338';
@@ -24,6 +28,15 @@ const getPageData = async () => {
 const MainHero = () => {
     const [bg, setBg] = useState([]);
     const [pageData, setPageData] = useState(null);
+
+
+
+    const [popupActive, setPopupActive] = useState(false);
+
+    
+    const handleClick = () => {
+        setPopupActive(true);
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,7 +72,13 @@ const MainHero = () => {
                                 dangerouslySetInnerHTML={{ __html: pageData?.data?.subtitle }}
                             ></p>
                         </div>
-                        <button>Хочу красивую улыбку</button>
+                        <Button
+                            color='white'
+                            handleClick={handleClick}
+                            href="#popup"
+                            size='large'
+                            text='Хочу красивую улыбку'></Button>
+                        
                     </div>
 
                     <div className={styles.button_wrapper}>
@@ -95,6 +114,10 @@ const MainHero = () => {
                         </div>
                     </div>
                 </div>
+
+
+                <Popup active={popupActive} setActive={setPopupActive} />
+                
             </div>
         </section>
     )

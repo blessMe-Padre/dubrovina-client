@@ -78,7 +78,7 @@ export default function Footer() {
             <div className='container'>
                 <div className={styles.nav_footer_wrapper}>
                     <div>
-                        <Image src={Logo} alt='' className={styles.logo_footer} />
+                        <Image src={Logo} alt='' className={`${styles.logo_footer} dsv-image`} />
                     </div>
 
                     <div className={styles.nav_footer}>
