@@ -1,6 +1,26 @@
 import styles from './style.module.css';
 import Image from 'next/image';
-export default function Mission() {
+
+const fetchData = async () => {
+    try {
+        const res = await fetch(`http://89.108.115.136:1338/api/sekcziya-missiya?popular=*`, {
+            next: { revalidate: 10 }
+        });
+        if (!res.ok) {
+            throw new Error(`Ошибка HTTP: ${res.status}`);
+        }
+        const result = await res.json();
+        return result;
+    } catch (error) {
+        console.error("Ошибка при загрузке:", error);
+        return [];
+    }
+};
+
+
+export default async function Mission() {
+
+    const data = await fetchData();
 
     return (
         <section className={styles.section}>
@@ -15,9 +35,13 @@ export default function Mission() {
                             className={`dsv-image`}
                         />
                         <div className={`${styles.descriptions} ${styles.descriptions_black}`}>
-                            <h2 className={`title ${styles.title} ${styles.title_white}`}>Миссия</h2>
+                            <h2 className={`title ${styles.title} ${styles.title_white}`}>
+                                {data?.data?.title}
+                            </h2>
                             <div className='border_left_div'></div>
-                            <p className={`${styles.text}`}>Наша миссия заключается в обеспечении высокого качества стоматологической помощи посредством честного и этического подхода к лечению. Мы стремимся улучшить здоровье и повысить качество жизни наших пациентов, опираясь на актуальные знания и многолетний опыт нашей команды</p>
+                            <p className={`${styles.text}`}>Н
+                                {data?.data?.subtitle}
+                            </p>
                         </div>
                     </div>
                     <div className={styles.item}>
@@ -30,9 +54,11 @@ export default function Mission() {
                         />
 
                         <div className={`${styles.descriptions} ${styles.descriptions_white}`}>
-                            <h2 className={`title ${styles.title} ${styles.title_black}`}>Ценности</h2>
+                            <h2 className={`title ${styles.title} ${styles.title_black}`}>
+                                {data?.data?.title_2}
+                            </h2>
                             <div className='border_left_div'></div>
-                            <p className={`${styles.text}`}>Нашими ценностями являются взвешенный и разумный подход к лечению, результативность, забота и искренний сервис, порядочность и доброжелательность</p>
+                            <p className={`${styles.text}`}>{data?.data?.subtitle}</p>
                         </div>
                     </div>
                 </div>

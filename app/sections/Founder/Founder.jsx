@@ -24,8 +24,6 @@ const getSectionData = async () => {
 const Founder = () => {
     const [sectionData, setSectionData] = useState(null);
 
-    console.log(sectionData);
-
     useEffect(() => {
         const fetchData = async () => {
             const data = await getSectionData();
