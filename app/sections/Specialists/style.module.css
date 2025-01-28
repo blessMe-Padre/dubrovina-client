@@ -1,0 +1,22 @@
+.section {
+    padding: 60px 0 80px;
+    position: relative;
+}
+
+.title {
+    color: var(--text-black);
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: clamp(0.875rem, 0.161rem + 1.488vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--text-black);
+}
+
+.wrapper {
+    margin-top: 50px;
+}

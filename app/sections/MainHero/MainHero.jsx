@@ -5,8 +5,8 @@ import Image from 'next/image';
 import styles from './style.module.css';
 import {
     Button, Popup
-    
- } from '@/app/components';
+
+} from '@/app/components';
 
 const url = 'http://89.108.115.136:1338/api/hero?populate=*';
 const domain = 'http://89.108.115.136:1338';
@@ -28,12 +28,8 @@ const getPageData = async () => {
 const MainHero = () => {
     const [bg, setBg] = useState([]);
     const [pageData, setPageData] = useState(null);
-
-
-
     const [popupActive, setPopupActive] = useState(false);
 
-    
     const handleClick = () => {
         setPopupActive(true);
     }
@@ -43,8 +39,14 @@ const MainHero = () => {
             const data = await getPageData();
             setPageData(data);
             const bgImage = window.innerWidth < 560
-                ? data.data.imageSmall.url
-                : data.data.imageLarge.url;
+                ? data?.data?.imageSmall.url
+                : data?.data?.imageLarge.url;
+
+            if (bgImage) {
+                setBg(bgImage);
+            } else {
+                setBg("/placeholder.jpg");
+            }
 
             setBg(bgImage);
         };
@@ -78,7 +80,7 @@ const MainHero = () => {
                             href="#popup"
                             size='large'
                             text='Хочу красивую улыбку'></Button>
-                        
+
                     </div>
 
                     <div className={styles.button_wrapper}>
@@ -117,7 +119,7 @@ const MainHero = () => {
 
 
                 <Popup active={popupActive} setActive={setPopupActive} />
-                
+
             </div>
         </section>
     )
