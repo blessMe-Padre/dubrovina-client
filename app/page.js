@@ -25,8 +25,8 @@ export default function Home() {
       <Founder />
       <Trust />
       <Mission />
-      <Statistic /> */}
-      <Advantages />
+      <Statistic />
+      <Advantages /> */}
       <Specialists />
       {/* <Consultation />
       <Loyalnost />
