@@ -49,3 +49,18 @@
 .btn_next:hover path {
     transform: translateX(-10px);
 }
+
+@media (max-width: 768px) {
+
+    .btn_prev,
+    .btn_next {
+        width: 45px;
+        height: 30px;
+    }
+
+    .btn_prev svg,
+    .btn_next svg {
+        width: 45px;
+        height: 30px;
+    }
+}
