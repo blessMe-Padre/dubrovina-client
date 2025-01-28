@@ -20,17 +20,17 @@ export default function Home() {
         />
       </div> */}
 
-      {/* <MainHero />
+      <MainHero />
       <VideoSection />
       <Founder />
       <Trust />
       <Mission />
       <Statistic />
-      <Advantages /> */}
+      <Advantages />
       <Specialists />
-      {/* <Consultation />
+      <Consultation />
       <Loyalnost />
-      <Map /> */}
+      <Map />
     </main>
   )
 }
