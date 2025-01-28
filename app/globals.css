@@ -153,3 +153,7 @@ body {
   height: 30px;
   margin-bottom: 20px;
 }
+
+.specialists_wrapper .swiper-wrapper {
+  padding-bottom: 80px;
+}

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 
-import { Loyalnost, MainHero, Map, Founder, VideoSection, Trust, Mission, Statistic, Consultation} from './sections';
+import { Loyalnost, MainHero, Map, Founder, VideoSection, Trust, Mission, Statistic, Consultation, Specialists } from './sections';
 
 
 export default function Home() {
@@ -20,15 +20,16 @@ export default function Home() {
         />
       </div> */}
 
-      <MainHero />
+      {/* <MainHero />
       <VideoSection />
       <Founder />
       <Trust />
       <Mission />
-      <Statistic />
-      <Consultation />
+      <Statistic /> */}
+      <Specialists />
+      {/* <Consultation />
       <Loyalnost />
-      <Map />
+      <Map /> */}
     </main>
   )
 }
