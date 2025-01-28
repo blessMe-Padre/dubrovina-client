@@ -10,6 +10,12 @@
   10px - font-size: 0.625em;
 */
 
+/* .list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+} */
+
 :root {
   --font-family: "Manrope", sans-serif;
   --second-family: "Trajan Pro 3", sans-serif;
