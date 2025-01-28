@@ -33,7 +33,6 @@ const getData = async () => {
 export default function Specialists() {
 
     const [sectionData, setSectionData] = useState(null);
-    console.log(sectionData);
 
     useEffect(() => {
         const fetchData = async () => {
