@@ -9,3 +9,4 @@ export { default as Statistic } from './Statistic/Statistic';
 export { default as Consultation } from './Сonsultation/Сonsultation';
 export { default as Specialists } from './Specialists/Specialists';
 export { default as Advantages } from './Advantages/Advantages';
+export { default as Specialization } from './Specialization/Specialization';
