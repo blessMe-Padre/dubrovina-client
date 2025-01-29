@@ -1,16 +1,33 @@
 @import '@/app/mixins';
 
+.image_wrapper {
+    background-color: var(--gray_light);
+    margin-bottom: 40px;
+}
+
 .image_wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-bottom: 40px;
 }
 
 .header {
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 20px;
+    margin-bottom: 100px;
+
+    @media (max-width: 560px) {
+        margin-bottom: 50px;
+        flex-direction: column;
+
+        button {
+            width: 100%;
+            max-width: 100%;
+            justify-content: center;
+        }
+    }
 }
 
 .title {
@@ -28,4 +45,46 @@
     line-height: 130%;
     color: var(--text-black);
     @include adaptiv-value("font-size", 24, 13);
+}
+
+.about_row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include adaptiv-value("padding-top", 70, 35);
+    @include adaptiv-value("padding-bottom", 70, 35);
+
+    border-top: 1px solid #c8ced7;
+
+    @media (max-width: 560px) {
+        flex-direction: column;
+    }
+}
+
+.about_title {
+    h2 {
+        font-weight: 600;
+        @include adaptiv-value("font-size", 40, 20);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--text-black);
+    }
+}
+
+.about_descriptions {
+    font-weight: 400;
+    @include adaptiv-value("font-size", 18, 12);
+    letter-spacing: 0.04em;
+    color: var(--text-black);
+
+    max-width: 681px;
+
+    @media (max-width: 990px) {
+        max-width: 360px;
+    }
+
+    @media (max-width: 560px) {
+        max-width: 100%;
+    }
 }
