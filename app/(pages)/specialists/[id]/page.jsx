@@ -5,6 +5,7 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import { Button, Popup } from '@/app/components';
 
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'
 import SwiperNavButtons from "../../../components/SwiperNavButtons/SwiperNavButtons";
@@ -15,6 +16,8 @@ import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
 import getData from '../../../utils/getData';
+
+import ContentRenderer from '../../../components/ContentRenderer/ContentRenderer ';
 
 // /api/speczialisties?filters[id][$eq]=4
 
@@ -29,8 +32,6 @@ export default function page({ params }) {
     if (!page) {
         notFound();
     }
-
-    console.log(pageData);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -117,16 +118,7 @@ export default function page({ params }) {
                         <div className={styles.about_descriptions}>
                             {/* {pageData?.specialization} */}
                             {pageData?.specialization.map((item, index) => (
-
-                                <p key={index}>
-                                    {item.children.map((child, childIndex) => (
-                                        child.bold ? (
-                                            <strong key={childIndex}>{child.text}</strong>
-                                        ) : (
-                                            <span key={childIndex}>{child.text}</span>
-                                        )
-                                    ))}
-                                </p>
+                                <ContentRenderer key={index} content={[item]} />
                             ))}
                         </div>
                     </div>
@@ -135,7 +127,11 @@ export default function page({ params }) {
                             <h2>Образование</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            {/* {pageData?.education} */}
+
+                            {pageData?.education.map((item, index) => (
+                                <ContentRenderer key={index} content={[item]} />
+                            ))}
+
                         </div>
                     </div>
                     <div className={styles.about_row}>
@@ -143,7 +139,9 @@ export default function page({ params }) {
                             <h2>Повышение квалификации</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            {/* {pageData?.advanced_training} */}
+                            {pageData?.advanced_training.map((item, index) => (
+                                <ContentRenderer key={index} content={[item]} />
+                            ))}
                         </div>
                     </div>
 
