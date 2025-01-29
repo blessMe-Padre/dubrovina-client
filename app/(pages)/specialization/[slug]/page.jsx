@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function page({ params }) {
-    const { id } = params;
+    const { slug } = params;
 
 
     if (!page) {
@@ -9,6 +9,6 @@ export default function page({ params }) {
     }
 
     return (
-        <div>Специализация с id = {id}</div>
+        <div>Специализация с slug = {slug}</div>
     )
 }
