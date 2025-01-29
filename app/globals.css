@@ -41,6 +41,14 @@
   /* текст шрифтов */
   --text-white: var(--white);
   --text-black: var(--black);
+
+  /* переменные медиа*/
+  --min-width: 768px;
+  --max-width: 1440px;
+}
+
+.test {
+  /* // @include adaptiv-value("font-size", 60, 30); */
 }
 
 * {
@@ -160,6 +168,11 @@ body {
   margin-bottom: 20px;
 }
 
-.specialists_wrapper .swiper-wrapper {
+.specialists_wrapper .swiper-wrapper,
+.about_wrapper .swiper-wrapper {
   padding-bottom: 80px;
+}
+
+.swiper-slide {
+  height: auto !important;
 }
