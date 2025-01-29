@@ -41,6 +41,14 @@
   /* текст шрифтов */
   --text-white: var(--white);
   --text-black: var(--black);
+
+  /* переменные медиа*/
+  --min-width: 768px;
+  --max-width: 1440px;
+}
+
+.test {
+  /* // @include adaptiv-value("font-size", 60, 30); */
 }
 
 * {
