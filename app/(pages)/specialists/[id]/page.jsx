@@ -14,21 +14,40 @@ import 'swiper/css/navigation';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
-export default function page({ params }) {
+import getData from '../../../utils/getData';
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+// /api/speczialisties?filters[id][$eq]=4
+
+const domain = 'http://89.108.115.136:1338';
+
+export default function page({ params }) {
+    const [pageData, setPageData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [popupActive, setPopupActive] = useState(false);
     const { id } = params;
-
-    const handleClick = () => {
-        setPopupActive(true);
-    }
 
     if (!page) {
         notFound();
     }
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    console.log(pageData);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true); // Начинаем загрузку
+            try {
+                const data = await getData(`${domain}/api/speczialisties?populate=*&filters[id][$eq]=${id}`);
+                setPageData(data.data[0]);
+            } catch (error) {
+                console.error('Ошибка при загрузке данных:', error);
+            } finally {
+                setIsLoading(false); // Загрузка завершена
+            }
+        };
+
+        fetchData();
+    }, []);
+
     useEffect(() => {
         let lightbox = new PhotoSwipeLightbox({
             gallery: '#main-gallery',
@@ -43,24 +62,44 @@ export default function page({ params }) {
         };
     }, []);
 
+    const handleClick = () => {
+        setPopupActive(true);
+    }
+
+    const imageUrl = pageData?.big_img?.url ? `${domain}${pageData.big_img.url}` : '/placeholders/specialist_id.jpg';
+
     return (
         <div className="container">
-            Специалист с id = {id}
             <div className='section'>
                 <div className={styles.image_wrapper}>
+
+                    {/* {isLoading ? (
+                    // доработать компонент!
+                        <div>Загрузка...</div>
+                    ) : (
+                        <Image
+                            src={imageUrl}
+                            alt='Dubrovina logo'
+                            width={1439}
+                            height={850}
+                            className="dsv-image"
+                        />
+                    )} */}
+
                     <Image
-                        src='/placeholders/specialist_id.jpg'
+                        src={imageUrl}
                         alt='Dubrovina logo'
                         width={1439}
                         height={850}
                         className="dsv-image"
                     />
+
                 </div>
 
                 <header className={styles.header}>
                     <div>
-                        <h1 className={styles.title}>дубровина екатерина сергеевна</h1>
-                        <p className={styles.subtitle}>Ведущий ортопед, хирург имплантолог клиники</p>
+                        <h1 className={styles.title}>{pageData?.name}</h1>
+                        <p className={styles.subtitle}>{pageData?.specialty}</p>
                     </div>
                     <Button
                         color='black'
@@ -76,9 +115,19 @@ export default function page({ params }) {
                             <h2>специализация</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            <p>Стаж: 16 лет</p>
-                            <p>Особые профессиональные навыки: различные виды терапевтического и хирургического лечения, в том числе лечение кариеса и его осложнений, эстетическая реставрация, имплантация и удаление зубов; установка коронок и протезов на зубы и импланты.</p>
-                            <p>Регалии: кандидат медицинских наук, автор статей по хирургической стоматологии.</p>
+                            {/* {pageData?.specialization} */}
+                            {pageData?.specialization.map((item, index) => (
+
+                                <p key={index}>
+                                    {item.children.map((child, childIndex) => (
+                                        child.bold ? (
+                                            <strong key={childIndex}>{child.text}</strong>
+                                        ) : (
+                                            <span key={childIndex}>{child.text}</span>
+                                        )
+                                    ))}
+                                </p>
+                            ))}
                         </div>
                     </div>
                     <div className={styles.about_row}>
@@ -86,9 +135,7 @@ export default function page({ params }) {
                             <h2>Образование</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            <p>Московский государственный медико-стоматологический университет Евдокимова (стоматология) – 2007 г.</p>
-                            <p>Московский государственный медико-стоматологический университет Евдокимова (стоматология ортопедическая) – 2015 г.
-                            </p>
+                            {/* {pageData?.education} */}
                         </div>
                     </div>
                     <div className={styles.about_row}>
@@ -96,8 +143,7 @@ export default function page({ params }) {
                             <h2>Повышение квалификации</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            <p>Московский государственный медико-стоматологический университет Евдокимова (стоматология общей практики) – 2009 г.</p>
-                            <p>Российский университет дружбы народов (РУДН) (физиотерапия) – 2013 г.</p>
+                            {/* {pageData?.advanced_training} */}
                         </div>
                     </div>
 
