@@ -5,6 +5,12 @@ import styles from './style.module.scss';
 import Image from 'next/image';
 import { Button, Popup } from '@/app/components';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules'
+import SwiperNavButtons from "../../../components/SwiperNavButtons/SwiperNavButtons";
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 export default function page({ params }) {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -74,6 +80,68 @@ export default function page({ params }) {
                         <div className={styles.about_descriptions}>
                             <p>Московский государственный медико-стоматологический университет Евдокимова (стоматология общей практики) – 2009 г.</p>
                             <p>Российский университет дружбы народов (РУДН) (физиотерапия) – 2013 г.</p>
+                        </div>
+                    </div>
+
+                    <div className={`${styles.about_row} ${styles.about_row_slider}`}>
+                        <div className={styles.about_title}>
+                            <h2>сертификаты</h2>
+                        </div>
+                        <div className={`${styles.about_wrapper} about_wrapper`}>
+                            <Swiper
+                                spaceBetween={20}
+                                slidesPerView={3}
+                                modules={[Navigation]}
+                                breakpoints={{
+                                    320: { slidesPerView: 1 },
+                                    560: { slidesPerView: 2 },
+                                    768: { slidesPerView: 3 },
+                                }}
+                            >
+
+                                <SwiperSlide>
+                                    <div className={styles.image_slide}>
+                                        <Image
+                                            src='/remove_from_server/sert-1.png'
+                                            alt='Dubrovina logo'
+                                            width={292}
+                                            height={449}
+                                            className="dsv-image"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide><div className={styles.image_slide}>
+                                    <Image
+                                        src='/remove_from_server/sert-1.png'
+                                        alt='Dubrovina logo'
+                                        width={292}
+                                        height={449}
+                                        className="dsv-image"
+                                    />
+                                </div></SwiperSlide>
+                                <SwiperSlide><div className={styles.image_slide}>
+                                    <Image
+                                        src='/remove_from_server/sert-1.png'
+                                        alt='Dubrovina logo'
+                                        width={292}
+                                        height={449}
+                                        className="dsv-image"
+                                    />
+                                </div></SwiperSlide>
+                                <SwiperSlide><div className={styles.image_slide}>
+                                    <Image
+                                        src='/remove_from_server/sert-1.png'
+                                        alt='Dubrovina logo'
+                                        width={292}
+                                        height={449}
+                                        className="dsv-image"
+                                    />
+                                </div></SwiperSlide>
+
+                                <SwiperNavButtons
+                                    addClass={'buttons_bottom'}
+                                />
+                            </Swiper>
                         </div>
                     </div>
                 </section>

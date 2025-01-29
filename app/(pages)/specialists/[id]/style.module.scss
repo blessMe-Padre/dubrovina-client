@@ -88,3 +88,23 @@
         max-width: 100%;
     }
 }
+
+.about_wrapper {
+    position: relative;
+    min-width: 0;
+}
+
+.image_slide {
+    min-height: 260px;
+    position: relative;
+}
+
+.image_slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about_row_slider {
+    @include adaptiv-value("gap", 100, 30);
+}

@@ -168,6 +168,11 @@ body {
   margin-bottom: 20px;
 }
 
-.specialists_wrapper .swiper-wrapper {
+.specialists_wrapper .swiper-wrapper,
+.about_wrapper .swiper-wrapper {
   padding-bottom: 80px;
+}
+
+.swiper-slide {
+  height: auto !important;
 }
