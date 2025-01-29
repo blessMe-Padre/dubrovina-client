@@ -57,6 +57,7 @@ export default function Specialization() {
                             href={`${item.link}`}
                             title={item.title}
                             img={item.img}
+                            id={item.id}
                         />
                     ))}
                   

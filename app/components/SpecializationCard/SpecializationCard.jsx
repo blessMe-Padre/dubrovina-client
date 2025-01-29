@@ -6,7 +6,7 @@ import arrow from '@/public/specialization/arrow.svg';
 // import src from '@/public/specialization/spec_1.png';
 
 
-export default function SpecializationCard({ title, img, href }) {
+export default function SpecializationCard({ title, img, href, id }) {
 
   return (
         <>
