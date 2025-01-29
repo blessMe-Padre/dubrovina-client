@@ -11,6 +11,9 @@ import SwiperNavButtons from "../../../components/SwiperNavButtons/SwiperNavButt
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
 export default function page({ params }) {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -24,6 +27,21 @@ export default function page({ params }) {
     if (!page) {
         notFound();
     }
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        let lightbox = new PhotoSwipeLightbox({
+            gallery: '#main-gallery',
+            children: '.swiper .swiper-slide a',
+            pswpModule: () => import('photoswipe'),
+        });
+        lightbox.init();
+
+        return () => {
+            lightbox.destroy();
+            lightbox = null;
+        };
+    }, []);
 
     return (
         <div className="container">
@@ -87,7 +105,7 @@ export default function page({ params }) {
                         <div className={styles.about_title}>
                             <h2>сертификаты</h2>
                         </div>
-                        <div className={`${styles.about_wrapper} about_wrapper`}>
+                        <div id='main-gallery' className={`${styles.about_wrapper} about_wrapper pswp-gallery`}>
                             <Swiper
                                 spaceBetween={20}
                                 slidesPerView={3}
@@ -101,42 +119,89 @@ export default function page({ params }) {
 
                                 <SwiperSlide>
                                     <div className={styles.image_slide}>
-                                        <Image
-                                            src='/remove_from_server/sert-1.png'
-                                            alt='Dubrovina logo'
-                                            width={292}
-                                            height={449}
-                                            className="dsv-image"
-                                        />
+                                        <a
+                                            href='/remove_from_server/sert-1.png'
+                                            data-pswp-width={292}
+                                            data-pswp-height={449}
+                                            key={'#main-gallery' + '-' + 1}
+                                            target='_blank'
+                                            rel="noreferrer"
+                                            className={`${styles.img_wrapper} dsv-image`}
+                                        >
+                                            <Image
+                                                src='/remove_from_server/sert-1.png'
+                                                alt='Dubrovina logo'
+                                                width={292}
+                                                height={449}
+                                                className="dsv-image"
+                                            />
+                                        </a>
                                     </div>
                                 </SwiperSlide>
-                                <SwiperSlide><div className={styles.image_slide}>
-                                    <Image
-                                        src='/remove_from_server/sert-1.png'
-                                        alt='Dubrovina logo'
-                                        width={292}
-                                        height={449}
-                                        className="dsv-image"
-                                    />
-                                </div></SwiperSlide>
-                                <SwiperSlide><div className={styles.image_slide}>
-                                    <Image
-                                        src='/remove_from_server/sert-1.png'
-                                        alt='Dubrovina logo'
-                                        width={292}
-                                        height={449}
-                                        className="dsv-image"
-                                    />
-                                </div></SwiperSlide>
-                                <SwiperSlide><div className={styles.image_slide}>
-                                    <Image
-                                        src='/remove_from_server/sert-1.png'
-                                        alt='Dubrovina logo'
-                                        width={292}
-                                        height={449}
-                                        className="dsv-image"
-                                    />
-                                </div></SwiperSlide>
+                                <SwiperSlide>
+                                    <div className={styles.image_slide}>
+                                        <a
+                                            href='/remove_from_server/sert-1.png'
+                                            data-pswp-width={292}
+                                            data-pswp-height={449}
+                                            key={'#main-gallery' + '-' + 1}
+                                            target='_blank'
+                                            rel="noreferrer"
+                                            className={`${styles.img_wrapper} dsv-image`}
+                                        >
+                                            <Image
+                                                src='/remove_from_server/sert-1.png'
+                                                alt='Dubrovina logo'
+                                                width={292}
+                                                height={449}
+                                                className="dsv-image"
+                                            />
+                                        </a>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className={styles.image_slide}>
+                                        <a
+                                            href='/remove_from_server/sert-1.png'
+                                            data-pswp-width={292}
+                                            data-pswp-height={449}
+                                            key={'#main-gallery' + '-' + 1}
+                                            target='_blank'
+                                            rel="noreferrer"
+                                            className={`${styles.img_wrapper} dsv-image`}
+                                        >
+                                            <Image
+                                                src='/remove_from_server/sert-1.png'
+                                                alt='Dubrovina logo'
+                                                width={292}
+                                                height={449}
+                                                className="dsv-image"
+                                            />
+                                        </a>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className={styles.image_slide}>
+                                        <a
+                                            href='/remove_from_server/sert-1.png'
+                                            data-pswp-width={292}
+                                            data-pswp-height={449}
+                                            key={'#main-gallery' + '-' + 1}
+                                            target='_blank'
+                                            rel="noreferrer"
+                                            className={`${styles.img_wrapper} dsv-image`}
+                                        >
+                                            <Image
+                                                src='/remove_from_server/sert-1.png'
+                                                alt='Dubrovina logo'
+                                                width={292}
+                                                height={449}
+                                                className="dsv-image"
+                                            />
+                                        </a>
+                                    </div>
+                                </SwiperSlide>
+
 
                                 <SwiperNavButtons
                                     addClass={'buttons_bottom'}
