@@ -8,3 +8,4 @@ export { Form } from './Form/Form';
 export { default as MenuButton } from './Menu-button/Menu-button'
 export { default as LightForm } from './LightForm/LigthForm';
 export { default as SpecialistCard } from './SpecialistCard/SpecialistCard';
+export { default as SpecializationCard } from './SpecializationCard/SpecializationCard';

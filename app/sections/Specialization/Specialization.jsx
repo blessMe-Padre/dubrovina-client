@@ -1,11 +1,7 @@
 import styles from './style.module.css';
 
-import arrow from '@/public/specialization/arrow.svg';
+import { SpecializationCard } from '@/app/components';
 
-import Image from 'next/image';
-
-import src from '@/public/specialization/spec_1.png';
-import Link from 'next/link';
 
 export default function Specialization() {
 
@@ -22,35 +18,9 @@ export default function Specialization() {
                 <p className={styles.subtitle}>Лечим зубы, как лечили бы себе</p>
 
                 <div className={styles.specialization_wrapper}>
-                    <div className={styles.item}>
-                        <p className={styles.item_title}>Диагностика</p>
-                        <div className={styles.img_wrapper}>
-                            <Image src={src} alt='v' className={`dsv-image ${styles.img}`} />
-                            <Link href={'/'} className={styles.item_link}>
-                                <Image src={arrow} className={styles.arrow} alt='arrow' />
-                            </Link>
-                        </div>
-                    </div>
-
-                      <div className={`${styles.item} ${styles.item_black}`}>
-                        <p className={`${styles.item_title} ${styles.item_title_white}`}>Диагностика</p>
-                        <div className={styles.img_wrapper}>
-                            <Image src={src} alt='v' className={`dsv-image ${styles.img}`} />
-                            <Link href={'/'} className={styles.item_link}>
-                                <Image src={arrow} className={styles.arrow} alt='arrow' />
-                            </Link>
-                        </div>
-                    </div>
-
-                      <div className={styles.item}>
-                        <p className={styles.item_title}>Диагностика</p>
-                        <div className={styles.img_wrapper}>
-                            <Image src={src} alt='v' className={`dsv-image ${styles.img}`} />
-                            <Link href={'/'} className={styles.item_link}>
-                                <Image src={arrow} className={styles.arrow} alt='arrow' />
-                            </Link>
-                        </div>
-                    </div>
+                    <SpecializationCard           
+                        href={`/specialization/${1}`}
+                    />
                 </div>
             </div>
         </section>
