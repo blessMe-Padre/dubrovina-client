@@ -14,7 +14,7 @@ const getData = async () => {
     try {
         const response = await fetch(url, {
             next: {
-                revalidate: 30000
+                revalidate: 100
             }
         });
 
@@ -64,6 +64,7 @@ export default function Specialization() {
                                     title={item.title}
                                     img={imageUrl}
                                     id={item.id}
+                                    slug={item.slug}
                                 />
                             );
                         }) || <p>No specializations found.</p>

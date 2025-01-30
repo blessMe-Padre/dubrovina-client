@@ -6,7 +6,7 @@ import arrow from '@/public/specialization/arrow.svg';
 // import src from '@/public/specialization/spec_1.png';
 
 
-export default function SpecializationCard({ title, img, href, id }) {
+export default function SpecializationCard({ title, img, href, id, slug }) {
 
   return (
         <>
@@ -31,7 +31,7 @@ export default function SpecializationCard({ title, img, href, id }) {
                                     className={`dsv-image ${styles.img}`} 
                                 />
                             <Link 
-                                href={'/'} 
+                                href={`/specialization/${slug}`} 
                                 className={styles.item_link}>
                                 <Image 
                                     src={arrow} 
