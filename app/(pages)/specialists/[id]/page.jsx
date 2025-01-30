@@ -30,9 +30,7 @@ export default async function Page({ params }) {
     }
 
     return (
-        <div className="container">
-            <ContentPage data={data} />
-        </div>
+        <ContentPage data={data} />
     );
 }
 
