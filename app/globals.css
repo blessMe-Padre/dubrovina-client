@@ -10,6 +10,9 @@
   10px - font-size: 0.625em;
 */
 
+/* @import '@/app/mixins';
+@include adaptiv-value("font-size", 24, 13); */
+
 /* .list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
