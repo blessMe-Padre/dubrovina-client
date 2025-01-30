@@ -12,10 +12,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+
 }
 
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     .specialization_wrapper {
         grid-template-columns: repeat(3, 1fr);
     }

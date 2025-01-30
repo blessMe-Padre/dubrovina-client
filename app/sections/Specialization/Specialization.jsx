@@ -8,13 +8,13 @@ import { SpecializationCard } from '@/app/components';
 
 
 const domain = 'http://89.108.115.136:1338';
-const url = `${domain}/api/speczializacziis?populate=*`;
+const url = `${domain}/api/speczializaczii?populate[0]=speczializaczii&populate[1]=speczializaczii.img_s`;
 
 const getData = async () => {
     try {
         const response = await fetch(url, {
             next: {
-                revalidate: 30000
+                revalidate: 100
             }
         });
 
@@ -37,8 +37,8 @@ export default function Specialization() {
     useEffect(() => {
         const fetchData = async () => {
             const data = await getData();
-            setData(data.data);
-            console.log(data.data)
+            setData(data);
+            console.log(data)
         }
 
         fetchData();
@@ -51,15 +51,24 @@ export default function Specialization() {
                 <p className={styles.subtitle}>Лечим зубы, как лечили бы себе</p>
 
                 <div className={styles.specialization_wrapper}>
-                    {data[0]?.speczializacziya.map((item, idx) => (
-                        <SpecializationCard    
-                            key={idx}       
-                            href={`${item.link}`}
-                            title={item.title}
-                            img={item.img}
-                            id={item.id}
-                        />
-                    ))}
+                    {
+                        data?.data?.speczializaczii?.map((item, idx) => {
+
+                            // Проверка на наличие url
+                            const imageUrl = item.img_s?.url
+                                ? process.env.NEXT_PUBLIC_DOMAIN + item.img_s.url 
+                                : '/path/to/default_placeholder.png';
+                            return (
+                                <SpecializationCard
+                                    key={idx}
+                                    title={item.title}
+                                    img={imageUrl}
+                                    id={item.id}
+                                    slug={item.slug}
+                                />
+                            );
+                        }) || <p>No specializations found.</p>
+                    }
                   
                 </div>
             </div>

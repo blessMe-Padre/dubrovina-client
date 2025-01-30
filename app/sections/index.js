@@ -11,3 +11,4 @@ export { default as Specialists } from './Specialists/Specialists';
 export { default as Advantages } from './Advantages/Advantages';
 export { default as Specialization } from './Specialization/Specialization';
 export { default as Portfolio } from './Portfolio/Portfolio';
+export { default as Sertificat } from './Sertificat/Sertificat';

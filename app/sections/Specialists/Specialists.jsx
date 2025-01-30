@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react";
 
 import styles from './style.module.css';
-import Image from 'next/image';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'
 import SwiperNavButtons from "../../components/SwiperNavButtons/SwiperNavButtons";

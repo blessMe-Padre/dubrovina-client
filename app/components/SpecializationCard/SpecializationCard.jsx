@@ -6,16 +6,16 @@ import arrow from '@/public/specialization/arrow.svg';
 // import src from '@/public/specialization/spec_1.png';
 
 
-export default function SpecializationCard({ title, img, href, id }) {
+export default function SpecializationCard({ title, img, href, id, slug }) {
 
   return (
         <>
-            {title == null || href == null ? (
-                <div>
+            {title == null ? (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Image 
                         src={img ? img : '/placeholder.png'}
-                        width={350}
-                        height={350} 
+                        width={150}
+                        height={100} 
                         alt='ds' 
                         className={styles.img_ds} 
                     />
@@ -31,7 +31,7 @@ export default function SpecializationCard({ title, img, href, id }) {
                                     className={`dsv-image ${styles.img}`} 
                                 />
                             <Link 
-                                href={href} 
+                                href={`/specialization/${slug}`} 
                                 className={styles.item_link}>
                                 <Image 
                                     src={arrow} 
