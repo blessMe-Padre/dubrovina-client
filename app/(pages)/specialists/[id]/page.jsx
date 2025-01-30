@@ -1,7 +1,7 @@
 import getData from '../../../utils/getData';
 import ContentPage from './ContentPage';
 
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
 export async function generateMetadata({ params }) {
     const { id } = params;
@@ -19,7 +19,7 @@ export default async function Page({ params }) {
     const { id } = params;
     let data = null;
     try {
-        const response = await getData(`${domain}/api/speczialisties?populate=*&filters[id][$eq]=${id}`);
+        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties?populate=*&filters[id][$eq]=${id}`);
         data = response?.data?.[0] || null;
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
@@ -35,7 +35,6 @@ export default async function Page({ params }) {
 }
 
 export async function generateStaticParams() {
-    const domain = 'http://89.108.115.136:1338';
 
     try {
         const response = await fetch(`${domain}/api/speczialisties`);

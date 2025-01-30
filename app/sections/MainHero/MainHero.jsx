@@ -9,7 +9,7 @@ import {
 } from '@/app/components';
 
 const url = 'http://89.108.115.136:1338/api/hero?populate=*';
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
 const getPageData = async () => {
     try {

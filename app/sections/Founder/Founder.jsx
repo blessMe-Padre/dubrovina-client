@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './style.module.css';
 
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/sekcziya-osnovatel?populate=*`;
 
 const getSectionData = async () => {
