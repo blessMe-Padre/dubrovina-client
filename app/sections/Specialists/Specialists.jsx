@@ -11,7 +11,7 @@ import { SpecialistCard } from "@/app/components";
 
 // /api/speczialisties?fields[0]=id&fields[1]=name&fields[2]=specialty
 
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/speczialisties?populate=*`;
 
 const getData = async () => {

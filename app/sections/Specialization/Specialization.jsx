@@ -7,7 +7,7 @@ import styles from './style.module.css';
 import { SpecializationCard } from '@/app/components';
 
 
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/speczializaczii?populate[0]=speczializaczii&populate[1]=speczializaczii.img_s`;
 
 const getData = async () => {
@@ -18,13 +18,13 @@ const getData = async () => {
             }
         });
 
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error(`Ошибка HTTP: ${response.status}`);
         }
 
         const result = await response.json();
         return result;
-    }  catch (error) {
+    } catch (error) {
         console.error('Ошибка при загрузке Специализаций компании', error);
         return [];
     }
@@ -56,7 +56,7 @@ export default function Specialization() {
 
                             // Проверка на наличие url
                             const imageUrl = item.img_s?.url
-                                ? process.env.NEXT_PUBLIC_DOMAIN + item.img_s.url 
+                                ? process.env.NEXT_PUBLIC_DOMAIN + item.img_s.url
                                 : '/path/to/default_placeholder.png';
                             return (
                                 <SpecializationCard
@@ -69,7 +69,7 @@ export default function Specialization() {
                             );
                         }) || <p>No specializations found.</p>
                     }
-                  
+
                 </div>
             </div>
         </section>
