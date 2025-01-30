@@ -11,11 +11,11 @@ export default function SpecializationCard({ title, img, href, id }) {
   return (
         <>
             {title == null ? (
-                <div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Image 
                         src={img ? img : '/placeholder.png'}
-                        width={350}
-                        height={350} 
+                        width={150}
+                        height={100} 
                         alt='ds' 
                         className={styles.img_ds} 
                     />
