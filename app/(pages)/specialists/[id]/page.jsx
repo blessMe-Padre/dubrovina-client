@@ -35,3 +35,20 @@ export default async function Page({ params }) {
         </div>
     );
 }
+
+export async function generateStaticParams() {
+    const domain = 'http://89.108.115.136:1338';
+
+    try {
+        const response = await fetch(`${domain}/api/speczialisties`);
+        const data = await response.json();
+
+        return data.data.map((specialist) => ({
+            id: specialist.id.toString(), // Должен быть `string`
+        }));
+    } catch (error) {
+        console.error('Ошибка загрузки параметров:', error);
+        return []; // В случае ошибки вернем пустой массив
+    }
+}
+
