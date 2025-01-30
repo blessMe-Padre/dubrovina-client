@@ -116,10 +116,13 @@ export default function page({ params }) {
                             <h2>специализация</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            {/* {pageData?.specialization} */}
-                            {pageData?.specialization.map((item, index) => (
-                                <ContentRenderer key={index} content={[item]} />
-                            ))}
+                            {pageData?.specialization?.length > 0 ? (
+                                pageData.specialization.map((item, index) => (
+                                    <ContentRenderer key={index} content={[item]} />
+                                ))
+                            ) : (
+                                <p>данные не заполнены</p>
+                            )}
                         </div>
                     </div>
                     <div className={styles.about_row}>
@@ -128,9 +131,13 @@ export default function page({ params }) {
                         </div>
                         <div className={styles.about_descriptions}>
 
-                            {pageData?.education.map((item, index) => (
-                                <ContentRenderer key={index} content={[item]} />
-                            ))}
+                            {pageData?.education?.length > 0 ? (
+                                pageData.education.map((item, index) => (
+                                    <ContentRenderer key={index} content={[item]} />
+                                ))
+                            ) : (
+                                <p>данные не заполнены</p>
+                            )}
 
                         </div>
                     </div>
@@ -139,9 +146,13 @@ export default function page({ params }) {
                             <h2>Повышение квалификации</h2>
                         </div>
                         <div className={styles.about_descriptions}>
-                            {pageData?.advanced_training.map((item, index) => (
-                                <ContentRenderer key={index} content={[item]} />
-                            ))}
+                            {pageData?.advanced_training?.length > 0 ? (
+                                pageData.advanced_training.map((item, index) => (
+                                    <ContentRenderer key={index} content={[item]} />
+                                ))
+                            ) : (
+                                <p>данные не заполнены</p>
+                            )}
                         </div>
                     </div>
 
