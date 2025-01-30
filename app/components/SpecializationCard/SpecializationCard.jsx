@@ -10,7 +10,7 @@ export default function SpecializationCard({ title, img, href, id }) {
 
   return (
         <>
-            {title == null || href == null ? (
+            {title == null ? (
                 <div>
                     <Image 
                         src={img ? img : '/placeholder.png'}
@@ -31,7 +31,7 @@ export default function SpecializationCard({ title, img, href, id }) {
                                     className={`dsv-image ${styles.img}`} 
                                 />
                             <Link 
-                                href={href} 
+                                href={'/'} 
                                 className={styles.item_link}>
                                 <Image 
                                     src={arrow} 
