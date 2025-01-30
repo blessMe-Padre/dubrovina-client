@@ -27,22 +27,22 @@ export default function Header() {
         }
     };
 
-     const handleMouseLeave = (event, idx) => {
+    const handleMouseLeave = (event, idx) => {
         if (
-          menuRef.current &&
-          !menuRef.current.contains(event.relatedTarget) &&
-          subMenuRef.current &&
-          !subMenuRef.current.contains(event.relatedTarget)
+            menuRef.current &&
+            !menuRef.current.contains(event.relatedTarget) &&
+            subMenuRef.current &&
+            !subMenuRef.current.contains(event.relatedTarget)
         ) {
-          setMenuSubMenuOpen(null);
+            setMenuSubMenuOpen(null);
         }
-      };
+    };
 
     const handleClick = () => {
         setPopupActive(true);
     }
 
-    const handleOpenedClick = () => { 
+    const handleOpenedClick = () => {
         setOpened(!opened);
         document.body.classList.toggle('blur');
         document.body.classList.toggle('lock');
@@ -54,7 +54,7 @@ export default function Header() {
             links: [
                 { text: "О клинике", href: "/" },
                 { text: "Цены", href: "/" },
-                { text: "Команда", href: "/" },
+                { text: "Команда", href: "/specialists" },
                 { text: "Работы", href: "/" },
                 { text: "Блог", href: "/" },
                 { text: "Для пациентов", href: "/" },
@@ -79,7 +79,7 @@ export default function Header() {
                 { text: "Протезирование", href: "/" },
             ],
         },
-      
+
     ];
 
     const contacts_data = [
@@ -110,7 +110,7 @@ export default function Header() {
                     desc: 'Находкинский проспект, 60, 3 этаж'
                 },
             ]
-            
+
         },
     ]
 
@@ -164,9 +164,9 @@ export default function Header() {
                     name: 'Протезирование',
                     link: '/'
                 },
-            ] 
+            ]
         },
-          
+
         {
             heading: 'Цены',
             url: '/',
@@ -174,7 +174,7 @@ export default function Header() {
 
         {
             heading: 'Команда',
-            url: '/',
+            url: '/specialists',
         },
 
         {
@@ -217,7 +217,7 @@ export default function Header() {
                             <MenuButton
                                 onClick={handleOpenedClick}
                                 opened={opened}
-                                />
+                            />
                         </div>
                         <Link href="/">
                             <Image
@@ -226,7 +226,7 @@ export default function Header() {
                                 width={350}
                                 height={47}
                                 className={`${styles.logo} dsv-image`}
-                                />
+                            />
                         </Link>
                     </div>
 
@@ -245,21 +245,21 @@ export default function Header() {
                                 href="#popup"
                                 color='black'
                                 text="Записаться"
-                            />  
+                            />
 
                         </div>
 
                         {panelBtn && <VdsButton
                             setPanel={setPanel}
                             setPanelBtn={setPanelBtn}
-                            />}
+                        />}
                     </div>
                 </div>
 
 
                 <Popup active={popupActive} setActive={setPopupActive} />
 
-                  <ul className={styles.main_menu_links}>
+                <ul className={styles.main_menu_links}>
                     {main_links.map((item, idx) => {
                         const isActive = menuSubMenuOpen === idx;
                         return (
@@ -303,15 +303,15 @@ export default function Header() {
                                 <p className={styles.nav_mobile_heading}>{section.heading}</p>
                                 {section.links &&
                                     section.links.map((link, linkIndex) => (
-                                    <li key={linkIndex}>
-                                        <Link
-                                        onClick={handleOpenedClick}
-                                        className={styles.link}
-                                        href={link.href}
-                                        >
+                                        <li key={linkIndex}>
+                                            <Link
+                                                onClick={handleOpenedClick}
+                                                className={styles.link}
+                                                href={link.href}
+                                            >
                                                 {link.text}
-                                        </Link>
-                                    </li>
+                                            </Link>
+                                        </li>
                                     ))}
                             </ul>
                         ))
@@ -325,12 +325,12 @@ export default function Header() {
                                     <li key={contactIndex}>
                                         <p className={styles.contact_name}>{contactItem.name}</p>
                                         {contactItem.contact && (
-                                        <a
-                                            className={styles.contact_desc}
-                                            href={contactItem.contact_bot}
-                                        >
-                                            {contactItem.contact}
-                                        </a>
+                                            <a
+                                                className={styles.contact_desc}
+                                                href={contactItem.contact_bot}
+                                            >
+                                                {contactItem.contact}
+                                            </a>
                                         )}
                                         {contactItem.desc && (
                                             <p className={styles.contact_desc}>{contactItem.desc}</p>

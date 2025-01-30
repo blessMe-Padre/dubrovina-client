@@ -1,3 +1,4 @@
+import { Breadcrumbs } from '@/app/components';
 import getData from '../../../utils/getData';
 import ContentPage from './ContentPage';
 
@@ -30,7 +31,9 @@ export default async function Page({ params }) {
     }
 
     return (
-        <ContentPage data={data} />
+        <>
+            <ContentPage data={data} />
+        </>
     );
 }
 
