@@ -14,6 +14,8 @@ export default function SpecialistCard({ href, img, name, specialty }) {
             width={466}
             height={342}
             className={`dsv-image`}
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MiIgaGVpZ2h0PSIxMTg5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNjY2MiIC8+PC9zdmc+" priority
           />
         </div>
         <div className={styles.item_content}>

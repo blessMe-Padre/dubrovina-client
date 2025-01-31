@@ -45,6 +45,7 @@ export default function Specialists() {
     }, []);
 
     return (
+
         <section className={styles.section}>
             <div className="container">
                 <h2 className={`${styles.title} title`}>опытные специалисты</h2>
