@@ -14,8 +14,6 @@ export async function generateMetadata({ params }) {
 
     const response = await getData(`${url}/api/speczializaczii?populate[speczializaczii][filters][slug][$eq]=${slug}&populate[speczializaczii][populate]=*`);
 
-    // console.log(response?.data?.speczializaczii);
-
     // console.log(response?.data?.speczializaczii)
     data = response?.data?.speczializaczii || null;
 
@@ -29,11 +27,23 @@ export default async function page({ params }) {
     const { slug } = params;
 
     let data = null;
+    let data_sub = null;
+    let data_featured = null;
     
     try {
         const response = await getData(`${url}/api/speczializaczii?populate[speczializaczii][filters][slug][$eq]=${slug}&populate[speczializaczii][populate]=*`);
         data = response?.data?.speczializaczii || null;
+
+
+        const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_sub][filters][slug][$eq]=${slug}&populate[speczializacziya_sub][populate]=*`)
         
+        data_sub = response_sub?.data?.speczializacziya_sub || null
+
+        const response_featured = await getData(`${url}/api/speczializaczii-osobennosti?populate[speczializacziya_feauture][filters][slug][$eq]=lecheniye_zubov&populate[speczializacziya_feauture][populate]=*`)
+        data_featured = response_featured?.data?.speczializacziya_feauture[0].speczializacziya_feauture_single || null
+        console.log(response_featured)
+
+
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
@@ -43,7 +53,7 @@ export default async function page({ params }) {
     }
 
     return (
-        <ContentPage data={data} />
+        <ContentPage data={data} data_sub={data_sub} slug={slug} data_featured={data_featured} />
     )
 }
 

@@ -3,14 +3,16 @@ import styles from './style.module.scss';
 import src from '@/public/services-sub/bg.png';
 import { Form } from "@/app/components";
 
-export default function PageContent({ data }) {
+import Link from "next/link";
+
+export default function PageContent({ data, data_sub, slug, data_featured }) {
 
     const title = data[0]?.Page?.title_page || null;
     const desc = data[0]?.Page?.desc_page || null;
 
     return (
         <>
-            <section className='section relative'>
+            <section className='relative'>
                 <Image src={src} className={styles.bg} alt="bg" width={1400} height={900} />
                 <div className='container'>
                     <div className={styles.info}>
@@ -19,10 +21,47 @@ export default function PageContent({ data }) {
 
                         {/* <div className={styles.form_wrapper}>
                             <Form />
-                        </div> */}
+                            </div> */}
                     </div>
                 </div>    
             </section> 
+
+             <section className='section relative'>
+                <div className='container'>
+                    <ul className={styles.list}>
+                        {data_sub?.map((item, idx) => (
+                            <li key={idx} className={styles.specialization_sub_item}>
+                                <Link href={`/specialization/${slug}/specialization_sub/${item.id}`} className={styles.link}>
+                                    <p className={styles.specialization_sub_title}>{item?.name || ''}</p>  
+                                </Link>
+                            </li>
+                    ))}
+                    </ul>
+
+                </div>    
+            </section> 
+
+            <section className="section">
+                <div>
+
+                    {console.log(data_featured)}
+                    {data_featured?.map((item, idx) => {
+                        return (
+                            <li className={styles.featured_item} key={idx}>
+                                <p>
+                                    {item?.Name || 'Имя не задано'}
+                                </p>
+
+                                <p>
+                                    {item?.desc || 'Описание не задано'}
+                                </p>
+                            </li>
+                        )
+                    })}
+                </div>
+            </section>
+
+            
         </>
     )
 }
