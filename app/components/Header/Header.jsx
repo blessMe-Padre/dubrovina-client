@@ -67,16 +67,16 @@ export default function Header() {
         {
             heading: "УСЛУГИ",
             links: [
-                { text: "Диагностикаке", href: "/" },
-                { text: "Лечение зубов", href: "/" },
-                { text: "Гигиена", href: "/" },
-                { text: "Отбеливание зубов", href: "/" },
-                { text: "Лечение десен", href: "/" },
-                { text: "Зубосохраняющие операции", href: "/" },
-                { text: "Виниры", href: "/" },
-                { text: "Имплантация зубов", href: "/" },
-                { text: "Удаление зубов", href: "/" },
-                { text: "Протезирование", href: "/" },
+                { text: "Диагностикаке", href: "/specialization/diagnostika" },
+                { text: "Лечение зубов", href: "/specialization/lecheniye_zubov" },
+                { text: "Гигиена", href: "/specialization/gigiyena" },
+                { text: "Отбеливание зубов", href: "/specialization/otbelivaniye_zubov" },
+                { text: "Лечение десен", href: "/specialization/lecheniye_desen" },
+                { text: "Зубосохраняющие операции", href: "/specialization/zubosokhranyayushchiye_operatsii" },
+                { text: "Виниры", href: "/specialization/viniry" },
+                { text: "Имплантация зубов", href: "/specialization/implantatsiya" },
+                { text: "Удаление зубов", href: "/specialization/udaleniye_zubov" },
+                { text: "Протезирование", href: "/specialization/protezirovaniye" },
             ],
         },
       
@@ -122,47 +122,47 @@ export default function Header() {
 
         {
             heading: 'Услуги',
-            url: '/',
+            url: '/services',
             sub_menu: [
                 {
                     name: 'Диагностика',
-                    link: '/'
+                    link: '/specialization/diagnostika'
                 },
                 {
                     name: 'Лечение зубов',
-                    link: '/'
+                    link: '/specialization/lecheniye_zubov'
                 },
                 {
                     name: 'Гигиена',
-                    link: '/'
+                    link: '/specialization/gigiyena'
                 },
                 {
                     name: 'Отбеливание зубов',
-                    link: '/'
+                    link: '/specialization/otbelivaniye_zubov'
                 },
                 {
                     name: 'Лечение десен',
-                    link: '/'
+                    link: '/specialization/lecheniye_desen'
                 },
                 {
                     name: 'Зубосохраняющие  операции',
-                    link: '/'
+                    link: '/specialization/zubosokhranyayushchiye_operatsii'
                 },
                 {
                     name: 'Виниры',
-                    link: '/'
+                    link: '/specialization/viniry'
                 },
                 {
                     name: 'Имплантация зубов',
-                    link: '/'
+                    link: '/specialization/implantatsiya'
                 },
                 {
                     name: 'Удаление зубов',
-                    link: '/'
+                    link: '/specialization/udaleniye_zubov'
                 },
                 {
                     name: 'Протезирование',
-                    link: '/'
+                    link: '/specialization/protezirovaniye'
                 },
             ] 
         },
