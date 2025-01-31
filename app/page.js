@@ -28,7 +28,7 @@ export default function Home() {
       <Statistic />
       <Advantages />
       <Specialists />
-      {/* <Specialization /> */}
+      <Specialization />
       <Consultation />
       <Loyalnost />
       <Map />

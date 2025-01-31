@@ -54,13 +54,16 @@ export default function Specialization() {
                     {
                         data?.data?.speczializaczii?.map((item, idx) => {
 
-                            // Проверка на наличие url
                             const imageUrl = item.img_s?.url
                                 ? process.env.NEXT_PUBLIC_DOMAIN + item.img_s.url
                                 : '/path/to/default_placeholder.png';
+
+
+                            const addClass = (idx - 1) % 3 === 0 ? 'addClass' : '';
                             return (
                                 <SpecializationCard
                                     key={idx}
+                                    addClass={addClass}
                                     title={item.title}
                                     img={imageUrl}
                                     id={item.id}
