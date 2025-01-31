@@ -1,19 +1,66 @@
 import React from 'react'
 
-const url = `${process.env.PUBLIC_NEXT_DOMAIN}/api/speczializacziis?`;
+import getData from '@/app/utils/getData';
+import ContentPage from './ContentPage';
 
-export default function page({ params }) {
+const url = `${process.env.NEXT_PUBLIC_DOMAIN}`;
+
+// Этот запрос возращает то что надо
+// http://89.108.115.136:1338/api/speczializaczii?populate[speczializaczii][filters][id][$eq]=138
+
+export async function generateMetadata({ params }) {
     const { slug } = params;
+    let data = null;
+
+    const response = await getData(`${url}/api/speczializaczii?populate[speczializaczii][filters][slug][$eq]=${slug}&populate[speczializaczii][populate]=*`);
+
+    // console.log(response?.data?.speczializaczii);
+
+    // console.log(response?.data?.speczializaczii)
+    data = response?.data?.speczializaczii || null;
+
+    return {
+        title: data[0].Page.meta_title,
+        description: data[0].Page.meta_description,
+    }
+}
+
+export default async function page({ params }) {
+    const { slug } = params;
+
+    let data = null;
+    
+    try {
+        const response = await getData(`${url}/api/speczializaczii?populate[speczializaczii][filters][slug][$eq]=${slug}&populate[speczializaczii][populate]=*`);
+        data = response?.data?.speczializaczii || null;
+        
+    } catch (error) {
+        console.error('Ошибка при загрузке данных:', error);
+    }
 
     if (!page) {
         notFound();
     }
 
     return (
-        <section className='section'>
-            <div className='container'>
-                Специализация с slug = {slug}
-            </div>
-        </section>
+        <ContentPage data={data} />
     )
+}
+
+export async function generateStaticParams() {
+    try {
+        const response = await fetch(`${url}/api/speczializaczii?populate[speczializaczii][fields][0]=slug`);
+
+        const { data } = await response.json();
+
+         // Если данные приходят в старой структуре (без attributes)
+        return data?.data?.speczializaczii?.map((item) => ({
+          slug: item.slug || 'fallback-slug'
+        })) || [];
+    }
+
+     catch (error) {
+        console.error('Ошибка загрузки параметров:', error);
+        return [];
+    }
 }

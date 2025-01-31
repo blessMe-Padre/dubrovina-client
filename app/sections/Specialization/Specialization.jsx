@@ -8,9 +8,11 @@ import { SpecializationCard } from '@/app/components';
 
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
-const url = `${domain}/api/speczializaczii?populate[0]=speczializaczii&populate[1]=speczializaczii.img_s`;
+// const url = `${domain}/api/speczializaczii?populate[0]=speczializaczii&populate[1]=speczializaczii.img_s`;
+const url = `${domain}/api/speczializaczii?populate[speczializaczii][populate][img_s][fields][0]=url`;
 
-const getData = async () => {
+
+async function getData() {
     try {
         const response = await fetch(url, {
             next: {

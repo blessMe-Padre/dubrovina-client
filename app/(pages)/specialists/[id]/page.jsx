@@ -8,6 +8,7 @@ export async function generateMetadata({ params }) {
     let page = null;
     const response = await getData(`${domain}/api/speczialisties?populate=*&filters[id][$eq]=${id}`);
     page = response?.data?.[0] || null;
+    console.log(page)
 
     return {
         title: page.meta_title,
