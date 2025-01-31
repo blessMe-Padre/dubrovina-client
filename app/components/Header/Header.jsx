@@ -55,7 +55,7 @@ export default function Header() {
                 { text: "О клинике", href: "/" },
                 { text: "Цены", href: "/" },
                 { text: "Команда", href: "/specialists" },
-                { text: "Работы", href: "/" },
+                { text: "Работы", href: "/our-works" },
                 { text: "Блог", href: "/" },
                 { text: "Для пациентов", href: "/" },
                 { text: "Для врачей", href: "/" },
@@ -179,7 +179,7 @@ export default function Header() {
 
         {
             heading: 'Работы',
-            url: '/',
+            url: '/our-works',
         },
 
         {

@@ -1,0 +1,9 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("font-size", 24, 13);
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}

@@ -1,0 +1,8 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("font-size", 24, 13);
+
+.title {
+    max-width: 1325px;
+    margin-bottom: 30px;
+}
