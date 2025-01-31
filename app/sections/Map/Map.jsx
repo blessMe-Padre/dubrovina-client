@@ -32,7 +32,6 @@ const Map = () => {
             const data = await getData();
             setData(data);
 
-            console.log(data)
         };
 
         fetchData();

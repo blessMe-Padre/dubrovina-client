@@ -36,7 +36,6 @@ export default function Specialists() {
         const fetchData = async () => {
             const data = await getData();
             setSectionData(data);
-            console.log(data)
 
         };
 

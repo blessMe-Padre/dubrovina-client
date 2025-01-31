@@ -44,7 +44,7 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
             <section className="section">
                 <div>
 
-                    {console.log(data_featured)}
+                    {/* {console.log(data_featured)} */}
                     {data_featured?.map((item, idx) => {
                         return (
                             <li className={styles.featured_item} key={idx}>

@@ -40,7 +40,6 @@ export default function Specialization() {
         const fetchData = async () => {
             const data = await getData();
             setData(data);
-            console.log(data)
         }
 
         fetchData();

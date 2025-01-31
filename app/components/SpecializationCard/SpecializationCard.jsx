@@ -8,7 +8,6 @@ import arrow from '@/public/specialization/arrow.svg';
 
 export default function SpecializationCard({ title, img, href, id, slug, addClass }) {
 
-console.log(addClass)
 
   return (
         <>
