@@ -25,46 +25,26 @@ console.log(addClass)
             )
     
             : (
-                <div className={`${styles.item} ${addClass === 'addClass' ? `${styles.item_black}` : ''}`}>
-                    <p className={`${styles.item_title} ${addClass === 'addClass' ? `${styles.item_title_white}` : ''}`}>{title}</p>
+                <Link href={`/specialization/${slug}`} className={styles.item_wrapper} >
+                    <div className={`${styles.item} ${addClass === 'addClass' ? `${styles.item_black}` : ''}`}>
+                            
+                        <p className={`${styles.item_title} ${addClass === 'addClass' ? `${styles.item_title_white}` : ''}`}>{title}</p>
                         <div className={styles.img_wrapper}>
                             <Image 
                                 src={img ? img : '/placeholder.png'} width={140} height={140} alt='v' 
                                     className={`dsv-image ${styles.img}`} 
                                 />
-                            <Link 
-                                href={`/specialization/${slug}`} 
-                                className={styles.item_link}>
+                            <div className={styles.item_link}>
                                 <Image 
                                     src={arrow} 
                                     className={styles.arrow} alt='arrow' 
                                 />
-                            </Link>
+                            </div>
                         </div>
                     </div>
+                </Link>
             )
-    }   
-            
-
-            {/* <div className={`${styles.item} ${styles.item_black}`}>
-                <p className={`${styles.item_title} ${styles.item_title_white}`}>Диагностика</p>
-                <div className={styles.img_wrapper}>
-                    <Image src={src} alt='v' className={`dsv-image ${styles.img}`} />
-                    <Link href={href} className={styles.item_link}>
-                        <Image src={arrow} className={styles.arrow} alt='arrow' />
-                    </Link>
-                </div>
-            </div>
-
-            <div className={styles.item}>
-                <p className={styles.item_title}>Диагностика</p>
-                <div className={styles.img_wrapper}>
-                    <Image src={src} alt='v' className={`dsv-image ${styles.img}`} />
-                    <Link href={href} className={styles.item_link}>
-                        <Image src={arrow} className={styles.arrow} alt='arrow' />
-                    </Link>
-                </div>
-            </div>  */}
+        }   
         </>
     )
 }
