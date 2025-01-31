@@ -10,6 +10,7 @@ export default function OurWorksCard({ item }) {
             <div className='image_wrapper'>
                 <Image
                     src={imageUrl}
+                    // src={`${process.env.NEXT_PUBLIC_DOMAIN}${item?.image?.url}`}
                     alt='img'
                     width={720}
                     height={600}
