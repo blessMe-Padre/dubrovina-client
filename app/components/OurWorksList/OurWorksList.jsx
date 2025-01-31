@@ -1,10 +1,12 @@
 'use client'
 
+import styles from './style.module.scss';
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import getData from '../../utils/getData';
+import { OurWorksCard } from '@/app/components';
 
-const PER_PAGE = 2; // Количество элементов на странице
+const PER_PAGE = 3; // Количество элементов на странице
 
 export default function OurWorksList() {
     const router = useRouter();
@@ -42,47 +44,42 @@ export default function OurWorksList() {
 
     return (
         <div>
-            <h2>Наши работы</h2>
 
-            {isLoading ? (
-                <p>Загрузка...</p>
-            ) : (
-                <>
-                    {data?.map(work => (
-                        <div key={work.id}>
-                            <h3>{work.title}</h3>
-                            <p>{work.name}</p>
-                        </div>
-                    ))}
+            <ul className={styles.list}>
+                {data?.map((item, index) => (
+                    <li key={index}>
+                        <OurWorksCard item={item}
+                        />
+                    </li>
+                ))}
+            </ul>
+            <div className="pagination">
+                {/* Кнопка "Предыдущая" */}
+                {currentPage > 1 && (
+                    <button className="page-link" onClick={() => handlePageChange(currentPage - 1)}>
+                        Предыдущая
+                    </button>
+                )}
 
-                    <div className="pagination">
-                        {/* Кнопка "Предыдущая" */}
-                        {currentPage > 1 && (
-                            <button className="page-link" onClick={() => handlePageChange(currentPage - 1)}>
-                                Предыдущая
-                            </button>
-                        )}
+                {/* Номера страниц */}
+                {Array.from({ length: totalPages }, (_, index) => (
+                    <button
+                        key={index + 1}
+                        className={`page-link ${currentPage === index + 1 ? 'active' : ''}`}
+                        onClick={() => handlePageChange(index + 1)}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
 
-                        {/* Номера страниц */}
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <button
-                                key={index + 1}
-                                className={`page-link ${currentPage === index + 1 ? 'active' : ''}`}
-                                onClick={() => handlePageChange(index + 1)}
-                            >
-                                {index + 1}
-                            </button>
-                        ))}
+                {/* Кнопка "Следующая" */}
+                {currentPage < totalPages && (
+                    <button className="page-link" onClick={() => handlePageChange(currentPage + 1)}>
+                        Следующая
+                    </button>
+                )}
+            </div>
 
-                        {/* Кнопка "Следующая" */}
-                        {currentPage < totalPages && (
-                            <button className="page-link" onClick={() => handlePageChange(currentPage + 1)}>
-                                Следующая
-                            </button>
-                        )}
-                    </div>
-                </>
-            )}
         </div>
     );
 }
