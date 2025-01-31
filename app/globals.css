@@ -179,3 +179,13 @@ body {
 .swiper-slide {
   height: auto !important;
 }
+
+.image_wrapper {
+  height: 100%;
+}
+
+.image_wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

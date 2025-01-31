@@ -9,3 +9,7 @@ export { default as MenuButton } from './Menu-button/Menu-button'
 export { default as LightForm } from './LightForm/LigthForm';
 export { default as SpecialistCard } from './SpecialistCard/SpecialistCard';
 export { default as SpecializationCard } from './SpecializationCard/SpecializationCard';
+export { default as Breadcrumbs } from './Breadcrumbs/Breadcrumbs';
+export { default as SpecialistList } from './SpecialistList/SpecialistList';
+export { default as OurWorksList } from './OurWorksList/OurWorksList';
+export { default as OurWorksCard } from './OurWorksCard/OurWorksCard';

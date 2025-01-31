@@ -1,0 +1,54 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("font-size", 24, 13);
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    row-gap: 50px;
+
+    @include adaptiv-value("margin-top", 140, 70);
+    @include adaptiv-value("margin-bottom", 50, 30);
+
+    @media (max-width:768px) {
+        row-gap: 30px;
+    }
+
+    @media (max-width:630px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// пагинация
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination_button {
+    height: 30px;
+    width: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.pagination_button svg {
+    height: 30px;
+    width: 44px;
+}
+
+.page_link {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    color: #bdc1c8;
+}
+
+.active {
+    color: #1e1e1e;
+}
