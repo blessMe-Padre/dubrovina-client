@@ -4,12 +4,24 @@
 
 .section {
     padding: 50px 0 70px;
+
+    @media (max-width: 560px) {
+        padding: 30px 0;
+    }
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 70px;
+
+    @media (max-width: 1023px) {
+        gap: 35px;
+    }
+
+    @media (max-width: 560px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .title {
@@ -24,6 +36,14 @@
 
 .image_wrapper {
     max-height: 600px;
+
+    @media (max-width: 1023px) {
+        max-height: 300px;
+    }
+
+    @media (max-width: 560px) {
+        grid-row: 1/2;
+    }
 }
 
 .image_wrapper img {
@@ -34,4 +54,13 @@
 
 .content {
     padding-left: 40px;
+
+    @media (max-width: 1023px) {
+        padding-left: 25px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 0.75em;
+        line-height: 1.2;
+    }
 }
