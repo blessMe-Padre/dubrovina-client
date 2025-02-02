@@ -21,9 +21,6 @@ export default function ContentPage({ data }) {
     const [isLoading, setIsLoading] = useState(true);
     const [popupActive, setPopupActive] = useState(false);
 
-    console.log(data);
-
-
     const imageUrl = pageData?.image?.url ? `${process.env.NEXT_PUBLIC_DOMAIN}${pageData?.image?.url}` : '/placeholders/case.jpg';
 
     useEffect(() => {

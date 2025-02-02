@@ -1,6 +1,7 @@
 import { Breadcrumbs } from '@/app/components';
 import getData from '../../../utils/getData';
 import ContentPage from './ContentPage';
+import { OurWorks } from '@/app/sections';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
@@ -39,6 +40,8 @@ export default async function Page({ params }) {
                 thirdLabel={`Специалист`}
             />
             <ContentPage data={data} />
+
+            <OurWorks />
         </>
     );
 }
