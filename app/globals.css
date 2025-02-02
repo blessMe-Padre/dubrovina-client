@@ -172,7 +172,8 @@ body {
 }
 
 .specialists_wrapper .swiper-wrapper,
-.about_wrapper .swiper-wrapper {
+.about_wrapper .swiper-wrapper,
+.case_wrapper .swiper-wrapper {
   padding-bottom: 80px;
 }
 

@@ -26,9 +26,9 @@ export default async function page({ params }) {
     return (
         <>
             <Breadcrumbs
-                secondLink="/specialists"
+                secondLink="/our-works"
                 secondLabel="работы"
-            // thirdLabel={`Специалист`}
+                thirdLabel={`${data?.title}`}
             />
 
             <ContentPage data={data} />
