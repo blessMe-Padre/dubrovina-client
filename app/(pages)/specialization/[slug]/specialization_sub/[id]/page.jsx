@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
     // const response = await getData(`${domain}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&populate[speczializacziya_cat][populate][speczializacziya_sub][populate]=*`);
     const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-podkategoriya?
 populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&
-populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=80&
+populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&
 populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`)
     page = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
     // console.log(page)
@@ -22,28 +22,10 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
 
 export default async function Page({ params }) {
     const { id } = params;
-
-    let data = ''
-
-    try {
-        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-podkategoriya?
-populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&
-populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=80&
-populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
-
-// console.log(response)
-
-    data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
-
-    console.log(data.title_page);
-
-    } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
-    }
-
+   
     return (
         <>    
-            <ContentPage data={data} />
+            <ContentPage id={id} />
         </>
     )
 
