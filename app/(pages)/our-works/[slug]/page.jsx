@@ -42,8 +42,8 @@ export async function generateStaticParams() {
         const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`);
         const data = await response.json();
 
-        return data.data.map((specialist) => ({
-            id: specialist.id.toString(), // Должен быть `string`
+        return data.data.map((page) => ({
+            slug: page.title_slug.toString(), // Должен быть `string`
         }));
     } catch (error) {
         console.error('Ошибка загрузки параметров:', error);
