@@ -43,22 +43,28 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
             </section> 
 
             <section className="section">
-                <div>
+                <div className="container">
+                    <h2 className="title title--black">
+                        Особенности лечения
+                    </h2>
 
-                    {/* {console.log(data_featured)} */}
-                    {data_featured?.map((item, idx) => {
-                        return (
-                            <li className={styles.featured_item} key={idx}>
-                                <p>
-                                    {item?.Name || 'Имя не задано'}
-                                </p>
+                    <div>
 
-                                <p>
-                                    {item?.desc || 'Описание не задано'}
-                                </p>
-                            </li>
-                        )
-                    })}
+                        {/* {console.log(data_featured)} */}
+                        {data_featured?.map((item, idx) => {
+                            return (
+                                <li className={styles.featured_item} key={idx}>
+                                    <p>
+                                        {item?.Name || 'Имя не задано'}
+                                    </p>
+
+                                    <p>
+                                        {item?.desc || 'Описание не задано'}
+                                    </p>
+                                </li>
+                            )
+                        })}
+                    </div>
                 </div>
             </section>
 

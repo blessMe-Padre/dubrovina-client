@@ -9,7 +9,6 @@ export default async function Price() {
     const pathname = usePathname();
 
     let slug = pathname.split("specialization/")[1]?.split("/")[0] || [null];
-    
 
     let data = '';
 
