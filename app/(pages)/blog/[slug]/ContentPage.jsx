@@ -8,9 +8,6 @@ import ContentRenderer from '../../../components/ContentRenderer/ContentRenderer
 
 export default function ContentPage({ data }) {
     const [pageData, setPageData] = useState(data);
-    console.log(pageData);
-
-
     const imageUrl = pageData?.image?.url ? `${process.env.NEXT_PUBLIC_DOMAIN}${pageData?.image?.url}` : '/placeholders/case.jpg';
 
     return (

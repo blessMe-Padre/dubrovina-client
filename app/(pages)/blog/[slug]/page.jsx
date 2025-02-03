@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import { Breadcrumbs } from '@/app/components';
 import getData from './../../../utils/getData';
 

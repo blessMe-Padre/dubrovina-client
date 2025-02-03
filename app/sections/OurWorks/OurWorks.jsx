@@ -33,7 +33,6 @@ const getSectionData = async () => {
 
 export default function OurWorks() {
     const [sectionData, setSectionData] = useState(null);
-    console.log(sectionData);
 
     useEffect(() => {
         const fetchData = async () => {

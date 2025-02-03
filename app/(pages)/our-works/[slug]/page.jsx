@@ -1,7 +1,5 @@
 
-import Image from 'next/image';
 import { Breadcrumbs } from '@/app/components';
-import styles from './style.module.scss';
 
 import getData from './../../../utils/getData';
 
@@ -17,10 +15,6 @@ export default async function page({ params }) {
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
-    }
-
-    if (!data) {
-        return <h1>Страница не найдена</h1>; // Или можно использовать notFound()
     }
 
     return (
@@ -43,7 +37,7 @@ export async function generateStaticParams() {
         const data = await response.json();
 
         return data.data.map((page) => ({
-            slug: page.title_slug.toString(), // Должен быть `string`
+            slug: page.slug.toString(), // Должен быть `string`
         }));
     } catch (error) {
         console.error('Ошибка загрузки параметров:', error);
