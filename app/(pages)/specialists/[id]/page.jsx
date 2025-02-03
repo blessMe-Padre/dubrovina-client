@@ -49,7 +49,7 @@ export default async function Page({ params }) {
 export async function generateStaticParams() {
 
     try {
-        const response = await fetch(`${domain}/api/speczialisties`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties`);
         const data = await response.json();
 
         return data.data.map((specialist) => ({

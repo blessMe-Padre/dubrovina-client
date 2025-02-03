@@ -35,3 +35,18 @@ export default async function page({ params }) {
         </>
     )
 }
+
+export async function generateStaticParams() {
+
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`);
+        const data = await response.json();
+
+        return data.data.map((specialist) => ({
+            id: specialist.id.toString(), // Должен быть `string`
+        }));
+    } catch (error) {
+        console.error('Ошибка загрузки параметров:', error);
+        return []; // В случае ошибки вернем пустой массив
+    }
+}
