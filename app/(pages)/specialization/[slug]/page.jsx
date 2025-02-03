@@ -36,7 +36,12 @@ export default async function page({ params }) {
         // const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_sub][filters][slug][$eq]=${slug}&populate[speczializacziya_sub][populate]=*`)
         // const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][id][$eq]=7&populate[speczializacziya_cat][populate][speczializacziya_sub][filters][slug][$eq]=${slug}`)
         // http://89.108.115.136:1338/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][id][$eq]=7&populate[speczializacziya_cat][populate]=*
-        const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&populate[speczializacziya_cat][populate]=*`)
+
+      //  const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&populate[speczializacziya_cat][populate]=*`)
+
+        const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=${slug}&populate[speczializacziya_cat][populate]=*`)
+        // console.log(response_sub);
+
         data_sub = response_sub?.data?.speczializacziya_cat[0].speczializacziya_sub || null
 
         const response_featured = await getData(`${url}/api/speczializaczii-osobennosti?populate[speczializacziya_feauture][filters][slug][$eq]=${slug}&populate[speczializacziya_feauture][populate]=*`)
