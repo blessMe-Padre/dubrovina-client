@@ -1,16 +1,27 @@
 
 import { Breadcrumbs } from '@/app/components';
-
 import getData from './../../../utils/getData';
 
 import ContentPage from './ContentPage';
+
+export async function generateMetadata({ params }) {
+    const { slug } = params;
+    let page = null;
+    const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/statis?populate=*&filters[title_slug][$eq]=${slug}`);
+    page = response?.data?.[0] || null;
+
+    return {
+        title: `Клиника "Доктора Дубровиной" | Блог - ${page?.meta_title || ''}`,
+        description: page?.meta_description || '',
+    };
+}
 
 export default async function page({ params }) {
     const { slug } = params;
 
     let data = null;
     try {
-        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties?populate=*&filters[slug][$eq]=${slug}`);
+        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/statis?populate=*&filters[title_slug][$eq]=${slug}`);
         data = response?.data?.[0] || null;
 
     } catch (error) {
@@ -20,8 +31,8 @@ export default async function page({ params }) {
     return (
         <>
             <Breadcrumbs
-                secondLink="/our-works"
-                secondLabel="работы"
+                secondLink="/blog"
+                secondLabel="блог"
                 thirdLabel={`${data?.title}`}
             />
 
@@ -33,11 +44,11 @@ export default async function page({ params }) {
 export async function generateStaticParams() {
 
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/statis`);
         const data = await response.json();
 
         return data.data.map((page) => ({
-            slug: page.slug.toString(), // Должен быть `string`
+            slug: page.title_slug.toString(), // Должен быть `string`
         }));
     } catch (error) {
         console.error('Ошибка загрузки параметров:', error);

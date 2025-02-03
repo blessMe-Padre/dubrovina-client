@@ -170,30 +170,6 @@ export default function ContentPage({ data }) {
                                         <p>данные не заполнены</p>
                                     )}
 
-                                    <SwiperSlide>
-                                        <div className={styles.image_slide}>
-                                            <a
-                                                href='/remove_from_server/sert-1.png'
-                                                data-pswp-width={292}
-                                                data-pswp-height={449}
-                                                key={'#main-gallery' + '-' + 1}
-                                                target='_blank'
-                                                rel="noreferrer"
-                                                className={`${styles.img_wrapper} dsv-image`}
-                                            >
-                                                <Image
-                                                    src='/remove_from_server/sert-1.png'
-                                                    alt='Dubrovina logo'
-                                                    width={292}
-                                                    height={449}
-                                                    className="dsv-image"
-                                                    placeholder="blur"
-                                                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MiIgaGVpZ2h0PSIxMTg5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNjY2MiIC8+PC9zdmc+" priority
-                                                />
-                                            </a>
-                                        </div>
-                                    </SwiperSlide>
-
                                     <SwiperNavButtons
                                         addClass={'buttons_bottom'}
                                     />

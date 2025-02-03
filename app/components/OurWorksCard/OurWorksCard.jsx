@@ -26,7 +26,7 @@ export default function OurWorksCard({ item }) {
                         <h3 className={styles.badge_title}>{item.title}</h3>
                         <p className={styles.badge_name}>{item.name}</p>
                     </div>
-                    <Link className={styles.button} data-text='подробнее' href={'/'}>
+                    <Link className={styles.button} data-text='подробнее' href={`/our-works/${item?.slug}`}>
                         <span className={styles.text}>подробнее</span>
                     </Link>
                 </div>

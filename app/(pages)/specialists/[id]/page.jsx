@@ -1,6 +1,7 @@
 import { Breadcrumbs } from '@/app/components';
 import getData from '../../../utils/getData';
 import ContentPage from './ContentPage';
+import { OurWorks } from '@/app/sections';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
@@ -9,7 +10,6 @@ export async function generateMetadata({ params }) {
     let page = null;
     const response = await getData(`${domain}/api/speczialisties?populate=*&filters[id][$eq]=${id}`);
     page = response?.data?.[0] || null;
-    // console.log(page)
 
     return {
         title: page.meta_title,
@@ -39,6 +39,8 @@ export default async function Page({ params }) {
                 thirdLabel={`Специалист`}
             />
             <ContentPage data={data} />
+
+            <OurWorks />
         </>
     );
 }
@@ -46,7 +48,7 @@ export default async function Page({ params }) {
 export async function generateStaticParams() {
 
     try {
-        const response = await fetch(`${domain}/api/speczialisties`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties`);
         const data = await response.json();
 
         return data.data.map((specialist) => ({

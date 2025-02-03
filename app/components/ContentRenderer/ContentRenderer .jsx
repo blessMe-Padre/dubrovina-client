@@ -7,7 +7,7 @@ const renderContent = (content) => {
             case 'heading':
                 const HeadingTag = `h${item.level}`;
                 return (
-                    <HeadingTag key={index}>
+                    <HeadingTag key={index} className={styles.title}>
                         {item.children.map((child, childIndex) => (
                             <React.Fragment key={childIndex}>
                                 {renderContent([child])}
@@ -48,6 +48,20 @@ const renderContent = (content) => {
                 );
             case 'text':
                 return <React.Fragment key={index}>{item.text}</React.Fragment>;
+            case 'image':
+                return (
+                    <div className={styles.imageWrapper} key={index}>
+                        <a href={item.image.url} target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={item.image.url}
+                                alt={item.image.alternativeText || "image"}
+                                width={item.image.width || 500}
+                                height={item.image.height || 300}
+                                loading="lazy"
+                            />
+                        </a>
+                    </div>
+                );
             default:
                 return null;
         }

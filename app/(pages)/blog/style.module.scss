@@ -1,0 +1,213 @@
+@import '@/app/mixins';
+// @include adaptiv-value("font-size", 24, 13);
+
+.section {
+    padding: 60px 0;
+
+    @media (max-width: 560px) {
+        padding: 30px 0;
+    }
+}
+
+.button {
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    @include adaptiv-value("font-size", 16, 12);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #aeb5c3;
+    border: 1px solid #aeb5c3;
+    padding: 10px 30px;
+    cursor: pointer;
+
+    @media (max-width: 500px) {
+        font-size: 10px;
+        padding: 10px 20px;
+    }
+}
+
+.active {
+    color: var(--text-white);
+    background-color: var(--black);
+}
+
+
+.filters_list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    @include adaptiv-value("margin-bottom", 50, 30);
+
+    @media (max-width: 500px) {
+        row-gap: 10px;
+    }
+}
+
+.article_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+
+    @media (max-width: 700px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.page_content {
+    max-width: 1000px;
+    margin: 0 auto;
+    @include adaptiv-value("margin-top", 100, 50);
+    @include adaptiv-value("margin-bottom", 70, 30);
+}
+
+.hero {
+    margin-top: 20px;
+    position: relative;
+    min-height: 700px;
+
+    @media (max-width: 768px) {
+        min-height: 400px;
+    }
+}
+
+.hero_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    min-height: 700px;
+
+    @media (max-width: 768px) {
+        min-height: 400px;
+    }
+}
+
+.hero_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+}
+
+.hero_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title {
+    font-weight: 600;
+    @include adaptiv-value("font-size", 50, 28);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-white);
+}
+
+.category {
+    display: inline-flex;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 1.125em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-black);
+    padding: 10px 30px;
+    background-color: var(--white);
+}
+
+.hero_text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 400;
+    @include adaptiv-value("font-size", 18, 14);
+    line-height: 1.3;
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.article {
+    position: relative;
+    @include adaptiv-value("height", 631, 320);
+}
+
+.article_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 0 0 0;
+    height: 100%;
+    align-items: flex-start;
+}
+
+.image_wrapper {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.image_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article_category {
+    font-weight: 600;
+    @include adaptiv-value("font-size", 18, 14);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-white);
+    padding: 11px 55px;
+    background-color: var(--black);
+    display: inline-flex;
+    flex: 0 0 auto;
+}
+
+.article_block {
+    backdrop-filter: blur(200px);
+    background: #eaecf0;
+    padding: 20px;
+    @include adaptiv-value("margin-left", 40, 20);
+    @include adaptiv-value("margin-right", 40, 20);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+
+    min-height: 157px;
+    width: 85%;
+
+    @media (max-width: 700px) {
+        min-height: 120px;
+    }
+}
+
+.article_title {
+    font-weight: 600;
+    @include adaptiv-value("font-size", 18, 14);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-black);
+}
+
+.article_date {
+    @include adaptiv-value("font-size", 18, 14);
+    color: #bdc1c8;
+}

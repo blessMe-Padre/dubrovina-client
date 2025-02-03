@@ -29,6 +29,31 @@
     z-index: 1;
 }
 
+.buttons_bottom_left {
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    right: auto;
+    left: 20px;
+    margin: 0 auto;
+    /* transform: translateX(50%); */
+    z-index: 1;
+}
+
+@media (max-width: 560px) {
+    .buttons_bottom_left {
+        position: absolute;
+        top: auto;
+        bottom: 10px;
+        left: auto;
+        right: 50%;
+        margin: 0 auto;
+        transform: translateX(50%);
+        z-index: 1;
+    }
+}
+
+
 .swiper_nav_btns button,
 .swiper_nav_btns button svg,
 .swiper_nav_btns button path,
