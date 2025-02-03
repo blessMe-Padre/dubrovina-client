@@ -13,3 +13,4 @@ export { default as Breadcrumbs } from './Breadcrumbs/Breadcrumbs';
 export { default as SpecialistList } from './SpecialistList/SpecialistList';
 export { default as OurWorksList } from './OurWorksList/OurWorksList';
 export { default as OurWorksCard } from './OurWorksCard/OurWorksCard';
+export { default as LinkButton } from './LinkButton/LinkButton';

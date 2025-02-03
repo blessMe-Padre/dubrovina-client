@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 
 import styles from './style.module.scss';
-import Image from 'next/image';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'
@@ -11,7 +10,8 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import SwiperNavButtons from '@/app/components/SwiperNavButtons/SwiperNavButtons';
-import { OurWorksCard, SpecialistCard } from '@/app/components';
+import { OurWorksCard } from '@/app/components';
+import LinkButton from '@/app/components/LinkButton/LinkButton';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/nashi-raboties?populate=*`;
@@ -38,6 +38,7 @@ export default function OurWorks() {
     useEffect(() => {
         const fetchData = async () => {
             const data = await getSectionData();
+            // получает 4 случайных работы 
             const shuffledData = data?.data.sort(() => 0.5 - Math.random()).slice(0, 4);
             setSectionData(shuffledData);
         };
@@ -66,9 +67,16 @@ export default function OurWorks() {
                         ))}
 
                         <SwiperNavButtons
-                            addClass={'buttons_bottom'}
+                            addClass={'buttons_bottom_left'}
                         />
+
                     </Swiper>
+                    <LinkButton
+                        link='/our-works'
+                        text="Посмотреть все работы"
+                        color="black"
+                        position="absolute"
+                    />
                 </div>
             </div>
         </section>

@@ -178,6 +178,21 @@ body {
   padding-bottom: 80px;
 }
 
+
+@media (max-width: 560px) {
+
+  .specialists_wrapper .swiper-wrapper,
+  .about_wrapper .swiper-wrapper,
+  .works_wrapper .swiper-wrapper,
+  .case_wrapper .swiper-wrapper {
+    padding-bottom: 60px;
+  }
+}
+
+.works_wrapper {
+  position: relative;
+}
+
 .swiper-slide {
   height: auto !important;
 }
