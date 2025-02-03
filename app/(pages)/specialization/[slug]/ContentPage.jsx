@@ -4,6 +4,7 @@ import src from '@/public/services-sub/bg.png';
 import { Form } from "@/app/components";
 
 import Link from "next/link";
+import { Price } from "@/app/sections";
 
 export default function PageContent({ data, data_sub, slug, data_featured }) {
 
@@ -60,6 +61,8 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
                     })}
                 </div>
             </section>
+
+            <Price />
 
             
         </>

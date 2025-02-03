@@ -3,9 +3,10 @@ import { usePathname } from "next/navigation";
 import Image from "next/image"
 import styles from './style.module.scss';
 import src from '@/public/services-sub/bg2.png';
-import { Form } from "@/app/components";
 
 import getData from "@/app/utils/getData";
+import ContentRenderer from "@/app/components/ContentRenderer/ContentRenderer ";
+import { Price } from "@/app/sections";
 
 
 
@@ -25,7 +26,7 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
 
     data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
 
-    // console.log(data.title_page);
+    console.log(data);
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
@@ -51,12 +52,35 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
                 <div className="container">
                     <h2 className="title title--black">Что представляет собой заболевание?</h2>
                     <div>
-                        {/* {data.about_the_disease[0].map((item, idx) => {
-                            console.log(item)
-                        })} */}
+                        {data?.about_the_disease?.length > 0 ? (
+                            data.about_the_disease.map((item, idx) => (
+                                <ContentRenderer key={idx} content={[item]} />
+                            ))
+                        ) : (
+                        <p>Нет данных для отображения</p>
+                        )}
                     </div>
                 </div>
             </section>
+
+
+             
+            <section className="section">
+                <div className="container">
+                    <h2 className="title title--black">как проходит лечение?</h2>
+                    <div>
+                        {data?.about_the_disease?.length > 0 ? (
+                            data.how_is_the_treatment_going.map((item, idx) => (
+                                <ContentRenderer key={idx} content={[item]} />
+                            ))
+                            ) : (
+                            <p>Нет данных для отображения</p>
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            <Price />
         </>
     )
 }

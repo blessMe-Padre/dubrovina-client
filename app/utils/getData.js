@@ -10,7 +10,7 @@ const getData = async (url) => {
         const result = await res.json();
         return result;
     } catch (error) {
-        console.error("Ошибка при загрузке меню:", error);
+        console.error("Ошибка при загрузке данных:", error);
         return [];
     }
 };
