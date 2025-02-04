@@ -11,6 +11,8 @@ import src_2 from '@/public/services/bg_2.png';
 import src_3 from '@/public/services/bg_3.png';
 import pattern_2 from '@/public/services/“.png';
 
+import { Breadcrumbs } from "@/app/components";
+
 import { Sertificat, Loyalnost, Consultation, Specialization } from "@/app/sections";
 
 export default function PageContent() {
@@ -34,7 +36,11 @@ export default function PageContent() {
     
     return (
         <>
-      
+
+            <Breadcrumbs
+                secondLink="/services"
+                secondLabel="Услуги"
+            />
             <section className="section">
                 <div>
                     <Image src={src} alt="bg" className={styles.bg} width={1920} height={600} />

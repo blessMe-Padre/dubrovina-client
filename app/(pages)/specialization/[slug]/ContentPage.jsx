@@ -1,7 +1,5 @@
-import Image from "next/image"
 import styles from './style.module.scss';
-import src from '@/public/services-sub/bg.png';
-import { Form } from "@/app/components";
+import { Breadcrumbs, Form } from "@/app/components";
 
 import Link from "next/link";
 import { Price } from "@/app/sections";
@@ -13,16 +11,21 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
 
     return (
         <>
-            <section className='relative'>
-                <Image src={src} className={styles.bg} alt="bg" width={1400} height={900} />
+            <Breadcrumbs
+                secondLink="/services"
+                secondLabel="Услуги"
+                thirdLabel={title}          
+            />
+            
+            <section className={styles.section}>
                 <div className='container'>
                     <div className={styles.info}>
                         <h2 className="title">{title}</h2>
                         <p className={styles.subtitle}>{desc}</p>
 
-                        {/* <div className={styles.form_wrapper}>
-                            <Form />
-                            </div> */}
+                        <div className={styles.form_wrapper}>
+                            <Form direction={'row'} blur={'yes'} />
+                        </div> 
                     </div>
                 </div>    
             </section> 
@@ -49,8 +52,6 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
                     </h2>
 
                     <div>
-
-                        {/* {console.log(data_featured)} */}
                         {data_featured?.map((item, idx) => {
                             return (
                                 <li className={styles.featured_item} key={idx}>

@@ -1,12 +1,11 @@
 'use client'
 import { usePathname } from "next/navigation";
-import Image from "next/image"
 import styles from './style.module.scss';
-import src from '@/public/services-sub/bg2.png';
 
 import getData from "@/app/utils/getData";
-import ContentRenderer from "@/app/components/ContentRenderer/ContentRenderer ";
+// import ContentRenderer from "@/app/components";
 import { Price } from "@/app/sections";
+import { Breadcrumbs, ContentRenderer } from "@/app/components";
 
 
 
@@ -37,9 +36,12 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
     return (
 
         <>
-            <section className="section">
-                <Image src={src} className={styles.bg} alt="bg" width={1400} height={500} />
-
+            <Breadcrumbs
+                secondLink="/services"
+                secondLabel="Услуги"
+                thirdLabel={data.title_page}          
+            />
+            <section className={styles.section}>
                 <div className="container">
                     <div className={styles.info}>  
                         <h2 className='title'>{data.title_page}</h2>

@@ -52,8 +52,8 @@ export default function Header() {
         {
             heading: "ДЛЯ ВАС",
             links: [
-                { text: "О клинике", href: "/" },
-                { text: "Цены", href: "/" },
+                { text: "О клинике", href: "/about_clinic" },
+                { text: "Цены", href: "/price" },
                 { text: "Команда", href: "/specialists" },
                 { text: "Работы", href: "/our-works" },
                 { text: "Блог", href: "/blog" },
@@ -67,7 +67,7 @@ export default function Header() {
         {
             heading: "УСЛУГИ",
             links: [
-                { text: "Диагностикаке", href: "/specialization/diagnostika" },
+                { text: "Диагностика", href: "/specialization/diagnostika" },
                 { text: "Лечение зубов", href: "/specialization/lecheniye_zubov" },
                 { text: "Гигиена", href: "/specialization/gigiyena" },
                 { text: "Отбеливание зубов", href: "/specialization/otbelivaniye_zubov" },

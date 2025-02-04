@@ -68,8 +68,7 @@ const renderContent = (content) => {
     });
 };
 
-const ContentRenderer = ({ content }) => {
+export default function ContentRenderer({ content }) {
     return <div>{renderContent(content)}</div>;
 };
 
-export default ContentRenderer;

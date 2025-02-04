@@ -47,7 +47,6 @@ export default async function page({ params }) {
 
         const response_featured = await getData(`${url}/api/speczializaczii-osobennosti?populate[speczializacziya_feauture][filters][slug][$eq]=${slug}&populate[speczializacziya_feauture][populate]=*`)
         data_featured = response_featured?.data?.speczializacziya_feauture[0].speczializacziya_feauture_single || null
-        // lecheniye_zubov
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);

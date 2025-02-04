@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import styles from './style.module.css';
 import { useState } from 'react';
 
-export const Form = ({ setActive }) => {
+export const Form = ({ direction, blur }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState();
@@ -40,27 +40,32 @@ export const Form = ({ setActive }) => {
 
     return (
         <form
-            className={styles.form}
+            className={`
+            ${styles.form} 
+            ${direction === 'row' ? `${styles.row}` : ''}
+            ${blur === 'yes' ? `${styles.blur}` : ''} `}
             onSubmit={handleSubmit(onSubmit)}
         >
-            <p className={styles.form__title}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
+            <p className={`${styles.form__title} ${direction === 'row' ? `${styles.hidden}` : ''}`}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
 
-            <div className={styles.input_wrapper}>
+            <div className={`${styles.input_wrapper} ${direction === 'row' ? `${styles.input_wrapper_custom}` : ''}`}>
                 <input
                     placeholder='Введите имя'
                     {...register('name', { required: { value: true, message: 'Введите имя' } })}
                     error={errors.name}
-                    className={`${styles.form__input} ${errors.name ? styles.error : ''}`}
+                    className={`${styles.form__input} ${errors.name ? styles.error : ''}
+                    ${direction === 'row' ? `${styles.input_custom}` : ''}`}
                     type='text'
                 />
                 <div className={styles.input_text_error}>{errors['name'] && errors['name'].message}</div>
             </div>
-            <div className={styles.input_wrapper}>
+            <div className={`${styles.input_wrapper} ${direction === 'row' ? `${styles.input_wrapper_custom}` : ''}`}>
                 <input
                     placeholder='Введите телефон'
                     {...register('contact-data', { required: { value: true, message: 'Введите телефон' } })}
                     error={errors.name}
-                    className={`${styles.form__input} ${errors['contact-data'] ? styles.error : ''}`}
+                    className={`${styles.form__input} ${errors['contact-data'] ? styles.error : ''}
+                    ${direction === 'row' ? `${styles.input_custom}` : ''}`}
                     type='text'
                 />
                 <div className={styles.input_text_error}>{errors['contact-data'] && errors['contact-data'].message}</div>
@@ -77,7 +82,7 @@ export const Form = ({ setActive }) => {
             }
 
 
-            <button className={styles.form__btn__submit}>
+            <button className={`${styles.form__btn__submit} ${blur === 'yes' ? `${styles.white}` : ''}`}>
                 <p>Записаться</p>
 
 
@@ -93,7 +98,7 @@ export const Form = ({ setActive }) => {
 
             </button>
 
-            <div className={styles.form__policy}>
+            <div className={`${styles.form__policy} ${direction === 'row' ? `${styles.absolute}` : ''}`}>
                 <p className={styles.policy_text}>
                     *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#BDC1C8'}} href='/'>согласие на обработку персональных данных</a></p>
             </div >
