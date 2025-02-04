@@ -12,6 +12,130 @@
     }
 }
 
+
+
+.section_second {
+    @include adaptiv-value("padding-top", 120, 60);
+    @include adaptiv-value("padding-bottom", 120, 60);
+    background-color: var(--gray_light);
+
+    @media (max-width: 768px) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+.wrapper_info {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    margin: -10% auto;
+
+    max-width: 1000px;
+
+    @include adaptiv-value("padding", 60, 30);
+
+    background-color: rgba(218, 221, 226, 0.4);
+
+    backdrop-filter: blur(20px);
+    background: rgba(141, 135, 135, 0.05);
+    overflow: hidden;
+    
+
+    @media (max-width: 680px) {
+        padding: 20px;
+        margin: -10% 5%;
+    }
+}
+
+
+
+
+.featured_item {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.feautured_bg {
+    width: 100%;
+    object-fit: cover;
+}
+
+.count {
+    @include adaptiv-value("font-size", 30, 17);
+    @include adaptiv-value("padding", 30, 15);
+
+    border-radius: 50%;
+    position: relative;
+    /* Для позиционирования псевдоэлементов */
+    width: max-content;
+    background: var(--gray_light);
+    /* Прозрачный фон */
+}
+
+/* Псевдоэлемент для градиентной границы */
+.count::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    /* Смещение для компенсации толщины границы */
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    /* Закругленные углы */
+    background: linear-gradient(to right,
+            rgba(39, 39, 42, 1),
+            rgba(218, 221, 226, 1));
+    /* Градиент */
+    z-index: -1;
+    /* Помещаем под основной элемент */
+}
+
+/* Маскирование внутренней части, чтобы градиент был только на границе */
+.count::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: transparent;
+    /* Прозрачный фон */
+    border: 1px solid transparent;
+    /* Толщина границы */
+    z-index: -1;
+    /* Помещаем под основной элемент */
+}
+
+.item_title {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px;
+    
+    @include adaptiv-value("font-size", 20, 12);
+
+    @media (max-width: 680px) {
+        font-size: 1rem;
+    }
+
+}
+
+.item_desc {
+    font-weight: 500;
+    @include adaptiv-value("font-size", 18, 10);
+
+    @media (max-width: 680px) {
+            font-size: 0.75rem;
+    }
+}
+
 .info {
     position: relative;
     z-index: 2;
@@ -31,6 +155,13 @@
     @media screen and (max-width: 580px) {
         padding: 40px 0;
     }
+}
+
+.arrow {
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    right: 20px;
 }
 
 .subtitle {
@@ -70,6 +201,7 @@
 
 
 .specialization_sub_item {
+    position: relative;
     background-color: var(--black);
 
     padding: 40px 50px;

@@ -1,8 +1,13 @@
 'use client';
 
+import pattern_2 from '@/public/services/“.png';
 import { usePathname } from "next/navigation";
+import styles from './style.module.scss';
+import Image from 'next/image';
+import src from '@/public/icons/rubl.svg';
 
 import getData from "@/app/utils/getData"
+import Link from 'next/link';
 
 export default async function Price() {
 
@@ -29,8 +34,8 @@ export default async function Price() {
                     стоимость лечения
                 </h2>
 
-                <div>
-                    <div>
+                <div className={styles.text_wrapper}>
+                    <div className={styles.text_content}>
 
                         <p> 
                             Стоимость лечения в каждом конкретном клиническом случае можно определить только после осмотра, анализа и диагностики проблемы. 
@@ -46,37 +51,48 @@ export default async function Price() {
                         </p>
                     </div>
 
-                    <div>
-                        <p>
+                    <div className={styles.item_custom_border}>
+                        <Image src={pattern_2} width={50} height={50} alt='' />
+                        <p className={styles.text_custom}>
                             Слова "цена" и "ценность" хоть и однокоренные, но очень различны по смыслу. Так вот ценность наших работ и результатов в лечении во много раз превышает их цену.
                         </p>
                     </div>
                 </div>
 
-                <div>
+                <div className={styles.price_wrapper}>
                      {data.map((item, idx) => (
-                        <div key={idx}>
-                        
-                            <p>
-                                {item.title}
-                            </p>
+                        <div key={idx} className={styles.price_wrapper_wrapper}>
+                            {item?.speczializacziya_sub_price_item.map((price, price_index) => (
+                                <div className={styles.price_item} key={price_index}>
+                                    <p className={styles.price_title}>
+                                        {price.Name}
+                                    </p>
 
-                            <div>
-                                {item?.speczializacziya_sub_price_item.map((price, price_index) => (
-                                    <div key={price_index}>
-                                        <p>
-                                            {price.Name}
-                                        </p>
-
-                                        <p>
-                                            {price.Price}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
+                                    <p className={styles.price_count}>
+                                        {price.Price}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     ))}
                 </div>
+
+                <div className={styles.info_price}>
+                    <div className={styles.info_price_wrapper}>
+                        <Image src={src} width={50} height={50} alt='' className={styles.rubl} />
+
+                        <p className={styles.price_rubl}>
+                            Ознакомиться с полным подробным прейскурантом <br /> вы можете на странице "Для пациентов"
+                        </p>
+                    </div>
+
+                    <Link href={'/'} className={styles.price_link}>
+                        Перейти
+                    </Link>
+
+                </div>
+
+
             </div>
         </section>
     )
