@@ -1,5 +1,7 @@
 import styles from './style.module.scss';
-
+import Image from 'next/image';
+import Link from 'next/link';
+import src from '@/public/icons/rubl.svg';
 
 export default function PriceInfo() {
     return (

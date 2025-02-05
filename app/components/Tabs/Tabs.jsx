@@ -1,12 +1,9 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react"
 import styles from './style.module.scss';
 import Image from "next/image";
-
-import tab_btn from '@/public/icons/tab_btn.svg';
-
 
 import { motion } from 'framer-motion';
 

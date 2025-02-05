@@ -1,13 +1,9 @@
 'use client';
-
 import pattern_2 from '@/public/services/“.png';
 import { usePathname } from "next/navigation";
 import styles from './style.module.scss';
 import Image from 'next/image';
-import src from '@/public/icons/rubl.svg';
-
 import getData from "@/app/utils/getData"
-import Link from 'next/link';
 import { PriceInfo } from '@/app/components';
 
 export default async function Price() {

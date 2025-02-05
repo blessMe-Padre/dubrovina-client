@@ -1,17 +1,9 @@
 import getData from "@/app/utils/getData";
 import styles from './style.module.scss';
-
 import Image from "next/image";
 import pattern_2 from '@/public/services/“.png';
-import src from '@/public/icons/rubl.svg';
-import Link from "next/link";
-
-
 import { PriceInfo, Tabs } from "@/app/components";
-
-
 import { Breadcrumbs } from "@/app/components";
-
 
 export default async function PageContent() {
     let data = '';
