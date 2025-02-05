@@ -95,6 +95,10 @@
     width: 100%;
 }
 
+.input_wrapper_custom input::placeholder {
+    color: var(--text-white) !important;
+}
+
 .input_text_error {
     position: absolute;
     bottom: 5px;
