@@ -26,10 +26,8 @@ populate[speczializacziya_cat][filters][slug][$eq]=${slug}&
 populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&
 populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
 
-    data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
-
-    console.log(data);
-
+        data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
+        
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
@@ -80,8 +78,6 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
                             data.how_is_the_treatment_going.map((item, idx) => {
                                 let count = 0;
                                 idx++;
-
-                                console.log(`МОЙ ТЕКУЩИЙ ОБЪЕКТ: ${item}`)
                                 return (
                                     <ContentRenderer key={idx} content={[item]} />
                                 )

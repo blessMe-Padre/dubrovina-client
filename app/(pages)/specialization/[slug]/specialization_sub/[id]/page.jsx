@@ -11,7 +11,6 @@ populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&
 populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&
 populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`)
     page = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
-    // console.log(page)
 
     return {
         title: page.meta_title,

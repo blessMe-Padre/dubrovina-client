@@ -11,8 +11,6 @@ export default async function PageContent() {
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-czena?populate[speczializacziya_sub_price][populate][speczializacziya_sub_price_item]=*`);
         data = response?.data?.speczializacziya_sub_price || null;
 
-        // console.log(data)
-
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }

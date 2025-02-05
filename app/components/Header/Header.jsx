@@ -169,7 +169,7 @@ export default function Header() {
 
         {
             heading: 'Цены',
-            url: '/',
+            url: '/price',
         },
 
         {

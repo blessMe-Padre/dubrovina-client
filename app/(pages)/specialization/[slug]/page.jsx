@@ -40,8 +40,6 @@ export default async function page({ params }) {
       //  const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=lecheniye_zubov&populate[speczializacziya_cat][populate]=*`)
 
         const response_sub = await getData(`${url}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=${slug}&populate[speczializacziya_cat][populate]=*`)
-        // console.log(response_sub);
-
         data_sub = response_sub?.data?.speczializacziya_cat[0].speczializacziya_sub || null
 
 
