@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './style.module.css';
-export default function VideoSection() {
+export default function VideoSection({all_width}) {
 
     const handleClick = () => {
         const video = document.querySelector('.video');
@@ -16,7 +16,7 @@ export default function VideoSection() {
     }
 
     return (
-        <div className="container video_container">
+        <div className={`${all_width === true ? '' : 'container'} video_container`}>
             <div className={styles.video}>
                 <video preload="metadata" poster="./video/poster.webp"
                     className="video">

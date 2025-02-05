@@ -117,7 +117,7 @@ export default function Header() {
     const main_links = [
         {
             heading: 'О клинике',
-            url: '/'
+            url: '/about_clinic'
         },
 
         {
