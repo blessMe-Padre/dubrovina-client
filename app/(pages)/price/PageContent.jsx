@@ -7,7 +7,7 @@ import src from '@/public/icons/rubl.svg';
 import Link from "next/link";
 
 
-import { Tabs } from "@/app/components";
+import { PriceInfo, Tabs } from "@/app/components";
 
 
 import { Breadcrumbs } from "@/app/components";
@@ -72,20 +72,7 @@ export default async function PageContent() {
                             <Tabs data={data} />
 
                         
-                        <div className={styles.info_price}>
-                            <div className={styles.info_price_wrapper}>
-                                <Image src={src} width={50} height={50} alt='' className={styles.rubl} />
-
-                                <p className={styles.price_rubl}>
-                                    Ознакомиться с полным подробным прейскурантом <br /> вы можете на странице "Для пациентов"
-                                </p>
-                            </div>
-
-                            <Link href={'/'} className={styles.price_link}>
-                                Перейти
-                            </Link>
-
-                        </div>
+                       <PriceInfo />
                     </div>
                 </div>
             </section>

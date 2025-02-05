@@ -8,6 +8,7 @@ import src from '@/public/icons/rubl.svg';
 
 import getData from "@/app/utils/getData"
 import Link from 'next/link';
+import { PriceInfo } from '@/app/components';
 
 export default async function Price() {
 
@@ -77,20 +78,7 @@ export default async function Price() {
                     ))}
                 </div>
 
-                <div className={styles.info_price}>
-                    <div className={styles.info_price_wrapper}>
-                        <Image src={src} width={50} height={50} alt='' className={styles.rubl} />
-
-                        <p className={styles.price_rubl}>
-                            Ознакомиться с полным подробным прейскурантом <br /> вы можете на странице "Для пациентов"
-                        </p>
-                    </div>
-
-                    <Link href={'/'} className={styles.price_link}>
-                        Перейти
-                    </Link>
-
-                </div>
+                <PriceInfo />
 
 
             </div>

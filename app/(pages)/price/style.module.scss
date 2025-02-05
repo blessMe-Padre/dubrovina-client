@@ -135,36 +135,3 @@
     }
     
 }
-
-
-.info_price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    
-    padding: 25px;
-
-    background-color: var(--text-black);
-}
-
-
-.price_link {
-    padding: 20px;
-    width: 190px;
-    text-align: center;
-    color: var(--text-black);
-    text-transform: uppercase;
-
-    background-color: var(--white);
-}
-
-.info_price_wrapper {
-    display: flex;
-    align-items: center;
-    
-    gap: 20px;
-
-    color: var(--text-white);
-
-}
