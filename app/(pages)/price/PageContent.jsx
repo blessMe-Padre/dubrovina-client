@@ -1,4 +1,14 @@
 import getData from "@/app/utils/getData";
+import styles from './style.module.scss';
+
+import Image from "next/image";
+import pattern_2 from '@/public/services/“.png';
+import src from '@/public/icons/rubl.svg';
+import Link from "next/link";
+
+
+import { Tabs } from "@/app/components";
+
 
 import { Breadcrumbs } from "@/app/components";
 
@@ -8,8 +18,9 @@ export default async function PageContent() {
 
      try {
         // Тут я получаю весь объект 
-        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-czena?populate[speczializacziya_sub_price][populate][speczializacziya_sub_price_item]=*`);
-        data = response?.data?.speczializacziya_sub_price || null;
+        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-czena?populate[speczializacziya_sub_price][populate][speczializacziya_sub_price_item]=*&populate[speczializacziya_sub_price][populate]=img`);
+         data = response?.data?.speczializacziya_sub_price || null;
+         console.log(data);
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
@@ -26,60 +37,55 @@ export default async function PageContent() {
                 <div className="container">
                     <div>
                         <h2 className="title title--black">
-                            стоимость лечения
+                            цены на услуги
                             
                         </h2>
 
-                        <div>
-                            <div>
+                         <div className={styles.text_wrapper}>
+                            <div className={styles.text_content}>
 
                                 <p> 
-                                    Стоимость лечения в каждом конкретном клиническом случае можно определить только после осмотра, анализа и диагностики проблемы. 
+                                    <span style={{ fontWeight: 'bold' }}>Стоимость лечения в каждом конкретном клиническом</span> случае можно определить только после осмотра, анализа и диагностики проблемы. 
                                     Каждый случай — уникален. У всех пацинтов различаются как начальные ситуации, так и пожелания по конечному результату.
                                 </p>
 
                                 <p>
-                                    Перед началом лечения докторами составляется план, который полностью прозрачен. В нем подробно указаны цены на все предстоящие манипуляции — таким рбразом Вы видите и знаете еще до начала лечения, на что будет потрачен каждый рубль.
+                                    <span style={{ fontWeight: 'bold' }}>Перед началом лечения докторами составляется план</span>, который полностью прозрачен. В нем подробно указаны цены на все предстоящие манипуляции — таким рбразом Вы видите и знаете еще до начала лечения, на что будет потрачен каждый рубль.
                                 </p>
 
                                 <p>
-                                    Общее представление об уровне цен в клинике можно получить, ознакомившись с базовыми позициями представленными ниже.
+                                    <span style={{ fontWeight: 'bold' }}>Общее представление об уровне цен в</span> клинике можно получить, ознакомившись с базовыми позициями представленными ниже.
                                 </p>
                             </div>
 
-                            <div>
-                                <p>
+                            <div className={styles.item_custom_border}>
+                                <Image src={pattern_2} width={50} height={50} alt='' />
+                                <p className={styles.text_custom}>
                                     Слова "цена" и "ценность" хоть и однокоренные, но очень различны по смыслу. Так вот ценность наших работ и результатов в лечении во много раз превышает их цену.
                                 </p>
                             </div>
                         </div>
+
                     </div>
 
-                    <div>
-                        {data.map((item, idx) => (
+                        <div className={styles.price_wrapper}>
+                            <Tabs data={data} />
 
-                            
-                            <div key={idx}>
-                            
-                                <p>
-                                    {item.title}
+                        
+                        <div className={styles.info_price}>
+                            <div className={styles.info_price_wrapper}>
+                                <Image src={src} width={50} height={50} alt='' className={styles.rubl} />
+
+                                <p className={styles.price_rubl}>
+                                    Ознакомиться с полным подробным прейскурантом <br /> вы можете на странице "Для пациентов"
                                 </p>
-
-                                <div>
-                                    {item?.speczializacziya_sub_price_item.map((price, price_index) => (
-                                        <div key={price_index}>
-                                            <p>
-                                                {price.Name}
-                                            </p>
-
-                                            <p>
-                                                {price.Price}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
                             </div>
-                        ))}
+
+                            <Link href={'/'} className={styles.price_link}>
+                                Перейти
+                            </Link>
+
+                        </div>
                     </div>
                 </div>
             </section>
