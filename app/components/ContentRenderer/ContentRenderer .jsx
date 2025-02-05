@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './style.module.scss';
 
 const renderContent = (content) => {
+    console.log(content);
     return content.map((item, index) => {
         switch (item.type) {
             case 'heading':

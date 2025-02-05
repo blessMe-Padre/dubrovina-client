@@ -7,6 +7,9 @@ import getData from "@/app/utils/getData";
 import { Price } from "@/app/sections";
 import { Breadcrumbs, ContentRenderer } from "@/app/components";
 
+import src from '@/public/services/bg_4.png';
+import Image from "next/image";
+
 
 
 export default async function ContentPage({ id }) {
@@ -67,18 +70,48 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
 
 
              
-            <section className="section">
+            <section className={`${styles.section_bg} section`}>
                 <div className="container">
                     <h2 className="title title--black">как проходит лечение?</h2>
-                    <div>
-                        {data?.about_the_disease?.length > 0 ? (
-                            data.how_is_the_treatment_going.map((item, idx) => (
-                                <ContentRenderer key={idx} content={[item]} />
-                            ))
+                    <Image src={src} height={500} width={1200} alt="" className={styles.service_img} />
+
+                    <div className={styles.wrapper_info}>
+                        {data?.how_is_the_treatment_going.length > 0 ? (
+                            data.how_is_the_treatment_going.map((item, idx) => {
+                                let count = 0;
+                                idx++;
+
+                                console.log(`МОЙ ТЕКУЩИЙ ОБЪЕКТ: ${item}`)
+                                return (
+                                    <ContentRenderer key={idx} content={[item]} />
+                                )
+                            })
                             ) : (
                             <p>Нет данных для отображения</p>
                         )}
                     </div>
+
+                    {/* <div className={styles.wrapper_info}>
+                        {data_featured?.map((item, idx) => {
+                            let count = 0;
+                            idx++;
+                            return (
+                                <li className={styles.featured_item} key={idx}>
+                                    <p className={styles.count}>{`${count}${idx}`}</p>
+                                    <div>
+                                        <p className={styles.item_title}>
+                                            {item?.Name || 'Имя не задано'}
+                                            
+                                        </p>
+
+                                        <p className={styles.item_desc}>
+                                            {item?.desc || 'Описание не задано'}
+                                        </p>
+                                    </div>
+                                </li>
+                            )
+                        })}
+                    </div> */}
                 </div>
             </section>
 
