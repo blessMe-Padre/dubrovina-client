@@ -59,8 +59,10 @@ export default async function Page({ params }) {
                             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MiIgaGVpZ2h0PSIxMTg5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNjY2MiIC8+PC9zdmc+" priority
                         />
                     </div>
-                    <h2 className='title'>запись на консультацию</h2>
-                    <p className={styles.consult_form_subtitle}>Оставьте контакты, администратор свяжется с Вами и подберет удобное время</p>
+                    <div>
+                        <h2 className='title'>запись на консультацию</h2>
+                        <p className={styles.consult_form_subtitle}>Оставьте контакты, администратор свяжется с Вами и подберет удобное время</p>
+                    </div>
 
                     <Form
                         direction={'row'}

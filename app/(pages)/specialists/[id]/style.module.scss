@@ -112,8 +112,16 @@
 .consult_form {
     padding: 70px 50px;
     position: relative;
-    height: 800px;
+    @include adaptiv-value("min-height", 800, 405);
     margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+
+    @media (max-width: 560px) {
+        padding: 40px 20px;
+    }
 }
 
 .consult_form_subtitle {
@@ -128,7 +136,7 @@
 .consult_form_img {
     position: absolute;
     width: 100%;
-    height: auto;
+    height: 100%;
     top: 0;
     left: 0;
     z-index: -1;

@@ -1,0 +1,18 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("gap", 100, 30);
+
+.section {
+    padding: 70px 0;
+}
+
+.section_text {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--text-white);
+    max-width: 733px;
+    margin: 0 auto;
+}
