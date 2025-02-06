@@ -31,11 +31,9 @@ export default async function page() {
             <section className='section'>
                 <div className="container">
                     <h1 className={`title title--black`}>полезные статьи для вас</h1>
-
                     <ContentPage data={data} />
                 </div>
             </section>
-
         </>
     )
 }

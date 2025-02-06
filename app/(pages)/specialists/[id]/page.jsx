@@ -1,7 +1,11 @@
-import { Breadcrumbs } from '@/app/components';
+import { Breadcrumbs, Form } from '@/app/components';
 import getData from '../../../utils/getData';
 import ContentPage from './ContentPage';
 import { OurWorks } from '@/app/sections';
+
+import Image from 'next/image';
+
+import styles from './style.module.scss';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
@@ -41,6 +45,29 @@ export default async function Page({ params }) {
             <ContentPage data={data} />
 
             <OurWorks />
+
+            <div className="container relative">
+                <section className={styles.consult_form}>
+                    <div className={styles.consult_form_img}>
+                        <Image
+                            src='/images/image-4.jpg'
+                            alt='Dubrovina logo'
+                            width={1436}
+                            height={800}
+                            className="dsv-image"
+                            placeholder="blur"
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MiIgaGVpZ2h0PSIxMTg5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNjY2MiIC8+PC9zdmc+" priority
+                        />
+                    </div>
+                    <h2 className='title'>запись на консультацию</h2>
+                    <p className={styles.consult_form_subtitle}>Оставьте контакты, администратор свяжется с Вами и подберет удобное время</p>
+
+                    <Form
+                        direction={'row'}
+                        blur={'yes'}
+                    />
+                </section>
+            </div>
         </>
     );
 }
