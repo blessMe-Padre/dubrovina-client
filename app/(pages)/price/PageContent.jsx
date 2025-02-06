@@ -8,16 +8,15 @@ import { Breadcrumbs } from "@/app/components";
 export default async function PageContent() {
     let data = '';
 
-     try {
+    try {
         // Тут я получаю весь объект 
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-czena?populate[speczializacziya_sub_price][populate][speczializacziya_sub_price_item]=*&populate[speczializacziya_sub_price][populate]=img`);
-         data = response?.data?.speczializacziya_sub_price || null;
-         console.log(data);
+        data = response?.data?.speczializacziya_sub_price || null;
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
-   
+
 
     return (
         <>
@@ -30,14 +29,14 @@ export default async function PageContent() {
                     <div>
                         <h2 className="title title--black">
                             цены на услуги
-                            
+
                         </h2>
 
-                         <div className={styles.text_wrapper}>
+                        <div className={styles.text_wrapper}>
                             <div className={styles.text_content}>
 
-                                <p> 
-                                    <span style={{ fontWeight: 'bold' }}>Стоимость лечения в каждом конкретном клиническом</span> случае можно определить только после осмотра, анализа и диагностики проблемы. 
+                                <p>
+                                    <span style={{ fontWeight: 'bold' }}>Стоимость лечения в каждом конкретном клиническом</span> случае можно определить только после осмотра, анализа и диагностики проблемы.
                                     Каждый случай — уникален. У всех пацинтов различаются как начальные ситуации, так и пожелания по конечному результату.
                                 </p>
 
@@ -60,11 +59,11 @@ export default async function PageContent() {
 
                     </div>
 
-                        <div className={styles.price_wrapper}>
-                            <Tabs data={data} />
+                    <div className={styles.price_wrapper}>
+                        <Tabs data={data} />
 
-                        
-                       <PriceInfo />
+
+                        <PriceInfo />
                     </div>
                 </div>
             </section>
