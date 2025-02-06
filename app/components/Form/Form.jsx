@@ -42,7 +42,7 @@ export const Form = ({ direction, blur }) => {
         <form
             className={`
             ${styles.form} 
-            ${direction === 'row' ? `${styles.row}` : ''}
+            ${direction === 'row' ? `${styles.row}` : `${styles.column}`}
             ${blur === 'yes' ? `${styles.blur}` : ''} `}
             onSubmit={handleSubmit(onSubmit)}
         >
@@ -100,7 +100,7 @@ export const Form = ({ direction, blur }) => {
 
             <div className={`${styles.form__policy} ${direction === 'row' ? `${styles.absolute}` : ''}`}>
                 <p className={styles.policy_text}>
-                    *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#BDC1C8'}} href='/'>согласие на обработку персональных данных</a></p>
+                    *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#BDC1C8' }} href='/'>согласие на обработку персональных данных</a></p>
             </div >
         </form>
     )
