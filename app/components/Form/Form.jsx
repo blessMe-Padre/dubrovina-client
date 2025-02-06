@@ -1,7 +1,8 @@
 'use client'
 import { useForm } from 'react-hook-form';
 import styles from './style.module.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { initPhoneMask } from './../../vendor/phone-mask.js';
 
 export const Form = ({ direction, blur }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -38,6 +39,16 @@ export const Form = ({ direction, blur }) => {
         }
     }
 
+    const inputRefs = useRef([]);
+
+    useEffect(() => {
+        inputRefs.current.forEach((input) => {
+            if (input) {
+                initPhoneMask(input);
+            }
+        });
+    }, []);
+
     return (
         <form
             className={`
@@ -66,7 +77,12 @@ export const Form = ({ direction, blur }) => {
                     error={errors.name}
                     className={`${styles.form__input} ${errors['contact-data'] ? styles.error : ''}
                     ${direction === 'row' ? `${styles.input_custom}` : ''}`}
-                    type='text'
+                    type='tel'
+                    ref={(el) => {
+                        if (el && !inputRefs.current.includes(el)) {
+                            inputRefs.current.push(el);
+                        }
+                    }}
                 />
                 <div className={styles.input_text_error}>{errors['contact-data'] && errors['contact-data'].message}</div>
             </div>
