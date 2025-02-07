@@ -14,3 +14,4 @@ export { default as Portfolio } from './Portfolio/Portfolio';
 export { default as Sertificat } from './Sertificat/Sertificat';
 export { default as OurWorks } from './OurWorks/OurWorks';
 export { default as Price } from './Price/Price';
+export { default as DocumentSection } from './DocumentSection/DocumentSection';

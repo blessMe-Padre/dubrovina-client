@@ -1,0 +1,19 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("gap", 100, 30);
+
+.section {
+    padding: 70px 0;
+
+    @media (max-width: 560px) {
+        padding: 30px 0;
+    }
+}
+
+.documents_list {
+    margin-top: 30px;
+}
+
+.documents_list li {
+    margin-bottom: 20px;
+}

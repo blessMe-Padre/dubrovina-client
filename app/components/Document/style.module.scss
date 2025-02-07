@@ -1,0 +1,77 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("gap", 100, 30);
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--text-black);
+
+    backdrop-filter: blur(30px);
+    background-color: var(--gray_light);
+    padding: 25px 25px 25px 40px;
+
+
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    @include adaptiv-value("font-size", 20, 14);
+    letter-spacing: 0.04em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+
+    transition: background-color 0.3s ease,
+        color 0.3s ease;
+
+    svg {
+        transition: all 0.3s ease;
+    }
+
+    @media (max-width:425px) {
+        padding: 15px 25px 15px 20px;
+        gap: 10px;
+    }
+}
+
+.link:hover {
+    background-color: var(--black);
+    color: var(--text-white);
+
+    .link_wrapper svg {
+        fill: var(--white);
+    }
+
+    .link_arrow {
+        stroke: var(--white);
+        transform: rotate(45deg);
+    }
+}
+
+.link:active {
+    background-color: var(--gray_light);
+}
+
+
+.link_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    svg {
+        fill: var(--text-black);
+    }
+
+    @media (max-width:425px) {
+        gap: 10px;
+    }
+}
+
+.link_arrow svg {
+    stroke: var(--black);
+
+    @media (max-width:425px) {
+        width: 20px;
+        height: 20px;
+    }
+}

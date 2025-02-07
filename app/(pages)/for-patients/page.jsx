@@ -1,6 +1,7 @@
 import styles from './style.module.scss';
 import Image from 'next/image';
 import { Breadcrumbs, LinkButton } from "@/app/components";
+import { DocumentSection } from '@/app/sections';
 
 export default function page() {
     return (
@@ -55,6 +56,9 @@ export default function page() {
                     </div>
                 </div>
             </section>
+
+            <DocumentSection />
+
         </>
     )
 }
