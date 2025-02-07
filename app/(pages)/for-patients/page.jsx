@@ -3,6 +3,11 @@ import Image from 'next/image';
 import { Breadcrumbs, LinkButton } from "@/app/components";
 import { DocumentSection } from '@/app/sections';
 
+export const metadata = {
+    title: 'Клиника "Доктора Дубровиной" | Для пациентов',
+    description: "опытные специалисты решат даже самые сложные стоматологические задачи",
+};
+
 export default function page() {
     return (
         <>

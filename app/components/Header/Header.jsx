@@ -60,7 +60,7 @@ export default function Header() {
                 { text: "Для пациентов", href: "/for-patients" },
                 { text: "Для врачей", href: "/" },
                 { text: "Контакты", href: "/" },
-                { text: "Документы", href: "/" },
+                { text: "Документы", href: "/documents" },
             ],
         },
 

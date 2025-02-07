@@ -6,20 +6,20 @@ import Image from 'next/image';
 import Logo from '@/public/logo_footer.svg';
 export default function Footer() {
 
-    
+
     const navigationData = [
         {
             heading: "ДЛЯ ВАС",
             links: [
-                { text: "О клинике", href: "/" },
-                { text: "Цены", href: "/" },
-                { text: "Команда", href: "/" },
-                { text: "Работы", href: "/" },
-                { text: "Блог", href: "/" },
-                { text: "Для пациентов", href: "/" },
+                { text: "О клинике", href: "/about_clinic" },
+                { text: "Цены", href: "/price" },
+                { text: "Команда", href: "/specialists" },
+                { text: "Работы", href: "/our-works" },
+                { text: "Блог", href: "/blog" },
+                { text: "Для пациентов", href: "/for-patients" },
                 { text: "Для врачей", href: "/" },
                 { text: "Контакты", href: "/" },
-                { text: "Документы", href: "/" },
+                { text: "Документы", href: "/documents" },
             ],
         },
 
@@ -38,7 +38,7 @@ export default function Footer() {
                 { text: "Протезирование", href: "/" },
             ],
         },
-      
+
     ];
 
     const contacts_data = [
@@ -69,7 +69,7 @@ export default function Footer() {
                     desc: 'Находкинский проспект, 60, 3 этаж'
                 },
             ]
-            
+
         },
     ]
 
@@ -88,14 +88,14 @@ export default function Footer() {
                                     <p className={styles.nav_footer_heading}>{section.heading}</p>
                                     {section.links &&
                                         section.links.map((link, linkIndex) => (
-                                        <li key={linkIndex}>
-                                            <Link
-                                            className={styles.link}
-                                            href={link.href}
-                                            >
+                                            <li key={linkIndex}>
+                                                <Link
+                                                    className={styles.link}
+                                                    href={link.href}
+                                                >
                                                     {link.text}
-                                            </Link>
-                                        </li>
+                                                </Link>
+                                            </li>
                                         ))}
                                 </ul>
                             ))
@@ -109,12 +109,12 @@ export default function Footer() {
                                         <li key={contactIndex}>
                                             <p className={styles.contact_name}>{contactItem.name}</p>
                                             {contactItem.contact && (
-                                            <a
-                                                className={styles.contact_desc}
-                                                href={contactItem.contact_bot}
-                                            >
-                                                {contactItem.contact}
-                                            </a>
+                                                <a
+                                                    className={styles.contact_desc}
+                                                    href={contactItem.contact_bot}
+                                                >
+                                                    {contactItem.contact}
+                                                </a>
                                             )}
                                             {contactItem.desc && (
                                                 <p className={styles.contact_desc}>{contactItem.desc}</p>
@@ -122,7 +122,7 @@ export default function Footer() {
                                         </li>
                                     ))}
                                 </ul>
-                        ))}
+                            ))}
                     </div>
                 </div>
 
