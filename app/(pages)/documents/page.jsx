@@ -16,8 +16,9 @@ export default function page() {
                 secondLink="/documents"
                 secondLabel="Документы"
             />
-
             <DocumentSection />
+
+
 
         </>
     )
