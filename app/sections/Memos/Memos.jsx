@@ -7,10 +7,8 @@ import { Navigation } from 'swiper/modules'
 import SwiperNavButtons from "../../components/SwiperNavButtons/SwiperNavButtons";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { LinkButton, SpecialistCard } from "@/app/components";
+import { LinkButton } from "@/app/components";
 import Image from "next/image";
-
-// /api/speczialisties?fields[0]=id&fields[1]=name&fields[2]=specialty
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/statis?populate=*&filters[category_slug][$eq]=sovety`;
@@ -31,10 +29,7 @@ const getData = async () => {
 };
 
 export default function Memos() {
-
     const [sectionData, setSectionData] = useState(null);
-    console.log(sectionData);
-
     useEffect(() => {
         const fetchData = async () => {
             const data = await getData();
