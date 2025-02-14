@@ -1,0 +1,20 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("gap", 100, 30);
+
+.section {}
+
+.image_wrapper {
+    @include adaptiv-value("height", 700, 364);
+}
+
+.image_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.vacancy {
+    padding: 70px 0;
+}

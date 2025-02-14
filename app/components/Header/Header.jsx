@@ -58,7 +58,7 @@ export default function Header() {
                 { text: "Работы", href: "/our-works" },
                 { text: "Блог", href: "/blog" },
                 { text: "Для пациентов", href: "/for-patients" },
-                { text: "Для врачей", href: "/" },
+                { text: "Для врачей", href: "/for-doctors" },
                 { text: "Контакты", href: "/" },
                 { text: "Документы", href: "/documents" },
             ],
@@ -194,7 +194,7 @@ export default function Header() {
 
         {
             heading: 'Для врачей',
-            url: '/',
+            url: '/for-doctors',
         },
 
         {
