@@ -59,7 +59,7 @@ export default function Header() {
                 { text: "Блог", href: "/blog" },
                 { text: "Для пациентов", href: "/for-patients" },
                 { text: "Для врачей", href: "/for-doctors" },
-                { text: "Контакты", href: "/" },
+                { text: "Контакты", href: "/contacts" },
                 { text: "Документы", href: "/documents" },
             ],
         },
@@ -199,7 +199,7 @@ export default function Header() {
 
         {
             heading: 'Контакты',
-            url: '/',
+            url: '/contacts',
         },
 
 
