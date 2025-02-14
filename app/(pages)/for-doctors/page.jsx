@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 import Image from 'next/image';
-import { Breadcrumbs, LinkButton, VacancyList } from "@/app/components";
-import { Careful, DocumentSection, Memos, Visit } from '@/app/sections';
+import { Breadcrumbs, VacancyList } from "@/app/components";
+
 
 import getData from '../../utils/getData';
 
