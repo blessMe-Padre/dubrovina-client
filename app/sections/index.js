@@ -20,3 +20,4 @@ export { default as Memos } from './Memos/Memos';
 export { default as Careful } from './Careful/Careful';
 export { default as Appeal } from './Appeal/Appeal';
 export { default as Gallery } from './Gallery/Gallery';
+export { default as Useful } from './Useful/Useful';
