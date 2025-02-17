@@ -21,3 +21,4 @@ export { default as Careful } from './Careful/Careful';
 export { default as Appeal } from './Appeal/Appeal';
 export { default as Gallery } from './Gallery/Gallery';
 export { default as Useful } from './Useful/Useful';
+export { default as Services } from './Services/Services';

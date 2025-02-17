@@ -1,0 +1,57 @@
+@import '@/app/mixins';
+// @include adaptiv-value("gap", 100, 30);
+
+.section {
+    padding: 70px 0;
+}
+
+.sub_title {
+    font-weight: 600;
+    font-size: 24px;
+    @include adaptiv-value("font-size", 24, 12);
+
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--text-black);
+    margin: 30px auto 30px;
+    max-width: 943px;
+}
+
+.text {
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--text-black);
+    @include adaptiv-value("font-size", 20, 12);
+}
+
+.image_wrapper img {
+    width: 100.5%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-left: -1px;
+    margin-top: -1px;
+    margin-right: -1px;
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.item {
+    width: 466px;
+    flex-shrink: 0;
+    height: auto;
+    border: 1px solid var(--gray_light);
+}
+
+.block {
+    padding: 40px;
+}

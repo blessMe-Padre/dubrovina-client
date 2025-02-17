@@ -1,7 +1,7 @@
 import { Breadcrumbs } from '@/app/components';
 import styles from './style.module.scss';
 
-import { VideoSection, Mission, Statistic, Advantages, Consultation, Map, Trust, Appeal, Gallery, Useful } from '@/app/sections';
+import { VideoSection, Mission, Statistic, Advantages, Consultation, Map, Trust, Appeal, Gallery, Useful, Services } from '@/app/sections';
 
 export const metadata = {
     title: "Дубровина | О клинике",
@@ -24,6 +24,7 @@ export default function page() {
             <Trust />
             <Consultation />
             <Useful />
+            <Services />
             <Map />
         </>
     )
