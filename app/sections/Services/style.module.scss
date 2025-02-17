@@ -3,6 +3,7 @@
 
 .section {
     padding: 70px 0;
+    overflow: hidden;
 }
 
 .sub_title {
@@ -38,12 +39,26 @@
     margin-right: -1px;
 }
 
+
+.pinWrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Закрепляем секцию */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
 .wrapper {
     display: flex;
     gap: 20px;
-    position: relative;
-    z-index: 1;
+    width: 100%;
+    // overflow: hidden;
 }
+
+
 
 .item {
     width: 466px;

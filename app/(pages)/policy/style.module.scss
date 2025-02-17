@@ -1,0 +1,16 @@
+@import '@/app/mixins';
+// @include adaptiv-value("gap", 100, 30);
+
+.title {
+    margin: 30px 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    @include adaptiv-value("font-size", 50, 30);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-black);
+
+    @media (max-width: 560px) {
+        font-size: 1.25em;
+    }
+}

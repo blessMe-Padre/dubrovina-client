@@ -6,12 +6,10 @@ import styles from './style.module.scss';
 import getData from '../../utils/getData';
 import { Portfolio } from '@/app/sections';
 
-
 export const metadata = {
     title: 'Клиника "Доктора Дубровиной" | Наши работы',
     description: "опытные специалисты решат даже самые сложные стоматологические задачи",
 };
-
 
 export default async function page() {
     let data = null;

@@ -132,11 +132,11 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <a href='/policy'>Политика <br />конфиденциальности</a>
+                        <Link href='/policy'>Политика <br />конфиденциальности</Link>
                     </div>
 
                     <div>
-                        Разработка сайта <br /> INSIDE360
+                        <Link href='https://www.inside360.ru/'>Разработка сайта <br /> INSIDE360</Link>
                     </div>
                 </div>
             </div>
