@@ -9,14 +9,13 @@ export default async function PageContent() {
     let data = '';
 
     try {
-        // Тут я получаю весь объект 
+        // Тут я получаю весь объект
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-czena?populate[speczializacziya_sub_price][populate][speczializacziya_sub_price_item]=*&populate[speczializacziya_sub_price][populate]=img`);
         data = response?.data?.speczializacziya_sub_price || null;
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
-
 
     return (
         <>
@@ -27,11 +26,7 @@ export default async function PageContent() {
             <section className="section">
                 <div className="container">
                     <div>
-                        <h2 className="title title--black">
-                            цены на услуги
-
-                        </h2>
-
+                        <h2 className="title title--black">цены на услуги</h2>
                         <div className={styles.text_wrapper}>
                             <div className={styles.text_content}>
 
@@ -56,13 +51,10 @@ export default async function PageContent() {
                                 </p>
                             </div>
                         </div>
-
                     </div>
 
                     <div className={styles.price_wrapper}>
                         <Tabs data={data} />
-
-
                         <PriceInfo />
                     </div>
                 </div>

@@ -11,7 +11,6 @@ const domain = process.env.NEXT_PUBLIC_DOMAIN;
 // const url = `${domain}/api/speczializaczii?populate[0]=speczializaczii&populate[1]=speczializaczii.img_s`;
 const url = `${domain}/api/speczializaczii?populate[speczializaczii][populate][img_s][fields][0]=url`;
 
-
 async function getData() {
     try {
         const response = await fetch(url, {
@@ -33,7 +32,6 @@ async function getData() {
 }
 
 export default function Specialization() {
-
     const [data, setData] = useState([]);
 
     useEffect(() => {

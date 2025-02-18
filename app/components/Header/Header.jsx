@@ -235,7 +235,6 @@ export default function Header() {
                             г. Находка, Находкинский проспект, 60, 3 этаж
                         </address>
 
-
                         <a className={styles.phone} href="tel:+79242555151">+7 (924) 255-51-51</a>
 
                         <div className={styles.popup_btn_header}>

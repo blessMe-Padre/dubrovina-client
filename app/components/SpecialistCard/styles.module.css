@@ -1,6 +1,11 @@
 .item {
     background-color: var(--gray_light);
     height: 100%;
+    transition: transform 0.3s ease ;
+}
+
+.item:hover {
+    transform: translateY(-20px);
 }
 
 .item_content {
