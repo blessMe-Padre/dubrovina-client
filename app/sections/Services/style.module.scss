@@ -2,7 +2,11 @@
 // @include adaptiv-value("gap", 100, 30);
 
 .section {
-    padding: 70px 0;
+    position: relative;
+    height: 200vh;
+    /* Делаем секцию длиннее для плавного эффекта */
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
@@ -43,21 +47,21 @@
 .pinWrapper {
     position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    /* Закрепляем секцию */
+    /* Высота на весь экран */
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: white;
+    overflow: hidden;
 }
 
 .wrapper {
     display: flex;
     gap: 20px;
-    width: 100%;
-    // overflow: hidden;
+    will-change: transform;
+    width: max-content;
 }
-
 
 
 .item {
@@ -69,4 +73,43 @@
 
 .block {
     padding: 40px;
+}
+
+
+.section {
+    position: relative;
+    height: 250vh;
+    /* Длинная секция для работы с пином */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.pinWrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Высота контейнера на весь экран */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    /* Контент может расширяться */
+}
+
+.item {
+    min-width: 400px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
