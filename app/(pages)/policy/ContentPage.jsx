@@ -1,8 +1,7 @@
 'use client';
+import { ContentRenderer } from '@/app/components';
 import styles from './style.module.scss';
 import { useEffect, useState } from 'react';
-
-// /api/stranicza-politika
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/stranicza-politika?populate=*`;
@@ -22,24 +21,21 @@ const getData = async () => {
 };
 
 export default function ContentPage() {
-    const [pageData, setPageData] = useState(null);
-
-    console.log(pageData);
-
-
+    const [pageData, setPageData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             const data = await getData();
-            setPageData(data);
+            setPageData(data?.data?.content);
 
         };
-
         fetchData();
 
     }, []);
 
 
     return (
-        <div>ContentPage222</div>
+        <div className={styles.page_content}>
+            <ContentRenderer content={pageData} />
+        </div>
     )
 }
