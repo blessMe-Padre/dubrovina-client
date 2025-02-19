@@ -13,7 +13,6 @@ import Link from 'next/link';
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/statis?populate=*`;
 
-
 const getData = async () => {
     try {
         const res = await fetch(url);
@@ -37,7 +36,6 @@ export default function Useful() {
         };
 
         fetchData();
-
     }, []);
 
     return (
