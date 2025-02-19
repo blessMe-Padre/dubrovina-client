@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import styles from './style.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -28,6 +29,12 @@ const getData = async () => {
     }
 };
 
+// Анимация для появления секции
+const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+};
+
 export default function Specialists() {
 
     const [sectionData, setSectionData] = useState(null);
@@ -45,7 +52,12 @@ export default function Specialists() {
 
     return (
 
-        <section className={styles.section}>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className={styles.section}>
             <div className="container">
                 <h2 className={`${styles.title} title`}>опытные специалисты</h2>
                 <p className={`${styles.subtitle}`}>решат даже самые сложные стоматологические задачи</p>
@@ -78,7 +90,7 @@ export default function Specialists() {
                     </Swiper>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 

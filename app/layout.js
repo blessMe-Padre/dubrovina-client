@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Montserrat, Manrope } from 'next/font/google';
 import './globals.css';
 
-import { Footer, Header } from './components';
+import { Cursor, Footer, Header } from './components';
 
 // const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ru">
       <body className={`${manrope.className} ${montserrat.variable} ${Trajan.variable}`}>
+        <Cursor />
         <Header />
         {children}
         <Footer />

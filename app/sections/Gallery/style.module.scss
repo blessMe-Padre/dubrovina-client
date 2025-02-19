@@ -1,0 +1,23 @@
+.section {
+    padding: 70px 0;
+
+    @media (max-width: 768px) {
+        padding: 30px 0;
+    }
+}
+
+.section h2 {
+    margin-bottom: 30px;
+}
+
+.image_wrapper {
+    @media (max-width: 600px) {
+        height: 260px;
+    }
+}
+
+.image_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

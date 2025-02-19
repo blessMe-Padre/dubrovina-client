@@ -67,7 +67,7 @@ body {
   scroll-behavior: smooth;
   font-family: var(--font-family);
   color: var(--black);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .relative {
@@ -206,3 +206,9 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* CUSTOM CURSOR */
+* {
+  cursor: none;
+}
+

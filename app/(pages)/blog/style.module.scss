@@ -139,6 +139,11 @@
 .article {
     position: relative;
     @include adaptiv-value("height", 631, 320);
+    transition: transform 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-20px);
 }
 
 .article_wrapper {

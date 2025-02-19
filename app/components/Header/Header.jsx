@@ -57,10 +57,10 @@ export default function Header() {
                 { text: "Команда", href: "/specialists" },
                 { text: "Работы", href: "/our-works" },
                 { text: "Блог", href: "/blog" },
-                { text: "Для пациентов", href: "/" },
-                { text: "Для врачей", href: "/" },
-                { text: "Контакты", href: "/" },
-                { text: "Документы", href: "/" },
+                { text: "Для пациентов", href: "/for-patients" },
+                { text: "Для врачей", href: "/for-doctors" },
+                { text: "Контакты", href: "/contacts" },
+                { text: "Документы", href: "/documents" },
             ],
         },
 
@@ -189,17 +189,17 @@ export default function Header() {
 
         {
             heading: 'Для пациентов',
-            url: '/',
+            url: '/for-patients',
         },
 
         {
             heading: 'Для врачей',
-            url: '/',
+            url: '/for-doctors',
         },
 
         {
             heading: 'Контакты',
-            url: '/',
+            url: '/contacts',
         },
 
 
@@ -234,7 +234,6 @@ export default function Header() {
                         <address>
                             г. Находка, Находкинский проспект, 60, 3 этаж
                         </address>
-
 
                         <a className={styles.phone} href="tel:+79242555151">+7 (924) 255-51-51</a>
 

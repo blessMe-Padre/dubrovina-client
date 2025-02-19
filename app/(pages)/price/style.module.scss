@@ -6,6 +6,7 @@
     align-items: flex-start;
 
     margin-top: 50px;
+    margin-bottom: 50px;
 
     @media (max-width: 680px) {
         flex-direction: column;
@@ -26,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     background-color: var(--gray_light);
     color: var(--text-black);
 
@@ -118,7 +119,7 @@
     }
 }
 
-.text_content > p {
+.text_content>p {
     margin-bottom: 30px;
 }
 
@@ -127,11 +128,11 @@
     width: 200px;
 
     @media (max-width: 1200px) {
-            width: 120px;
+        width: 120px;
     }
 
     @media (max-width: 680px) {
         width: 100%;
     }
-    
+
 }

@@ -1,0 +1,23 @@
+@import '@/app/mixins';
+
+// @include adaptiv-value("gap", 100, 30);
+
+.section {
+    padding: 50px 0 200px;
+
+    @media (max-width:650px) {
+        padding: 20px 0 80px;
+    }
+}
+
+.section :global(.map_info) {
+    bottom: -120px;
+
+    @media (max-width:650px) {
+        bottom: -20px;
+    }
+}
+
+.title {
+    margin-bottom: 30px;
+}

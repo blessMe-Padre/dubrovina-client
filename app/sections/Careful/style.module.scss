@@ -1,0 +1,117 @@
+@import '@/app/mixins';
+// @include adaptiv-value("font-size", 24, 13);
+
+.section {
+    padding: 70px 0;
+
+    @media (max-width: 560px) {
+        padding: 30px 0;
+    }
+}
+
+.section_wrapper {
+    position: relative;
+    min-height: 727px;
+    background-image: url('/bg/careful.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    @include adaptiv-value("padding-left", 115, 45);
+    @include adaptiv-value("padding-top", 88, 40);
+
+    @media (max-width: 1024px) {
+        min-height: 520px;
+    }
+
+    @media (max-width: 560px) {
+        min-height: 620px;
+        background-image: url('/bg/careful-s.png');
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    text-transform: uppercase;
+    @include adaptiv-value("font-size", 60, 28);
+    color: var(--text-white);
+    margin-bottom: 20px;
+    max-width: 644px;
+
+    @media (max-width: 1024px) {
+        max-width: 337px;
+    }
+
+    @media (max-width: 560px) {
+        font-size: 24px;
+    }
+}
+
+.image_wrapper {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 1024px) {
+        width: 100px;
+        height: 100px;
+    }
+
+    @media (max-width: 560px) {
+        position: static;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+.description_block {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 417px;
+    height: 410px;
+    border-radius: 100%;
+    backdrop-filter: blur(50px);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 70px;
+
+    @media (max-width: 1024px) {
+        padding: 50px 30px;
+        width: 326px;
+        height: 322px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 50px 30px 50px 40px;
+        width: 226px;
+        height: 222px;
+    }
+
+    @media (max-width: 560px) {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+
+.description_block p {
+    font-weight: 700;
+    @include adaptiv-value("font-size", 18, 12);
+    color: var(--text-white);
+
+    @media (max-width: 768px) {
+        line-height: 1.2;
+    }
+}
