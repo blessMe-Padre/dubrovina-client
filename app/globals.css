@@ -67,7 +67,7 @@ body {
   scroll-behavior: smooth;
   font-family: var(--font-family);
   color: var(--black);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .relative {

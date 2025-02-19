@@ -16,17 +16,16 @@ export default function page() {
                 secondLabel="О клинике"
             />
             <VideoSection all_width={true} />
-            {/* <Appeal /> */}
-            {/* <Gallery /> */}
-            {/* <Mission /> */}
-            {/* <Statistic /> */}
-            {/* <Advantages /> */}
-            {/* <Trust /> */}
-            {/* <Consultation /> */}
-            {/* <Useful /> */}
-            <Services />
+            <Appeal />
+            <Gallery />
+            <Mission />
+            <Statistic />
+            <Advantages />
+            <Trust />
+            <Consultation />
             <Useful />
-            {/* <Map /> */}
+            <Services />
+            <Map />
         </>
     )
 }
