@@ -206,3 +206,9 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* CUSTOM CURSOR */
+* {
+  cursor: none;
+}
+

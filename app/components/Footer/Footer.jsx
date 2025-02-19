@@ -128,7 +128,7 @@ export default function Footer() {
 
                 <div className={styles.info_footer}>
                     <div>
-                        2024 © ООО "КОМФОРТО" стоматологическая клиника <br /> доктора Дубровиной. Все права защищены
+                        {new Date().getFullYear()} &copy;  ООО "КОМФОРТО" стоматологическая клиника <br /> доктора Дубровиной. Все права защищены
                     </div>
 
                     <div>

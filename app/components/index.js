@@ -19,3 +19,4 @@ export { default as Tabs } from './Tabs/Tabs';
 export { default as PriceInfo } from './PriceInfo/PriceInfo';
 export { default as Document } from './Document/Document';
 export { default as VacancyList } from './VacancyList/VacancyList';
+export { default as Cursor } from './Cursor/Cursor';
