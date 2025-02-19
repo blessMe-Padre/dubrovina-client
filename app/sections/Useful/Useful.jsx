@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import styles from './style.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +13,12 @@ import Link from 'next/link';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/statis?populate=*`;
+
+// Анимация для появления секции
+const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+};
 
 const getData = async () => {
     try {
@@ -40,7 +47,12 @@ export default function Useful() {
 
     return (
 
-        <section className={styles.section}>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className={styles.section}>
             <div className="container">
                 <h2 className="title title--black">полезное для вас</h2>
                 <p className={styles.sub_title}>Наши эксперты-стоматологи делятся своими знаниями и опытом, здесь вы найдете ответы на самые актуальные вопросы о здоровье полости рта</p>
@@ -90,7 +102,7 @@ export default function Useful() {
                     </Swiper>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 

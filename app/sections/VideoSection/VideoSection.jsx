@@ -1,7 +1,14 @@
 'use client'
+import { motion } from "framer-motion";
 
 import styles from './style.module.css';
-export default function VideoSection({all_width}) {
+export default function VideoSection({ all_width }) {
+
+    // Анимация для появления секции
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+    };
 
     const handleClick = () => {
         const video = document.querySelector('.video');
@@ -17,7 +24,12 @@ export default function VideoSection({all_width}) {
 
     return (
         <div className={`${all_width === true ? '' : 'container'} video_container`}>
-            <div className={styles.video}>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={sectionVariants}
+                className={styles.video}>
                 <video preload="metadata" poster="./video/poster.webp"
                     className="video">
                     <source src="./video/video.webm" type="video/webm" />
@@ -32,7 +44,7 @@ export default function VideoSection({all_width}) {
                         <img src='./icons/play.svg' width={100} height={100} />
                     </button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

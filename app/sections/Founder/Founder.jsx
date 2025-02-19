@@ -1,4 +1,5 @@
 'use client';
+import { motion } from "framer-motion";
 import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
@@ -21,6 +22,12 @@ const getSectionData = async () => {
     }
 };
 
+// Анимация для появления секции
+const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+};
+
 const Founder = () => {
     const [sectionData, setSectionData] = useState(null);
 
@@ -34,7 +41,12 @@ const Founder = () => {
     }, []);
 
     return (
-        <section className={styles.section}>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className={styles.section}>
             <div className="container">
                 <h2 className='title'>{sectionData?.data?.title}</h2>
 
@@ -93,7 +105,7 @@ const Founder = () => {
 
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 

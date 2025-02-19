@@ -1,6 +1,7 @@
-import styles from './style.module.css';
-import Image from 'next/image';
+'use client'
+import { motion } from "framer-motion";
 
+import styles from './style.module.css';
 
 const data = [
     {
@@ -25,10 +26,21 @@ const data = [
     },
 ]
 
-
 export default function Advantages() {
+
+    // Анимация для появления секции
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+    };
+
     return (
-        <section className={styles.section}>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className={styles.section}>
             <div className="container">
                 <h2 className={`${styles.title} title`}>преимущества клиники</h2>
 
@@ -44,7 +56,7 @@ export default function Advantages() {
 
                 </ul>
             </div>
-        </section>
+        </motion.section>
     )
 }
 

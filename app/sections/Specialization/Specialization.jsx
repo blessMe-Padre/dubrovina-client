@@ -1,11 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-
+import { motion } from "framer-motion";
 import styles from './style.module.css';
-
 import { SpecializationCard } from '@/app/components';
-
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 // const url = `${domain}/api/speczializaczii?populate[0]=speczializaczii&populate[1]=speczializaczii.img_s`;
@@ -43,8 +41,18 @@ export default function Specialization() {
         fetchData();
     }, [])
 
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+    };
+
     return (
-        <section className='section'>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className='section'>
             <div className='container'>
                 <h2 className='title title--black'>наша специализация</h2>
                 <p className={styles.subtitle}>Лечим зубы, как лечили бы себе</p>
@@ -74,6 +82,6 @@ export default function Specialization() {
 
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

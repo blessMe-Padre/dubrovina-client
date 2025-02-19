@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-
+import { motion } from "framer-motion";
 import styles from './style.module.scss';
 import Image from 'next/image';
 
@@ -16,6 +16,12 @@ import 'photoswipe/style.css';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 const url = `${domain}/api/sekcziya-galereya?populate=*`;
+
+// Анимация для появления секции
+const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+};
 
 const getSectionData = async () => {
     try {
@@ -60,7 +66,12 @@ export default function Gallery() {
     }, []);
 
     return (
-        <section className={`${styles.section}`}>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className={`${styles.section}`}>
             <div className='container'>
                 <h2 className='title title--black'>Галерея клиники</h2>
             </div>
@@ -114,6 +125,6 @@ export default function Gallery() {
                     />
                 </Swiper>
             </div>
-        </section>
+        </motion.section>
     )
 }

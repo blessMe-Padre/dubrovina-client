@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { motion } from "framer-motion";
 
 import { Button, Popup } from '@/app/components';
 import styles from './style.module.css';
@@ -9,8 +10,6 @@ import bg from '@/public/loyalnost/bg.png';
 import persent_img from '@/public/loyalnost/persent.png'
 
 const Loyalnost = () => {
-
-
     const [popupActive, setPopupActive] = useState(false);
     const [opened, setOpened] = useState(false);
 
@@ -24,9 +23,20 @@ const Loyalnost = () => {
         document.body.classList.toggle('lock');
     }
 
+    // Анимация для появления секции
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } }
+    };
+
 
     return (
-        <section className='section' style={{ marginBottom: "50px" }}>
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={sectionVariants}
+            className='section' style={{ marginBottom: "50px" }}>
             <div className='container'>
 
                 <div className={styles.wrapper}>
@@ -72,7 +82,7 @@ const Loyalnost = () => {
                     />
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 
