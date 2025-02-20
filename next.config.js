@@ -5,9 +5,12 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: 'http',
-                hostname: '89.108.115.136',
-                port: '1338',
+                protocol: 'https',
+                hostname: 'dubrovinastom.ru',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.inside360.ru',
             },
         ],
     },
