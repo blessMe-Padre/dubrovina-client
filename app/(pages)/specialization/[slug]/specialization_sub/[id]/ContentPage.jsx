@@ -17,8 +17,8 @@ export default async function ContentPage({ id }) {
     const pathname = usePathname();
 
     let slug = pathname.split("specialization/")[1]?.split("/")[0] || [null];
-    
-     let data = ''
+
+    let data = ''
 
     try {
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-podkategoriya?
@@ -27,7 +27,7 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]
 populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
 
         data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
-        
+
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
@@ -40,17 +40,17 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
             <Breadcrumbs
                 secondLink="/services"
                 secondLabel="Услуги"
-                thirdLabel={data.title_page}          
+                thirdLabel={data.title_page}
             />
             <section className={styles.section}>
                 <div className="container">
-                    <div className={styles.info}>  
+                    <div className={styles.info}>
                         <h2 className='title'>{data.title_page}</h2>
-                        <p className={styles.subtitle}>{data.desc_page}</p> 
+                        <p className={styles.subtitle}>{data.desc_page}</p>
                     </div>
                 </div>
             </section>
-            
+
             <section className="section">
                 <div className="container">
                     <h2 className="title title--black">Что представляет собой заболевание?</h2>
@@ -60,18 +60,18 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
                                 <ContentRenderer key={idx} content={[item]} />
                             ))
                         ) : (
-                        <p>Нет данных для отображения</p>
+                            <p>Нет данных для отображения</p>
                         )}
                     </div>
                 </div>
             </section>
 
 
-             
+
             <section className={`${styles.section_bg} section`}>
                 <div className="container">
                     <h2 className="title title--black">как проходит лечение?</h2>
-                    <Image src={src} height={500} width={1200} alt="" className={styles.service_img} />
+                    <Image src={src} height={500} width={1200} alt="image" className={styles.service_img} />
 
                     <div className={styles.wrapper_info}>
                         {data?.how_is_the_treatment_going.length > 0 ? (
@@ -82,7 +82,7 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
                                     <ContentRenderer key={idx} content={[item]} />
                                 )
                             })
-                            ) : (
+                        ) : (
                             <p>Нет данных для отображения</p>
                         )}
                     </div>

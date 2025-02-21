@@ -46,6 +46,7 @@ export default function Tab({ data }) {
                                 width={80}
                                 height={80}
                                 className={styles.item_img}
+                                alt="image"
                             />
 
                             <h3 className={styles.title_custom}>{item.title}</h3>

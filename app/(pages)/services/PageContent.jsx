@@ -17,10 +17,10 @@ import { Sertificat, Loyalnost, Consultation, Specialization } from "@/app/secti
 
 export default function PageContent() {
 
-    const [ src, setSrc ] = useState(src_1);
+    const [src, setSrc] = useState(src_1);
 
     useEffect(() => {
-        if(window.innerWidth < 769) {
+        if (window.innerWidth < 769) {
             setSrc(src_3);
         }
 
@@ -33,7 +33,7 @@ export default function PageContent() {
         }
     }, [])
 
-    
+
     return (
         <>
 
@@ -47,7 +47,7 @@ export default function PageContent() {
 
                     <div className="container relative">
                         <div className={styles.wrapper}>
-                            <h2 className="title title--black" style={{textAlign:'start'}}>НАША ФИЛОСОФИЯ</h2>
+                            <h2 className="title title--black" style={{ textAlign: 'start' }}>НАША ФИЛОСОФИЯ</h2>
                             <div className={styles.pattern}></div>
 
                             <p className={styles.subtitle}>
@@ -56,17 +56,17 @@ export default function PageContent() {
                                 заниматься?
                             </p>
 
-                            <Image className={styles.pattern_2} src={pattern_2}  width={80} height={80} />
+                            <Image className={styles.pattern_2} src={pattern_2} width={80} height={80} alt="image" />
                         </div>
                     </div>
                 </div>
             </section>
-            
+
             <Specialization />
             <Loyalnost />
             <Consultation />
             <Sertificat />
-            
-    </>
+
+        </>
     )
 }

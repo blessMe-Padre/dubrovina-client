@@ -34,8 +34,8 @@ export default async function Price() {
                 <div className={styles.text_wrapper}>
                     <div className={styles.text_content}>
 
-                        <p> 
-                            Стоимость лечения в каждом конкретном клиническом случае можно определить только после осмотра, анализа и диагностики проблемы. 
+                        <p>
+                            Стоимость лечения в каждом конкретном клиническом случае можно определить только после осмотра, анализа и диагностики проблемы.
                             Каждый случай — уникален. У всех пацинтов различаются как начальные ситуации, так и пожелания по конечному результату.
                         </p>
 
@@ -49,7 +49,7 @@ export default async function Price() {
                     </div>
 
                     <div className={styles.item_custom_border}>
-                        <Image src={pattern_2} width={50} height={50} alt='' />
+                        <Image src={pattern_2} width={50} height={50} alt="image" />
                         <p className={styles.text_custom}>
                             Слова "цена" и "ценность" хоть и однокоренные, но очень различны по смыслу. Так вот ценность наших работ и результатов в лечении во много раз превышает их цену.
                         </p>
@@ -57,7 +57,7 @@ export default async function Price() {
                 </div>
 
                 <div className={styles.price_wrapper}>
-                     {data.map((item, idx) => (
+                    {data.map((item, idx) => (
                         <div key={idx} className={styles.price_wrapper_wrapper}>
                             {item?.speczializacziya_sub_price_item.map((price, price_index) => (
                                 <div className={styles.price_item} key={price_index}>
