@@ -17,7 +17,7 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
             <Breadcrumbs
                 secondLink="/services"
                 secondLabel="Услуги"
-                thirdLabel={title}          
+                thirdLabel={title}
             />
 
             <section className={styles.section}>
@@ -27,35 +27,35 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
                         <p className={styles.subtitle}>{desc}</p>
                         <div className={styles.form_wrapper}>
                             <Form direction={'row'} blur={'yes'} />
-                        </div> 
+                        </div>
                     </div>
-                </div>    
-            </section> 
+                </div>
+            </section>
 
-             <section className='section relative'>
+            <section className='section relative'>
                 <div className='container'>
                     <ul className={styles.list}>
                         {data_sub?.map((item, idx) => (
                             <li key={idx} className={styles.specialization_sub_item}>
                                 <Link href={`/specialization/${slug}/specialization_sub/${item.id}`} className={styles.link}>
-                                    <p className={styles.specialization_sub_title}>{item?.name || ''}</p>  
+                                    <p className={styles.specialization_sub_title}>{item?.name || ''}</p>
                                     <Image src={arrow} alt='arrow' width={30} height={30} className={styles.arrow} />
                                 </Link>
                             </li>
-                    ))}
+                        ))}
                     </ul>
 
-                </div>    
-            </section> 
+                </div>
+            </section>
 
             <section className={styles.section_second}>
                 <div className="container">
                     <h2 className="title title--black">
-                        Особенности лечения зубов 
+                        Особенности лечения зубов
                         в нашей клинике
                     </h2>
 
-                    <Image src={feautured_bg} width={800} height={400} className={styles.feautured_bg} />
+                    <Image src={feautured_bg} width={800} height={400} className={styles.feautured_bg} alt='image' />
 
                     <div className={styles.wrapper_info}>
                         {data_featured?.map((item, idx) => {
@@ -67,7 +67,7 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
                                     <div>
                                         <p className={styles.item_title}>
                                             {item?.Name || 'Имя не задано'}
-                                            
+
                                         </p>
 
                                         <p className={styles.item_desc}>
@@ -83,7 +83,7 @@ export default function PageContent({ data, data_sub, slug, data_featured }) {
 
             <Price />
 
-            
+
         </>
     )
 }

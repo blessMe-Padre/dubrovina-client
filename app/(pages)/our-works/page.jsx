@@ -1,5 +1,4 @@
 
-import Image from 'next/image';
 import { Breadcrumbs, OurWorksList } from '@/app/components';
 import styles from './style.module.scss';
 
@@ -15,6 +14,7 @@ export default async function page() {
     let data = null;
     try {
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties?populate=*`);
+
         data = response || null;
 
     } catch (error) {
