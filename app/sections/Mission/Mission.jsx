@@ -1,10 +1,12 @@
 import styles from './style.module.css';
 import Image from 'next/image';
 
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
+
 const fetchData = async () => {
     try {
-        const res = await fetch(`http://89.108.115.136:1338/api/sekcziya-missiya?popular=*`, {
-            next: { revalidate: 10 }
+        const res = await fetch(`${domain}/api/sekcziya-missiya?popular=*`, {
+            cache: 'no-store',
         });
         if (!res.ok) {
             throw new Error(`Ошибка HTTP: ${res.status}`);

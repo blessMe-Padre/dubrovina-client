@@ -13,7 +13,9 @@ const url = `${domain}/api/hero?populate=*`;
 
 const getPageData = async () => {
     try {
-        const res = await fetch(url);
+        const res = await fetch(url, {
+            cache: 'no-store',
+        });
         if (!res.ok) {
             throw new Error(`Ошибка HTTP: ${res.status}`);
         }
