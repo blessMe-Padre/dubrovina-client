@@ -33,7 +33,9 @@ export default async function page({ params }) {
 export async function generateStaticParams() {
 
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`, {
+            cache: 'no-store',
+        });
         const data = await response.json();
 
         return data.data.map((page) => ({

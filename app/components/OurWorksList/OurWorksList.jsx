@@ -22,7 +22,9 @@ export default function OurWorksList() {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${PER_PAGE}`);
+                const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties?populate=*&pagination[page]=${currentPage}&pagination[pageSize]=${PER_PAGE}`, {
+                    cache: 'no-store',
+                });
                 setData(response.data);
                 setTotalPages(response.meta.pagination.pageCount);
             } catch (error) {

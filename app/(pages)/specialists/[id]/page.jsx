@@ -77,7 +77,9 @@ export default async function Page({ params }) {
 export async function generateStaticParams() {
 
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties`, {
+            cache: 'no-store',
+        });
         const data = await response.json();
 
         return data.data.map((specialist) => ({

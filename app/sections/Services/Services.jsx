@@ -11,7 +11,9 @@ const url = `${domain}/api/servisy?populate[Service][populate]=image`;
 
 const getData = async () => {
     try {
-        const res = await fetch(url);
+        const res = await fetch(url, {
+            cache: 'no-store',
+        });
         if (!res.ok) {
             throw new Error(`Ошибка HTTP: ${res.status}`);
         }
