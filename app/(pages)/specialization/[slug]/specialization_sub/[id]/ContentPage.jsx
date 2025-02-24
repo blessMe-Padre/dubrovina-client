@@ -1,5 +1,6 @@
-'use client'
+// 'use client'
 import { usePathname } from "next/navigation";
+// import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
 import getData from "@/app/utils/getData";
@@ -10,29 +11,22 @@ import { Breadcrumbs, ContentRenderer } from "@/app/components";
 import src from '@/public/services/bg_4.png';
 import Image from "next/image";
 
-
-
 export default async function ContentPage({ id }) {
-
     const pathname = usePathname();
-
     let slug = pathname.split("specialization/")[1]?.split("/")[0] || [null];
 
     let data = ''
-
     try {
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-podkategoriya?
-populate[speczializacziya_cat][filters][slug][$eq]=${slug}&
-populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&
-populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
+    populate[speczializacziya_cat][filters][slug][$eq]=${slug}&
+    populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&
+    populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
 
         data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
 
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
-
-
 
     return (
 
@@ -74,7 +68,7 @@ populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczia
                     <Image src={src} height={500} width={1200} alt="image" className={styles.service_img} />
 
                     <div className={styles.wrapper_info}>
-                        {data?.how_is_the_treatment_going.length > 0 ? (
+                        {data?.how_is_the_treatment_going?.length > 0 ? (
                             data.how_is_the_treatment_going.map((item, idx) => {
                                 let count = 0;
                                 idx++;

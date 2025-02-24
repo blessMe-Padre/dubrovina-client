@@ -39,7 +39,7 @@ export default function Statistic() {
             animate(count2, to2, { duration: 2, ease: "easeInOut" });
             animate(count3, to3, { duration: 1, ease: "easeInOut" });
         }
-    }, [inView]);
+    }, [inView, count, count2, count3]);
 
     return (
         <section className={styles.section}>
