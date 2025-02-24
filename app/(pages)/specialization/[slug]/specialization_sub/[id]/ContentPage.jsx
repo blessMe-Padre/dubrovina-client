@@ -1,6 +1,6 @@
-// 'use client'
+'use client'
 import { usePathname } from "next/navigation";
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './style.module.scss';
 
 import getData from "@/app/utils/getData";
