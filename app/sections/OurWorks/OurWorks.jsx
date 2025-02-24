@@ -18,7 +18,9 @@ const url = `${domain}/api/nashi-raboties?populate=*`;
 
 const getSectionData = async () => {
     try {
-        const res = await fetch(url);
+        const res = await fetch(url, {
+            cache: 'no-store',
+        });
         if (!res.ok) {
             throw new Error(`Ошибка HTTP: ${res.status}`);
         }

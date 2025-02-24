@@ -10,7 +10,9 @@ const url = `${domain}/api/kontakty?populate=*`;
 
 const getData = async () => {
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            cache: 'no-store',
+        });
         if (!response.ok) {
             throw new Error(`Ошибка HTTP: ${response.status}`);
         }
