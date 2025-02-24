@@ -2,7 +2,9 @@
 
 // @include adaptiv-value("gap", 100, 30);
 
-.section {}
+.section {
+    margin-top: 20px;
+}
 
 .image_wrapper {
     @include adaptiv-value("height", 700, 364);

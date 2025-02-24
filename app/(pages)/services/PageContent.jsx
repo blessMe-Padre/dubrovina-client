@@ -41,7 +41,7 @@ export default function PageContent() {
                 secondLink="/services"
                 secondLabel="Услуги"
             />
-            <section className="section">
+            <section className="section first_section">
                 <div>
                     <Image src={src} alt="bg" className={styles.bg} width={1920} height={600} />
 

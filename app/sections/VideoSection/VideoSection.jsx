@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 
 import styles from './style.module.css';
-export default function VideoSection({ all_width }) {
+export default function VideoSection({ all_width, firstSection }) {
 
     // Анимация для появления секции
     const sectionVariants = {
@@ -29,7 +29,7 @@ export default function VideoSection({ all_width }) {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={sectionVariants}
-                className={styles.video}>
+                className={`${styles.video} ${firstSection === true ? 'first_section' : ''}`}>
                 <video preload="metadata" poster="./video/poster.webp"
                     className="video">
                     <source src="./video/video.webm" type="video/webm" />

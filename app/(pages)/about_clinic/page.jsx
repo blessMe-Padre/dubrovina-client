@@ -15,7 +15,7 @@ export default function page() {
                 secondLink="/about_clinic"
                 secondLabel="О клинике"
             />
-            <VideoSection all_width={true} />
+            <VideoSection all_width={true} firstSection={true} className='firstSection' />
             <Appeal />
             <Gallery />
             <Mission />

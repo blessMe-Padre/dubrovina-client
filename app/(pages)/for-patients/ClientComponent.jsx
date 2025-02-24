@@ -18,7 +18,7 @@ export default function ClientComponent() {
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]); // Измените значения для настройки эффекта
 
     return (
-        <section className={styles.section}>
+        <section className={`${styles.section}`}>
             <div className={styles.image_wrapper}>
                 <motion.div
                     style={{

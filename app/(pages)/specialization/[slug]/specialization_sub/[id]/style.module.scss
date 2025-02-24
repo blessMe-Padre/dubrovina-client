@@ -6,7 +6,8 @@
     background-image: url('/services-sub/bg2.png');
     background-repeat: no-repeat;
     height: 80vh;
-    
+    margin-bottom: 20px;
+
     @media (max-width: 1200px) {
         height: auto;
     }
@@ -67,7 +68,7 @@
     backdrop-filter: blur(20px);
     background: rgba(141, 135, 135, 0.05);
     overflow: hidden;
-    
+
 
     @media (max-width: 680px) {
         padding: 20px;
