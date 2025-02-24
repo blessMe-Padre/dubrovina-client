@@ -1,4 +1,3 @@
-'use client';
 import pattern_2 from '@/public/services/“.png';
 import { usePathname } from "next/navigation";
 import styles from './style.module.scss';
@@ -7,11 +6,8 @@ import getData from "@/app/utils/getData"
 import { PriceInfo } from '@/app/components';
 
 export default async function Price() {
-
     const pathname = usePathname();
-
     let slug = pathname.split("specialization/")[1]?.split("/")[0] || [null];
-
     let data = '';
 
     try {

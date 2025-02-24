@@ -14,9 +14,7 @@ export default async function page() {
     let data = null;
     try {
         const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties?populate=*`);
-
         data = response || null;
-
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }
@@ -36,10 +34,13 @@ export default async function page() {
                 <Portfolio />
 
                 <div className="container">
-                    <OurWorksList data={data} />
+                    {data?.data?.length > 0 ? (
+                        <OurWorksList data={data.data} />
+                    ) : (
+                        <p>Загрузка списка работ...</p>
+                    )}
                 </div>
             </section>
-
         </>
     )
 }
