@@ -15,8 +15,9 @@ export default function SpecializationCard({ title, img, href, id, slug, addClas
                 <div className={styles.wrapper_only_img} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Image 
                         src={img ? img : '/placeholder.png'}
-                        width={150}
-                        height={100} 
+                        width={300}
+                        height={150} 
+                        // objectFit="contain"
                         alt='ds' 
                         className={styles.img_ds} 
                     />
