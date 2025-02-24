@@ -1,3 +1,4 @@
+'use client'
 import pattern_2 from '@/public/services/“.png';
 import { usePathname } from "next/navigation";
 import styles from './style.module.scss';
