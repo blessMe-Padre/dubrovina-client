@@ -1,8 +1,6 @@
 
 import { Breadcrumbs, OurWorksList } from '@/app/components';
 import styles from './style.module.scss';
-
-import getData from '../../utils/getData';
 import { Portfolio } from '@/app/sections';
 
 export const metadata = {
@@ -11,14 +9,6 @@ export const metadata = {
 };
 
 export default async function page() {
-    let data = null;
-    try {
-        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties?populate=*`);
-        data = response || null;
-    } catch (error) {
-        console.error('Ошибка при загрузке данных:', error);
-    }
-
     return (
         <>
             <Breadcrumbs
@@ -34,11 +24,7 @@ export default async function page() {
                 <Portfolio />
 
                 <div className="container">
-                    {data?.data?.length > 0 ? (
-                        <OurWorksList data={data.data} />
-                    ) : (
-                        <p>Загрузка списка работ...</p>
-                    )}
+                    <OurWorksList />
                 </div>
             </section>
         </>
