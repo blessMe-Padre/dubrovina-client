@@ -22,7 +22,7 @@ import { Portfolio } from '@/app/sections';
 
 // /api/speczialisties?filters[id][$eq]=4
 
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
 export default function ContentPage({ data }) {
     const [pageData, setPageData] = useState(data);
@@ -180,7 +180,7 @@ export default function ContentPage({ data }) {
                 </div>
 
             </div>
-            <Portfolio />
+            <Portfolio title={true} />
             <Popup active={popupActive} setActive={setPopupActive} />
         </>
     )

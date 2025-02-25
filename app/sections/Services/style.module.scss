@@ -4,6 +4,11 @@
 .section {
     position: relative;
     height: 300vh;
+    padding: 120px 0 30px;
+
+    @media (max-width: 1023px) {
+        padding: 60px 0;
+    }
 }
 
 .wrapper {
@@ -11,7 +16,7 @@
     position: sticky;
     top: 50px;
     display: flex;
-    height: 100vh;
+    height: 85vh;
     align-items: center;
     overflow: hidden;
 }
