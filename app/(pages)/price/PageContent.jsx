@@ -45,7 +45,7 @@ export default async function PageContent() {
                             </div>
 
                             <div className={styles.item_custom_border}>
-                                <Image src={pattern_2} width={50} height={50} alt='image' />
+                                <Image src={pattern_2} width={50} height={40} alt='image' />
                                 <p className={styles.text_custom}>
                                     Слова "цена" и "ценность" хоть и однокоренные, но очень различны по смыслу. Так вот ценность наших работ и результатов в лечении во много раз превышает их цену.
                                 </p>
