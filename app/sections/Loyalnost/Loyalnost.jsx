@@ -46,20 +46,29 @@ const Loyalnost = () => {
                             ПРОГРАММА ЛОЯЛЬНОСТИ ДЛЯ ПАЦИЕНТОВ
                         </h3>
 
+                        <div className="border_left_div white"></div>
+
+
                         <p className={styles.desc}>
                             Вам нас рекомендовали, но Вы все еще не решились начать стоматологическое лечение? Сейчас самое время!
                         </p>
 
+                        <div className="border_left_div white"></div>
+
+
                         <p className={styles.info_text}>
                             Получите ПОСТОЯННУЮ СЕМЕЙНУЮ СКИДКУ <br /> 10% на лечение, написав нам
                         </p>
+
+                        <div className="border_left_div white"></div>
+
 
                         <Button
                             handleClick={handleClick}
                             href="#popup"
                             text="Получить скидку"
                             size='small'
-                            color=''
+                            color='black'
                         />
 
                         <Image

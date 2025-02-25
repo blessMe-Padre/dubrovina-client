@@ -91,6 +91,7 @@
     color: var(--text-white);
 }
 
+
 .black_bg:hover {
     background-color: var(--gray_medium);
     color: var(--text-white);

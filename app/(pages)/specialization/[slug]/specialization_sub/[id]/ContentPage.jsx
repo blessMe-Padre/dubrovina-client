@@ -17,13 +17,9 @@ export default async function ContentPage({ id }) {
 
     let data = ''
     try {
-        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-podkategoriya?
-    populate[speczializacziya_cat][filters][slug][$eq]=${slug}&
-    populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&
-    populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
+        const response = await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczializaczii-podkategoriya?populate[speczializacziya_cat][filters][slug][$eq]=${slug}&populate[speczializacziya_cat][populate][speczializacziya_sub][filters][id][$eq]=${id}&populate[speczializacziya_cat][populate][speczializacziya_sub][populate][speczializacziya_sub_page][populate]=*`);
 
         data = response?.data?.speczializacziya_cat[0].speczializacziya_sub[0].speczializacziya_sub_page || null;
-
     } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
     }

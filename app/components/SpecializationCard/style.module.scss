@@ -8,6 +8,10 @@
     transition: transform 0.3s ease;
 }
 
+.img_ds {
+    object-fit: contain;
+}
+
 .item:hover {
     transform: translateY(-15px);
 }
