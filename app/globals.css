@@ -193,6 +193,7 @@ body {
   .border_left_div_large {
     height: 40px;
   }
+}
 
 .border_left_div.white {
   border-left: 1px solid var(--gray_bold);
