@@ -171,6 +171,14 @@ body {
   margin-bottom: 20px;
 }
 
+.border_left_div.white {
+  border-left: 1px solid var(--gray_bold);
+}
+
+.border_left_div.white:nth-of-type(n + 2) {
+  margin-top: 20px;
+}
+
 .specialists_wrapper .swiper-wrapper,
 .about_wrapper .swiper-wrapper,
 .works_wrapper .swiper-wrapper,
