@@ -68,7 +68,7 @@
 
 .count {
     @include adaptiv-value("font-size", 30, 17);
-    @include adaptiv-value("padding", 30, 15);
+    @include adaptiv-value("padding", 20, 10);
 
     border-radius: 50%;
     position: relative;
@@ -90,7 +90,7 @@
     border-radius: 50%;
     /* Закругленные углы */
     background: linear-gradient(to right,
-            rgba(39, 39, 42, 1),
+            rgba(39, 39, 42, .6),
             rgba(218, 221, 226, 1));
     /* Градиент */
     z-index: -1;
@@ -202,19 +202,26 @@
 
 .specialization_sub_item {
     position: relative;
-    background-color: var(--black);
+    // background-color: var(--black);
+    background: radial-gradient(circle, rgba(68, 71, 77, 1) 0%, rgba(39, 39, 42, 1) 80%);
 
     padding: 40px 50px;
 }
 
 .specialization_sub_title {
+    max-width: 70%;
     color: var(--text-white);
     font-weight: 600;
     @include adaptiv-value("font-size", 20, 12);
+
+    @media screen and (max-width: 769px) {
+        max-width: 100%;
+    }
 }
 
 .link {
-    display: block;
+    display: flex;
+    // align-items: center;
     height: 100%;
     height: 100%;
 }

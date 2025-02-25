@@ -12,7 +12,7 @@
 
     padding: 70px;
     background-color: var(--gray_medium);
-    width: 60%;
+    width: 80%;
     color: var(--text-black);
 
 }
@@ -54,12 +54,11 @@
 
 .pattern {
     position: absolute;
-    bottom: -10%;
-    right: 430px;
-    width: 350px;
-    height: 300px;
+    bottom: 0%;
+    right: 370px;
+    width: 303px;
+    height: 230px;
     object-fit: contain;
-
     z-index: 0;
 }
 /* 
