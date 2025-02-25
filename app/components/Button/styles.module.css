@@ -4,13 +4,14 @@
     align-items: center;
     justify-content: center;
 
-    font-family: "Proxima Nova", sans-serif;
-    font-weight: 700;
+    font-family: var(--font-family);
+    text-transform: uppercase;
+    font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.02em;
     color: var(--white);
-    cursor: pointer;
     text-decoration: none;
+    border: none;
 
     background-color: transparent;
 
@@ -117,7 +118,21 @@
     color: var(--text-white);
 }
 
+@media (max-width: 768px) {
+    .button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
 
+    .text {
+        padding: 0;
+    }
+
+    .large {
+        max-width: 452px;
+        height: 35px;
+    }
+}
 
 @media (max-width: 560px) {
     .button {

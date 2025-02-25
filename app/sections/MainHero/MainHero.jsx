@@ -76,6 +76,7 @@ const MainHero = () => {
                                 dangerouslySetInnerHTML={{ __html: pageData?.data?.subtitle }}
                             ></p>
                         </div>
+                        <div className={styles.line}></div>
                         <Button
                             color='white'
                             handleClick={handleClick}

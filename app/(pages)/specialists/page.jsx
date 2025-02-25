@@ -29,7 +29,7 @@ export default async function page() {
             // thirdLabel={`Специалист`}
             />
 
-            <section className='section'>
+            <section className='section first_section'>
                 <div className="container">
                     <h1 className='title title--black'>{data?.title}</h1>
                     <p className={styles.subtitle}>{data?.subtitle}</p>

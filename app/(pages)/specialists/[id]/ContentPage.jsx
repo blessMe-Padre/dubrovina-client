@@ -22,14 +22,15 @@ import { Portfolio } from '@/app/sections';
 
 // /api/speczialisties?filters[id][$eq]=4
 
-const domain = 'http://89.108.115.136:1338';
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
 export default function ContentPage({ data }) {
     const [pageData, setPageData] = useState(data);
     const [isLoading, setIsLoading] = useState(true);
     const [popupActive, setPopupActive] = useState(false);
 
-    const imageUrl = pageData?.big_img?.url ? `${domain}${pageData.big_img.url}` : '/placeholders/specialist_id.jpg';
+    // const imageUrl = pageData?.big_img?.url ? `${domain}${pageData.big_img.url}` : '/placeholders/specialist_id.jpg';
+    const imageUrl = pageData?.big_img?.url ? `${domain}${pageData.big_img.url}` : `${domain}${pageData?.img[0]?.url}`;
 
     useEffect(() => {
         let lightbox = new PhotoSwipeLightbox({
@@ -52,9 +53,8 @@ export default function ContentPage({ data }) {
     return (
         <>
             <div className="container">
-                <div className='section'>
+                <div className='section first_section'>
                     <div className={styles.image_wrapper}>
-
                         <Image
                             src={imageUrl}
                             alt='Dubrovina logo'
@@ -180,7 +180,7 @@ export default function ContentPage({ data }) {
                 </div>
 
             </div>
-            <Portfolio />
+            <Portfolio title={true} />
             <Popup active={popupActive} setActive={setPopupActive} />
         </>
     )

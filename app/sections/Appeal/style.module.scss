@@ -30,7 +30,14 @@
 
 .item {
     @include adaptiv-value("padding", 80, 30);
-    background-color: var(--black);
+    backdrop-filter: blur(30px);
+    background: radial-gradient(50% 50% at 50% 50%, #44474d 0%, #27272a 100%);
+    position: relative;
+    height: 99.2%;
+
+    @media (max-width: 768px) {
+        padding-top: 50px;
+    }
 }
 
 .item p {
@@ -98,5 +105,46 @@
     .info_text {
         font-size: 12px;
     }
+}
 
+.item_decor_1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.item_decor_2 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+        width: 28px;
+        height: 48px;
+        right: 10px;
+    }
+
+    @media (max-width: 560px) {
+        display: none;
+    }
+}
+
+.item_decor_3 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+        width: 28px;
+        height: 48px;
+        left: 10px;
+    }
+
+    @media (max-width: 560px) {
+        display: none;
+    }
 }

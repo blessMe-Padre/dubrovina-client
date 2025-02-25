@@ -18,17 +18,17 @@ export default function ClientComponent() {
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]); // Измените значения для настройки эффекта
 
     return (
-        <section className={styles.section}>
+        <section className={`${styles.section}`}>
             <div className={styles.image_wrapper}>
                 <motion.div
-                    style={{
-                        y, // Применяем анимацию по оси Y
-                        width: "100%",
-                        height: "100%",
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                    }}
+                // style={{
+                //     y,
+                //     width: "100%",
+                //     height: "100%",
+                //     position: "absolute",
+                //     top: 0,
+                //     left: 0,
+                // }}
                 >
                     <Image
                         src='/images/image-5.jpg'

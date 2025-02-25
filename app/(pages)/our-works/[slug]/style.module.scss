@@ -3,7 +3,7 @@
 // @include adaptiv-value("font-size", 24, 13);
 
 .section {
-    padding: 50px 0 70px;
+    padding: 20px 0 70px;
 
     @media (max-width: 560px) {
         padding: 30px 0;
@@ -54,6 +54,7 @@
 
 .content {
     padding-left: 40px;
+    border-left: 1px solid #bdc1c8;
 
     @media (max-width: 1023px) {
         padding-left: 25px;

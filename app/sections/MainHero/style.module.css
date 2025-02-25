@@ -6,6 +6,7 @@
     height: clamp(20rem, -26.643rem + 97.173vi, 60.813rem);
     display: flex;
     justify-content: center;
+    max-height: 800px;
 }
 
 .bg {
@@ -22,10 +23,17 @@
 .hero_wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-direction: column;
-    gap: 40px;
+    /* gap: 40px; */
     height: 80%;
+}
+
+.line {
+    width: 1px;
+    background-color: var(--white);
+    height: 200px;
+    margin: 20px 0;
 }
 
 .title {
@@ -85,6 +93,10 @@
 
     .hero_item {
         padding: 10px 15px;
+    }
+
+    .line {
+        height: 60px;
     }
 
     .section {
@@ -152,5 +164,9 @@
 
     .hero_item_2 {
         margin-left: auto;
+    }
+
+    .line {
+        height: 100px;
     }
 }

@@ -24,6 +24,7 @@ export default function page() {
                     <div className={styles.price_wrapper}>
                         <div className={styles.price_list_block}>
                             <h2 className={styles.price_title}>Прейскурант</h2>
+                            <div className='border_left_div_large'></div>
                             <LinkButton
                                 link={'/price'}
                                 text='Посмотреть прайс'

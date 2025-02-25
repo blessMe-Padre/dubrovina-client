@@ -1,5 +1,5 @@
 .section {
-    padding: 60px 0 80px;
+    padding: 120px 0 80px;
     position: relative;
 }
 
@@ -19,4 +19,10 @@
 
 .wrapper {
     margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0 80px;
+    }
 }

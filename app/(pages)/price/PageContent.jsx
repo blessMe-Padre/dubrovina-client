@@ -23,7 +23,7 @@ export default async function PageContent() {
                 secondLink="/services"
                 secondLabel="Цена на услуги"
             />
-            <section className="section">
+            <section className="section first_section">
                 <div className="container">
                     <div>
                         <h2 className="title title--black">цены на услуги</h2>

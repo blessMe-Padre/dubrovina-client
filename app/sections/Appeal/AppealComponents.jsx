@@ -24,24 +24,51 @@ export function AppealComponents({ data }) {
             className={styles.section}>
             <div className="container">
                 <div className={styles.section_wrapper}>
-                    <div
-                        className={styles.item}
-                        dangerouslySetInnerHTML={{ __html: data?.data?.description || 'данные не загружены' }}
-                    />
-                    <div className={styles.image_wrapper}>
+                    <div className="relative">
                         <Image
-                            src={imageUrl}
-                            alt='Dubrovina logo'
+                            src='/appeal/string.svg'
+                            alt='Dubrovina'
                             width={720}
-                            height={700}
-                            className="dsv-image"
-                            placeholder="blur"
-                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MiIgaGVpZ2h0PSIxMTg5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNjY2MiIC8+PC9zdmc+" priority
+                            height={56}
+                            className={styles.item_decor_1}
                         />
-                        <div className={styles.info}>
-                            <p className={styles.name}>Анастасия дубровина</p>
-                            <div className={styles.border_left}></div>
-                            <p className={styles.info_text}>Основатель клиники, главный врач, стаж более 20 лет</p>
+                        <Image
+                            src='/appeal/white.svg'
+                            alt='Dubrovina'
+                            width={55}
+                            height={95}
+                            className={styles.item_decor_2}
+                        />
+                        <div
+                            className={styles.item}
+                            dangerouslySetInnerHTML={{ __html: data?.data?.description || 'данные не загружены' }}
+                        />
+                    </div>
+
+                    <div className="relative">
+                        <Image
+                            src='/appeal/black.svg'
+                            alt='Dubrovina'
+                            width={55}
+                            height={95}
+                            className={styles.item_decor_3}
+                        />
+                        <div className={styles.image_wrapper}>
+                            <Image
+                                src={imageUrl}
+                                alt='Dubrovina logo'
+                                width={720}
+                                height={700}
+                                className="dsv-image"
+                                placeholder="blur"
+                                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MiIgaGVpZ2h0PSIxMTg5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNjY2MiIC8+PC9zdmc+" priority
+                            />
+
+                            <div className={styles.info}>
+                                <p className={styles.name}>Анастасия дубровина</p>
+                                <div className={styles.border_left}></div>
+                                <p className={styles.info_text}>Основатель клиники, главный врач, стаж более 20 лет</p>
+                            </div>
                         </div>
                     </div>
                 </div>

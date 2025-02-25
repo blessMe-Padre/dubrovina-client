@@ -1,0 +1,74 @@
+.wrapper {
+    display: flex;
+    gap: 10px;
+
+    background-color: var(--gray_medium);
+    background-image: url('/bg/call-l.webp');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: contain;
+    padding: 100px 70px;
+    color: var(--text-black);
+}
+
+.title {
+    color: var(--text-black);
+    position: relative;
+    font-family: var(--second-family);
+    font-size: clamp(1.75rem, 0.1742rem + 3.2787vw, 3.125rem);
+    margin-bottom: clamp(1.625rem, 1.1964rem + 2.1429vw, 3.125rem);
+    text-transform: uppercase;
+
+    max-width: 50%;
+
+    margin-bottom: clamp(3.125rem, -0.446rem + 7.44vw, 6.25rem);
+}
+
+.desc {
+    color: var(--text-black);
+    position: relative;
+    font-size: clamp(0.75rem, 0.177rem + 1.1923vw, 1.25rem);
+    margin-bottom: clamp(1.625rem, 1.1964rem + 2.1429vw, 3.125rem);
+    font-weight: 600;
+    max-width: 50%;
+}
+
+@media (max-width: 1023px) {
+    .wrapper {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 740px) {
+    .wrapper {
+        padding: 50px 40px;
+
+        background-image: url('/bg/call-s.webp');
+        background-repeat: no-repeat;
+        background-position: bottom center;
+
+        min-height: 600px;
+    }
+
+    .title {
+        max-width: 100%;
+    }
+
+    .desc {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    .wrapper {
+        padding: 50px 20px;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .desc {
+        font-size: 0.875em;
+    }
+}

@@ -5,8 +5,9 @@
     background-image: url('/services-sub/bg.png');
     background-repeat: no-repeat;
     height: 80vh;
+    margin-top: 20px;
 
-    
+
     @media (max-width: 1200px) {
         height: auto;
     }
@@ -44,7 +45,7 @@
     backdrop-filter: blur(20px);
     background: rgba(141, 135, 135, 0.05);
     overflow: hidden;
-    
+
 
     @media (max-width: 680px) {
         padding: 20px;
@@ -118,7 +119,7 @@
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: 20px;
-    
+
     @include adaptiv-value("font-size", 20, 12);
 
     @media (max-width: 680px) {
@@ -132,7 +133,7 @@
     @include adaptiv-value("font-size", 18, 10);
 
     @media (max-width: 680px) {
-            font-size: 0.75rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -145,7 +146,7 @@
     justify-content: center;
     align-items: center;
 
-   
+
 
 
     @media screen and (max-width: 769px) {
@@ -173,7 +174,7 @@
     @include adaptiv-value("font-size", 24, 13);
 
     @media screen and (max-width: 769px) {
-            max-width: 400px;
+        max-width: 400px;
     }
 
     @media screen and (max-width: 769px) {
