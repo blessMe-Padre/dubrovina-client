@@ -175,6 +175,25 @@ body {
   margin-bottom: 20px;
 }
 
+.border_left_div_large {
+  border-left: 1px solid var(--gray_medium);
+  height: 100px;
+  margin-bottom: 45px;
+}
+
+@media (max-width: 768px) {
+  .border_left_div_large {
+    height: 60px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .border_left_div_large {
+    height: 40px;
+  }
+}
+
 .specialists_wrapper .swiper-wrapper,
 .about_wrapper .swiper-wrapper,
 .works_wrapper .swiper-wrapper,

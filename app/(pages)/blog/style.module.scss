@@ -11,14 +11,14 @@
 
 .button {
     font-family: "Manrope", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     @include adaptiv-value("font-size", 16, 12);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #aeb5c3;
     border: 1px solid #aeb5c3;
     padding: 10px 30px;
-    cursor: pointer;
+    background-color: transparent;
 
     @media (max-width: 500px) {
         font-size: 10px;

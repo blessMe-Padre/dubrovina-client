@@ -3,6 +3,7 @@ import { Breadcrumbs } from '@/app/components';
 import getData from './../../../utils/getData';
 
 import ContentPage from './ContentPage';
+import { CallToAction } from '@/app/sections';
 
 export async function generateMetadata({ params }) {
     const { slug } = params;
@@ -37,6 +38,8 @@ export default async function page({ params }) {
             />
 
             <ContentPage data={data} />
+
+            <CallToAction />
         </>
     )
 }
