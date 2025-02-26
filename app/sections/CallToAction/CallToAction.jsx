@@ -4,10 +4,6 @@ import { motion } from "framer-motion";
 
 import { Button, Popup } from '@/app/components';
 import styles from './style.module.css';
-import Image from 'next/image';
-
-import bg from '@/public/loyalnost/bg.png';
-import persent_img from '@/public/loyalnost/persent.png'
 
 const CallToAction = () => {
     const [popupActive, setPopupActive] = useState(false);
@@ -45,6 +41,7 @@ const CallToAction = () => {
                         <h3 className={styles.title}>
                             Хотите красивую улыбку?
                         </h3>
+                        <div className='border_left_div '></div>
 
                         <p className={styles.desc}>
                             Оставьте контакты, в ближайшее время с вами свяжется администратор и проконсультируетпо условиям и стоимости лечения, подберёт врача и запишет вас на приём                        </p>

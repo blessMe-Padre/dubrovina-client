@@ -7,7 +7,6 @@
     height: 80vh;
     margin-top: 20px;
 
-
     @media (max-width: 1200px) {
         height: auto;
     }
@@ -34,7 +33,7 @@
     align-items: center;
     gap: 30px;
 
-    margin: -10% auto;
+    margin: -10% auto 0;
 
     max-width: 1000px;
 
@@ -53,9 +52,6 @@
     }
 }
 
-
-
-
 .featured_item {
     display: flex;
     gap: 22px;
@@ -69,14 +65,27 @@
 
 .count {
     @include adaptiv-value("font-size", 30, 17);
-    @include adaptiv-value("padding", 20, 10);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+
+    flex: 0 0 auto;
 
     border-radius: 50%;
     position: relative;
     /* Для позиционирования псевдоэлементов */
-    width: max-content;
+    // width: max-content;
     background: var(--gray_light);
     /* Прозрачный фон */
+
+    @media (max-width: 768px) {
+        width: 35px;
+        height: 35px;
+    }
 }
 
 /* Псевдоэлемент для градиентной границы */
