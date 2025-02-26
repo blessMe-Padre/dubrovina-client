@@ -67,7 +67,7 @@ const Loyalnost = () => {
                             handleClick={handleClick}
                             href="#popup"
                             text="Получить скидку"
-                            size='small'
+                            size='medium'
                             color='black'
                         />
 
@@ -82,7 +82,12 @@ const Loyalnost = () => {
                     </div>
 
                     <div className={styles.info_img}>
-                        <Image src={bg} alt='bg' className={`dsv-image ${styles.img}`} />
+                        <Image
+                            width={510}
+                            height={616}
+                            src={bg}
+                            alt='bg'
+                            className={`dsv-image ${styles.img}`} />
                     </div>
 
                     <Popup

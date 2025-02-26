@@ -4,10 +4,6 @@ import { motion } from "framer-motion";
 
 import { Button, Popup } from '@/app/components';
 import styles from './style.module.css';
-import Image from 'next/image';
-
-import bg from '@/public/loyalnost/bg.png';
-import persent_img from '@/public/loyalnost/persent.png'
 
 const CallToAction = () => {
     const [popupActive, setPopupActive] = useState(false);

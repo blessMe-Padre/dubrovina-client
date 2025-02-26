@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: none;
 }
 
 .item_image_wrapper img {
@@ -58,6 +59,10 @@
     font-size: clamp(0.875rem, 0.161rem + 1.488vw, 1.5rem);
     color: var(--text-black);
     text-transform: uppercase;
+}
+
+.item_gray1 {
+    background-color: #dadde2;
 }
 
 .item_text {
