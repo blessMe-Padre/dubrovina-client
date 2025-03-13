@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .logo_wrapper {
     display: flex;
     gap: 10px;
@@ -26,6 +27,7 @@
     color: var(--text-black);
     font-size: clamp(0.875rem, 0.5885rem + 0.5961vw, 1.125rem);
 }
+
 .header_info .phone {
     font-weight: 800;
     font-size: clamp(0.875rem, 0.5885rem + 0.5961vw, 1.125rem);
@@ -165,38 +167,39 @@
 
 
 .sub_menu {
-  max-width: 380px;
-  border: 1px solid var(--gray_bold);
-  position: absolute;
-  z-index: 1000;
-  top: 40px;
-  left: -40%;
-  background-color: var(--white);
-  padding: 40px 51px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out, left 0.3s ease-in-out; /* Добавили left */
+    max-width: 380px;
+    border: 1px solid var(--gray_bold);
+    position: absolute;
+    z-index: 1000;
+    top: 40px;
+    left: -40%;
+    background-color: var(--white);
+    padding: 40px 51px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out, left 0.3s ease-in-out;
+    /* Добавили left */
 }
 
 .sub_menu li {
-  max-width: 380px;
-  position: relative;
-  text-decoration: none;
-  margin-bottom: 20px;
-  color: var(--text-black) !important;
-  font-weight: 400;
-  width: 100%;
-  transition: color 0.1s ease-in-out;
+    max-width: 380px;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 20px;
+    color: var(--text-black) !important;
+    font-weight: 400;
+    width: 100%;
+    transition: color 0.1s ease-in-out;
 
 }
 
 
 .active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  left: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    left: 0;
 
 }
 
@@ -221,7 +224,9 @@
 
 
 @media screen and (max-width: 1024px) {
-    .header_info address, .popup_btn_header {
+
+    .header_info address,
+    .popup_btn_header {
         display: none;
     }
 
@@ -236,6 +241,7 @@
         text-decoration: none;
         text-transform: none;
     }
+
     .header_info {
         gap: 10px;
     }
@@ -255,6 +261,7 @@
     .header_info .phone {
         font-size: 0.875em;
     }
+
     .logo {
         max-width: 160px;
     }
@@ -268,6 +275,7 @@
     .header_info .phone {
         font-size: 0.75em;
     }
+
     .logo_wrapper {
         gap: 5px;
     }
@@ -287,10 +295,21 @@
     .header_info .phone {
         font-size: 0.625em;
     }
+
     .logo {
         max-width: 160px;
     }
-
-
 }
 
+.alert {
+    padding: 20px 0 20px;
+    color: var(--text-black);
+    font-weight: 500;
+    text-align: center;
+    background-color: var(--gray_light);
+}
+
+.alert a {
+    font-weight: 500;
+    color: var(--text-black);
+}

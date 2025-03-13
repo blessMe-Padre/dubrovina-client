@@ -210,6 +210,11 @@ export default function Header() {
 
             {panel && <VdsPanel setPanel={setPanel} setPanelBtn={setPanelBtn} />}
 
+            <div className={styles.alert}>
+                <p>Сайт находится в разработке, информацию уточняйте у администратора клиники. Тел.
+                    <a href="tel:+79242555151"> 89242555151</a>
+                </p>
+            </div>
             <div className='container'>
                 <div className={styles.header_wrapper}>
                     <div className={styles.logo_wrapper}>
