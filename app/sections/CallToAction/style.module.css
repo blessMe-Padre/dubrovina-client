@@ -2,8 +2,8 @@
     display: flex;
     gap: 10px;
 
-    background-color: var(--gray_medium);
-    background-image: url('/bg/call-l.webp');
+    background-color: var(--gray_light);
+    background-image: url('/bg/call-1-l.webp');
     background-repeat: no-repeat;
     background-position: top right;
     background-size: contain;
@@ -20,8 +20,7 @@
     text-transform: uppercase;
 
     max-width: 50%;
-
-    margin-bottom: clamp(3.125rem, -0.446rem + 7.44vw, 6.25rem);
+    margin-bottom: 20px;
 }
 
 .desc {
@@ -43,15 +42,13 @@
     .wrapper {
         padding: 50px 40px;
 
-        background-image: url('/bg/call-s.webp');
+        background-image: url('/bg/call-1-s.webp');
         background-repeat: no-repeat;
-        background-position: bottom center;
-
-        min-height: 600px;
+        background-position: top right;
     }
 
     .title {
-        max-width: 100%;
+        /* max-width: 100%; */
     }
 
     .desc {
@@ -70,5 +67,13 @@
 
     .desc {
         font-size: 0.875em;
+    }
+}
+
+
+@media (max-width: 420px) {
+    .wrapper {
+        padding: 50px 40px;
+        background-size: 200px 300px;
     }
 }

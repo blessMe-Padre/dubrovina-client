@@ -74,7 +74,7 @@ export default function Trust() {
                             в рабочий процесс</p>
                     </li>
 
-                    <li className={styles.item}>
+                    <li className={`${styles.item} ${styles.item_gray1}`}>
                         <Image
                             src="/icons/trust/icon-3.svg"
                             alt="icon"

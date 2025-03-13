@@ -41,7 +41,7 @@
 
     color: var(--white);
 
-    cursor: pointer;
+    /* cursor: pointer; */
 
     background-color: var(--text-black);
     padding: 20px;
@@ -50,12 +50,14 @@
     margin-bottom: 10px;
     width: 100%;
     margin-bottom: 30px;
+
+    border: none;
 }
 .form__btn__submit svg {
     transition: all 0.3s ease;
     stroke: #191830;
 }
-/* 
+/*
 .form__btn__submit:hover {
     color: var(--white);
     background-color: var(--green);
