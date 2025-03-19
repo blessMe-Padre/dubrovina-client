@@ -1,16 +1,32 @@
 'use client'
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import styles from './style.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { initPhoneMask } from './../../vendor/phone-mask.js';
 
 export const Form = ({ direction, blur }) => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    // const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        setValue,
+        watch
+    } = useForm({
+        defaultValues: {
+            phone: '', // Инициализируем phone пустой строкой
+        },
+    });
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState();
     const [sending, isSending] = useState(false);
 
+    const phoneValue = watch('phone'); // Отслеживаем значение поля phone
+
     const onSubmit = async (formData) => {
+        console.log(formData);
+
         isSending(true);
         try {
             const response = await fetch('https://httpbin.org/post', {
@@ -45,14 +61,26 @@ export const Form = ({ direction, blur }) => {
         inputRefs.current.forEach((input) => {
             if (input) {
                 initPhoneMask(input);
+                // Добавляем обработчик изменения значения
+                input.addEventListener('input', (e) => {
+                    setValue('phone', e.target.value); // Обновляем значение в react-hook-form
+                });
             }
         });
-    }, []);
+    }, [setValue]);
+
+    // useEffect(() => {
+    //     inputRefs.current.forEach((input) => {
+    //         if (input) {
+    //             initPhoneMask(input);
+    //         }
+    //     });
+    // }, []);
 
     return (
         <form
             className={`
-            ${styles.form} 
+            ${styles.form}
             ${direction === 'row' ? `${styles.row}` : `${styles.column}`}
             ${blur === 'yes' ? `${styles.blur}` : ''} `}
             onSubmit={handleSubmit(onSubmit)}
@@ -60,7 +88,7 @@ export const Form = ({ direction, blur }) => {
             <p className={`${styles.form__title} ${direction === 'row' ? `${styles.hidden}` : ''}`}>ЗАПИШИТЕСЬ НА консультацию сейчас и получите постоянную семейную скидку 10%</p>
 
             <div className={`${styles.input_wrapper} ${direction === 'row' ? `${styles.input_wrapper_custom}` : ''}`}>
-                <input
+                <input style={{ color: "#000000" }}
                     placeholder='Введите имя'
                     {...register('name', { required: { value: true, message: 'Введите имя' } })}
                     error={errors.name}
@@ -70,21 +98,48 @@ export const Form = ({ direction, blur }) => {
                 />
                 <div className={styles.input_text_error}>{errors['name'] && errors['name'].message}</div>
             </div>
+
             <div className={`${styles.input_wrapper} ${direction === 'row' ? `${styles.input_wrapper_custom}` : ''}`}>
+
                 <input
+                    style={{ color: "#000000" }}
                     placeholder='Введите телефон'
-                    {...register('contact-data', { required: { value: true, message: 'Введите телефон' } })}
-                    error={errors.name}
-                    className={`${styles.form__input} ${errors['contact-data'] ? styles.error : ''}
+                    {...register('phone', {
+                        required: { value: true, message: 'Введите телефон' },
+                    })}
+                    value={phoneValue || ''} // Убедимся, что значение никогда не undefined
+                    onChange={(e) => setValue('phone', e.target.value)} // Обновляем значение в react-hook-form
+                    ref={(el) => {
+                        if (el && !inputRefs.current.includes(el)) {
+                            inputRefs.current.push(el);
+                            initPhoneMask(el); // Инициализация маски
+                        }
+                    }}
+                    error={errors.phone}
+                    className={`${styles.form__input} ${errors['phone'] ? styles.error : ''}
                     ${direction === 'row' ? `${styles.input_custom}` : ''}`}
                     type='tel'
+                />
+
+                {/* <input style={{ color: "#000000" }}
+                    placeholder='Введите телефон'
+
+
+                    {...register('phone', {
+                        required: { value: true, message: 'Введите телефон' },
+                    })}
                     ref={(el) => {
                         if (el && !inputRefs.current.includes(el)) {
                             inputRefs.current.push(el);
                         }
                     }}
-                />
-                <div className={styles.input_text_error}>{errors['contact-data'] && errors['contact-data'].message}</div>
+
+                    error={errors.phone}
+                    className={`${styles.form__input} ${errors['phone'] ? styles.error : ''}
+                    ${direction === 'row' ? `${styles.input_custom}` : ''}`}
+                    type='tel'
+                /> */}
+                <div className={styles.input_text_error}>{errors['phone'] && errors['phone'].message}</div>
             </div>
             {isSuccess &&
                 <div className={styles.success}>
