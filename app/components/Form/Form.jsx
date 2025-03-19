@@ -25,22 +25,29 @@ export const Form = ({ direction, blur }) => {
     const phoneValue = watch('phone'); // Отслеживаем значение поля phone
 
     const onSubmit = async (formData) => {
-        console.log(formData);
-
+        // console.log(formData);
         isSending(true);
         try {
-            const response = await fetch('https://httpbin.org/post', {
+            // const response = await fetch('https://httpbin.org/post', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData),
+            // });
+
+            const response = await fetch('/api/emails', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify(formData),
             });
+
             if (response.ok) {
                 const data = await response.json();
                 setIsSuccess(true);
                 isSending(false);
-                setError(undefined)
+                setError(undefined);
+                console.log(data);
+
                 // setActive(false)
                 reset();
             } else {
