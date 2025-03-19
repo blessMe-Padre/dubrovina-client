@@ -2,30 +2,48 @@
 
 import styles from './style.module.css';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { initPhoneMask } from './../../vendor/phone-mask.js';
 
 export default function LightForm() {
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        setValue,
+        watch
+    } = useForm({
+        defaultValues: {
+            phone: '', // Инициализируем phone пустой строкой
+        },
+    });
+
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState();
     const [sending, isSending] = useState(false);
 
+    const phoneValue = watch('phone'); // Отслеживаем значение поля phone
+
     const onSubmit = async (formData) => {
         isSending(true);
         try {
-            const response = await fetch('https://httpbin.org/post', {
+            const response = await fetch('/api/emails', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             });
+
             if (response.ok) {
                 const data = await response.json();
+                console.log(data);
+
                 setIsSuccess(true);
                 isSending(false);
-                setError(undefined)
+                setError(undefined);
                 // setActive(false)
                 reset();
             } else {
@@ -39,6 +57,20 @@ export default function LightForm() {
             console.error('Fetch error:', err);
         }
     }
+
+    const inputRefs = useRef([]);
+
+    useEffect(() => {
+        inputRefs.current.forEach((input) => {
+            if (input) {
+                initPhoneMask(input);
+                // Добавляем обработчик изменения значения
+                input.addEventListener('input', (e) => {
+                    setValue('phone', e.target.value); // Обновляем значение в react-hook-form
+                });
+            }
+        });
+    }, [setValue]);
 
     return (
 
@@ -60,12 +92,23 @@ export default function LightForm() {
             <div className={styles.input_wrapper}>
                 <input
                     placeholder='Введите телефон'
-                    {...register('contact-data', { required: { value: true, message: 'Введите телефон' } })}
-                    error={errors.name}
-                    className={`${styles.form__input} ${errors['contact-data'] ? styles.error : ''}`}
-                    type='text'
+                    {...register('phone', {
+                        required: { value: true, message: 'Введите телефон' },
+                    })}
+                    value={phoneValue || ''} // Убедимся, что значение никогда не undefined
+                    onChange={(e) => setValue('phone', e.target.value)} // Обновляем значение в react-hook-form
+                    ref={(el) => {
+                        if (el && !inputRefs.current.includes(el)) {
+                            inputRefs.current.push(el);
+                            initPhoneMask(el); // Инициализация маски
+                        }
+                    }}
+                    error={errors.phone}
+                    className={`${styles.form__input} ${errors['phone'] ? styles.error : ''}
+                    `}
+                    type='tel'
                 />
-                <div className={styles.input_text_error}>{errors['contact-data'] && errors['contact-data'].message}</div>
+                <div className={styles.input_text_error}>{errors['phone'] && errors['phone'].message}</div>
             </div>
             {isSuccess &&
                 <div className={styles.success}>

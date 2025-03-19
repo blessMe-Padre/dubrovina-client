@@ -1,11 +1,11 @@
 'use client'
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import styles from './style.module.css';
 import { useState, useEffect, useRef } from 'react';
 import { initPhoneMask } from './../../vendor/phone-mask.js';
 
 export const Form = ({ direction, blur }) => {
-    // const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm();
+
     const {
         register,
         handleSubmit,
@@ -18,6 +18,7 @@ export const Form = ({ direction, blur }) => {
             phone: '', // Инициализируем phone пустой строкой
         },
     });
+
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState();
     const [sending, isSending] = useState(false);
@@ -25,29 +26,23 @@ export const Form = ({ direction, blur }) => {
     const phoneValue = watch('phone'); // Отслеживаем значение поля phone
 
     const onSubmit = async (formData) => {
-        // console.log(formData);
         isSending(true);
         try {
-            // const response = await fetch('https://httpbin.org/post', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(formData),
-            // });
-
             const response = await fetch('/api/emails', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(formData),
             });
 
             if (response.ok) {
                 const data = await response.json();
+                console.log(data);
+
                 setIsSuccess(true);
                 isSending(false);
                 setError(undefined);
-                console.log(data);
-
                 // setActive(false)
                 reset();
             } else {

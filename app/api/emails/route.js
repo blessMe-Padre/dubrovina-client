@@ -4,14 +4,13 @@ export async function POST(request) {
     try {
         // Если вы ожидаете данные из тела запроса, извлеките их
         const body = await request.json();
-        console.log("Received data:", body);
 
         // Вызов функции отправки email
-        const result = await sendEmail();
+        const result = await sendEmail(body);
 
         return Response.json({
             accepted: result.accepted,
-            message: "Email sent successfully",
+            message: "Письмо успешно отправлено",
         });
     } catch (error) {
         console.error("Error in API route:", error);
