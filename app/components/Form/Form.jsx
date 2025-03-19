@@ -69,14 +69,6 @@ export const Form = ({ direction, blur }) => {
         });
     }, [setValue]);
 
-    // useEffect(() => {
-    //     inputRefs.current.forEach((input) => {
-    //         if (input) {
-    //             initPhoneMask(input);
-    //         }
-    //     });
-    // }, []);
-
     return (
         <form
             className={`
@@ -121,24 +113,6 @@ export const Form = ({ direction, blur }) => {
                     type='tel'
                 />
 
-                {/* <input style={{ color: "#000000" }}
-                    placeholder='Введите телефон'
-
-
-                    {...register('phone', {
-                        required: { value: true, message: 'Введите телефон' },
-                    })}
-                    ref={(el) => {
-                        if (el && !inputRefs.current.includes(el)) {
-                            inputRefs.current.push(el);
-                        }
-                    }}
-
-                    error={errors.phone}
-                    className={`${styles.form__input} ${errors['phone'] ? styles.error : ''}
-                    ${direction === 'row' ? `${styles.input_custom}` : ''}`}
-                    type='tel'
-                /> */}
                 <div className={styles.input_text_error}>{errors['phone'] && errors['phone'].message}</div>
             </div>
             {isSuccess &&
@@ -164,7 +138,7 @@ export const Form = ({ direction, blur }) => {
                 }
 
                 {sending &&
-                    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><radialGradient id="a9" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stopColor="#000000"></stop><stop offset=".3" stopColor="#000000" stopOpacity=".9"></stop><stop offset=".6" stopColor="#000000" stopOpacity=".6"></stop><stop offset=".8" stopColor="#000000" stopOpacity=".3"></stop><stop offset="1" stopColor="#000000" stopOpacity="0"></stop></radialGradient><circle transformOrigin="center" fill="none" stroke="url(#a9)" strokeWidth="15" strokeLinecap="round" strokeDasharray="200 1000" strokeDashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transformOrigin="center" fill="none" opacity=".2" stroke="#000000" strokeWidth="15" strokeLinecap="round" cx="100" cy="100" r="70"></circle></svg>
+                    <svg width="25" height="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><radialGradient id="a9" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stopColor="#ffffff"></stop><stop offset=".3" stopColor="#ffffff" stopOpacity=".9"></stop><stop offset=".6" stopColor="#ffffff" stopOpacity=".6"></stop><stop offset=".8" stopColor="#ffffff" stopOpacity=".3"></stop><stop offset="1" stopColor="#ffffff" stopOpacity="0"></stop></radialGradient><circle transformOrigin="center" fill="none" stroke="url(#a9)" strokeWidth="15" strokeLinecap="round" strokeDasharray="200 1000" strokeDashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transformOrigin="center" fill="none" opacity=".2" stroke="#ffffff" strokeWidth="15" strokeLinecap="round" cx="100" cy="100" r="70"></circle></svg>
                 }
 
             </button>
