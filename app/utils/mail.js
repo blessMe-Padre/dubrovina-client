@@ -1,28 +1,26 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.mail.ru",
+    host: process.env.SMTP_HOST,
     port: 465,
     secure: true, // true for port 465, false for other ports
     auth: {
-        user: "subbotinnd@mail.ru",
-        pass: "nmsbtxXtchCuNtpeJihR",
+        user: process.env.SMTP_USERNAME,
+        pass: process.env.SMTP_PASSWORD,
     },
 });
 
-async function sendEmail() {
-    console.log('Начинается работа функции sendEmail');
-
+async function sendEmail(body) {
     try {
         const info = await transporter.sendMail({
-            from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>',
-            to: "subbotinnd@mail.ru",
-            subject: "Hello ✔",
-            text: "Hello world?",
-            html: "<b>Hello world?</b>",
+            from: process.env.SMTP_FROM,
+            to: process.env.SMTP_FROM,
+            subject: "Форма с сайта dubrovinastom.ru",
+            text: `Имя: ${body.name}\nТелефон: ${body.phone}`,
+            html: `<b>Имя:</b> ${body.name}<br><b>Телефон:</b> ${body.phone}`,
         });
 
-        console.log("Message sent: %s", info.messageId);
+        // console.log("Message sent: %s", info.messageId);
         return info;
     } catch (error) {
         console.error("Error sending email:", error);
