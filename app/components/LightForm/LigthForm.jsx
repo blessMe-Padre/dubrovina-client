@@ -97,7 +97,7 @@ export default function LightForm() {
 
             <div className={styles.form__policy}>
                 <p className={styles.policy_text}>
-                    *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#fff'}} href='/'>согласие на обработку персональных данных</a></p>
+                    *Нажимая, кнопку, вы даете <a style={{ textDecoration: 'none', color: '#fff' }} href='/'>согласие на обработку персональных данных</a></p>
             </div >
         </form>
     )
