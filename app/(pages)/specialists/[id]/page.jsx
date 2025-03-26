@@ -9,6 +9,8 @@ import styles from './style.module.scss';
 
 const domain = process.env.NEXT_PUBLIC_DOMAIN;
 
+export const revalidate = 60;
+
 export async function generateMetadata({ params }) {
     const { id } = params;
     let page = null;
@@ -74,20 +76,20 @@ export default async function Page({ params }) {
     );
 }
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
 
-    try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties`, {
-            cache: 'no-store',
-        });
-        const data = await response.json();
+//     try {
+//         const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/speczialisties`, {
+//             cache: 'no-store',
+//         });
+//         const data = await response.json();
 
-        return data.data.map((specialist) => ({
-            id: specialist.id.toString(), // Должен быть `string`
-        }));
-    } catch (error) {
-        console.error('Ошибка загрузки параметров:', error);
-        return []; // В случае ошибки вернем пустой массив
-    }
-}
+//         return data.data.map((specialist) => ({
+//             id: specialist.id.toString(), // Должен быть `string`
+//         }));
+//     } catch (error) {
+//         console.error('Ошибка загрузки параметров:', error);
+//         return []; // В случае ошибки вернем пустой массив
+//     }
+// }
 

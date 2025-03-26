@@ -5,6 +5,8 @@ import getData from './../../../utils/getData';
 import ContentPage from './ContentPage';
 import { CallToAction } from '@/app/sections';
 
+export const revalidate = 60;
+
 export async function generateMetadata({ params }) {
     const { slug } = params;
     let page = null;
@@ -44,19 +46,19 @@ export default async function page({ params }) {
     )
 }
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
 
-    try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/statis`, {
-            cache: 'no-store',
-        });
-        const data = await response.json();
+//     try {
+//         const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/statis`, {
+//             cache: 'no-store',
+//         });
+//         const data = await response.json();
 
-        return data.data.map((page) => ({
-            slug: page.title_slug.toString(), // Должен быть `string`
-        }));
-    } catch (error) {
-        console.error('Ошибка загрузки параметров:', error);
-        return []; // В случае ошибки вернем пустой массив
-    }
-}
+//         return data.data.map((page) => ({
+//             slug: page.title_slug.toString(), // Должен быть `string`
+//         }));
+//     } catch (error) {
+//         console.error('Ошибка загрузки параметров:', error);
+//         return []; // В случае ошибки вернем пустой массив
+//     }
+// }

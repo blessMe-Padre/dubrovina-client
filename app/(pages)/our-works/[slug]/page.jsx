@@ -3,6 +3,8 @@ import { Breadcrumbs } from '@/app/components';
 
 import getData from './../../../utils/getData';
 
+export const revalidate = 60;
+
 import ContentPage from './ContentPage';
 import { CallToAction } from '@/app/sections';
 
@@ -33,19 +35,19 @@ export default async function page({ params }) {
     )
 }
 
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
 
-    try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`, {
-            cache: 'no-store',
-        });
-        const data = await response.json();
+//     try {
+//         const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/nashi-raboties`, {
+//             cache: 'no-store',
+//         });
+//         const data = await response.json();
 
-        return data.data.map((page) => ({
-            slug: page.slug.toString(), // Должен быть `string`
-        }));
-    } catch (error) {
-        console.error('Ошибка загрузки параметров:', error);
-        return []; // В случае ошибки вернем пустой массив
-    }
-}
+//         return data.data.map((page) => ({
+//             slug: page.slug.toString(), // Должен быть `string`
+//         }));
+//     } catch (error) {
+//         console.error('Ошибка загрузки параметров:', error);
+//         return []; // В случае ошибки вернем пустой массив
+//     }
+// }
