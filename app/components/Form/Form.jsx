@@ -34,6 +34,7 @@ export const Form = ({ direction, blur }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
+
             });
 
             if (response.ok) {
