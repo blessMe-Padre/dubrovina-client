@@ -4,7 +4,6 @@ export async function POST(request) {
     try {
         // Если вы ожидаете данные из тела запроса, извлеките их
         const body = await request.json();
-
         // Вызов функции отправки email
         const result = await sendEmail(body);
 
