@@ -9,8 +9,14 @@ const nextConfig = {
                 hostname: 'dubrovinastom.ru',
             },
             {
-                protocol: 'https',
-                hostname: 'www.inside360.ru',
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '3000',
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '1338',
             },
         ],
     },
